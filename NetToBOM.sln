@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31205.134
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetToBOMW", "NetToBOMW\NetToBOMW.csproj", "{8B10659A-481D-4948-AE36-E4017E249B07}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetToBOM", "NetToBOM\NetToBOM.csproj", "{CB30C769-302A-4D11-AB4B-843984B4D5F1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Munger", "Munger\Munger.csproj", "{48AE157E-E372-43AD-BB6D-6CD5C9772CD6}"
@@ -15,10 +13,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{8B10659A-481D-4948-AE36-E4017E249B07}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8B10659A-481D-4948-AE36-E4017E249B07}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8B10659A-481D-4948-AE36-E4017E249B07}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8B10659A-481D-4948-AE36-E4017E249B07}.Release|Any CPU.Build.0 = Release|Any CPU
 		{CB30C769-302A-4D11-AB4B-843984B4D5F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{CB30C769-302A-4D11-AB4B-843984B4D5F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CB30C769-302A-4D11-AB4B-843984B4D5F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
