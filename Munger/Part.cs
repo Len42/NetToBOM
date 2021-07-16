@@ -8,7 +8,7 @@ namespace NetToBOM
 {
 	class Part : IEquatable<Part>
 	{
-		public Part(XmlNode nodePart, XmlNode nodeLibPart)
+		public Part(XmlNode nodePart)
 		{
 			XmlNode nodeLib = nodePart.SelectSingleNode("./libsource");
 			// BUG: nodeLibPart may be null due to KiCad fubar.
@@ -16,15 +16,7 @@ namespace NetToBOM
 			Lib = nodeLib.Attributes.GetNamedItem("lib").Value;
 			Name = nodeLib.Attributes.GetNamedItem("part").Value;
 			Value = nodePart.SelectSingleNode("value").InnerText;
-			if (nodeLibPart == null) {
-				Description = Resources.ErrPartMissingFromLibrary;
-			} else {
-				XmlNode nodeDescription = nodeLibPart.SelectSingleNode("./description");
-				if (nodeDescription != null)
-					Description = nodeDescription.InnerText;
-			}
-			// TODO: Value2
-			Note = null;
+			Description=nodeLib.Attributes.GetNamedItem("description").Value;
 			// Other fields
 			XmlNode nodeFields = nodePart.SelectSingleNode("./fields");
 			if (nodeFields != null) {

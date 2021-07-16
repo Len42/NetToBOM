@@ -26,16 +26,14 @@ namespace NetToBOM
 				throw new ApplicationException("No libparts node");
 
 			// Process the list of components
+			// Note that we do not use the <libparts> data because it omits some properties,
+			// e.g. attributes of parts that are defined as aliases of other parts.
 			List<Part> parts = new List<Part>();
 			XmlNode nodeParts = nodeRoot.SelectSingleNode("./components");
 			foreach (XmlNode nodePart in nodeParts.ChildNodes) {
 				string stRef = GetPartRef(nodePart);
-				XmlNode nodeLibPart = FindLibPart(nodePart);
-				// BUG: For parts with aliases, KiCad doesn't output the libpart in the netlist!
-				// So it's referrencing a libpart that doesn't exist. :-(
-				// DEBUG Output.WriteLine(stRef);
 				// Find this part in the list, or add it if it's not there.
-				Part part = new Part(nodePart, nodeLibPart);
+				Part part = new Part(nodePart);
 				int i = parts.IndexOf(part);
 				if (i < 0)
 					parts.Add(part);
@@ -54,21 +52,6 @@ namespace NetToBOM
 					part.GetRefListString(), part.Refs.Count, part.Name, part.Value, part.Value2, part.Description, part.Note);
 				Output.WriteLine(st);
 			}
-		}
-
-		private XmlNode FindLibPart(XmlNode nodePart)
-		{
-			XmlNode nodeLib = nodePart.SelectSingleNode("./libsource");
-			string stLib = nodeLib.Attributes.GetNamedItem("lib").Value;
-			string stPart = nodeLib.Attributes.GetNamedItem("part").Value;
-			return FindLibPart(stLib, stPart);
-		}
-
-		private XmlNode FindLibPart(string stLib, string stPart)
-		{
-			string stQuery = String.Format("./libpart[@lib='{0}' and @part='{1}']", stLib, stPart);
-			XmlNode nodeLibpart = nodeLibParts.SelectSingleNode(stQuery);
-			return nodeLibpart;
 		}
 
 		private string GetPartRef(XmlNode nodePart)
