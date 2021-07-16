@@ -3,3 +3,4 @@ obj
 .vs
 /VersionInfo.txt
 /Version.txt
+*.user
