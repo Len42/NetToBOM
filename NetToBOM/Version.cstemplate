@@ -1,0 +1,8 @@
+// Version %major%.%minor%.%revision%.%build% updated %timestamp% from %tag%
+// DO NOT EDIT - Generated automatically from git repo info
+
+internal static class ProjectVersion
+{
+	public const string Version = "%major%.%minor%.%revision%.%build%";
+	public const string VersionLong = "%major%.%minor%.%revision%.%build%-%tag%";
+}
