@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("Munger")]
-[assembly: AssemblyDescription("Lib to process a KiCAD netlist file (XML) to produce a BOM (CSV)")]
+[assembly: AssemblyDescription("Lib to process a KiCad netlist file (XML) to produce a BOM (CSV)")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Len Popp")]
 [assembly: AssemblyProduct("Munger")]

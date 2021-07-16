@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("NetToBOM")]
-[assembly: AssemblyDescription("Produce a bill of materials (CSV file) from a KiCAD netlist (XML)")]
+[assembly: AssemblyDescription("Produce a bill of materials (CSV file) from a KiCad netlist (XML)")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Len Popp")]
 [assembly: AssemblyProduct("NetToBOM")]
