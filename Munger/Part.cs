@@ -11,12 +11,13 @@ namespace NetToBOM
 		public Part(XmlNode nodePart)
 		{
 			XmlNode nodeLib = nodePart.SelectSingleNode("./libsource");
-			// BUG: nodeLibPart may be null due to KiCad fubar.
-			// So don't rely on it for the part name or description.
 			Lib = nodeLib.Attributes.GetNamedItem("lib").Value;
 			Name = nodeLib.Attributes.GetNamedItem("part").Value;
 			Value = nodePart.SelectSingleNode("value").InnerText;
-			Description=nodeLib.Attributes.GetNamedItem("description").Value;
+			Description = nodeLib.Attributes.GetNamedItem("description").Value;
+			Datasheet = nodePart.SelectSingleNode("datasheet").InnerText;
+			if (Datasheet == "~")
+				Datasheet = null;
 			// Other fields
 			XmlNode nodeFields = nodePart.SelectSingleNode("./fields");
 			if (nodeFields != null) {
@@ -42,9 +43,11 @@ namespace NetToBOM
 
 		public string Value2 { get; private set; }
 
+		public string Note { get; private set; }
+
 		public string Description { get; private set; }
 
-		public string Note { get; private set; }
+		public string Datasheet { get; private set; }
 
 		private List<String> refs = new List<String>();
 		public List<String> Refs { get { return refs; } }

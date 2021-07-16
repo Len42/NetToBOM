@@ -46,10 +46,10 @@ namespace NetToBOM
 			parts.Sort(new PartComparer());
 			
 			// Output the BOM list
-			Output.WriteLine("Ref,Qty,Name,Value,Value2,Note,Description");
+			Output.WriteLine("Ref,Qty,Name,Value,Value2,Note,Description,Datasheet");
 			foreach (Part part in parts) {
-				string st = String.Format("{0},\"{1}\",\"{2}\",\"{3}\",\"{4}\",\"{5}\",\"{6}\"",
-					part.GetRefListString(), part.Refs.Count, part.Name, part.Value, part.Value2, part.Note, part.Description);
+				string st = String.Format("{0},\"{1}\",\"{2}\",\"{3}\",\"{4}\",\"{5}\",\"{6}\",\"{7}\"",
+					part.GetRefListString(), part.Refs.Count, part.Name, part.Value, part.Value2, part.Note, part.Description, part.Datasheet);
 				Output.WriteLine(st);
 			}
 		}
