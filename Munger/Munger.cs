@@ -12,18 +12,32 @@ namespace NetToBOM
 
 		public TextWriter Output { get; set; }
 
-		private XmlNode nodeLibParts;
-
-		public void ProcessFile()
+		public void ProcessFile(bool fInfoHeader)
 		{
 			XmlDocument doc = new XmlDocument();
 			doc.Load(Input);
 			XmlNode nodeRoot = doc.DocumentElement; // "export"
 			if (nodeRoot == null)
 				throw new ApplicationException("No root node");
-			nodeLibParts = nodeRoot.SelectSingleNode("./libparts");
-			if (nodeLibParts == null)
-				throw new ApplicationException("No libparts node");
+
+			if (fInfoHeader) {
+				// Write a header section with info about the schematic.
+				// Note: If there are multiple hierarchical sheets, take the info from the
+				// first (root) sheet.
+				string st;
+				XmlNode nodeSheet = nodeRoot.SelectSingleNode("./design/sheet/title_block");
+				Output.WriteLine("Title,Rev,By,Date,File");
+				st = nodeSheet.SelectSingleNode("title").InnerText;
+				Output.Write(String.Format("\"{0}\",", st));
+				st = nodeSheet.SelectSingleNode("rev").InnerText;
+				Output.Write(String.Format("\"rev {0}\",",st));
+				st = nodeSheet.SelectSingleNode("company").InnerText;
+				Output.Write(String.Format("\"{0}\",", st));
+				st = nodeSheet.SelectSingleNode("date").InnerText;
+				Output.Write(String.Format("\"{0}\",", st));
+				st = nodeSheet.SelectSingleNode("source").InnerText;
+				Output.WriteLine(String.Format("\"{0}\"", st));
+			}
 
 			// Process the list of components
 			// Note that we do not use the <libparts> data because it omits some properties,

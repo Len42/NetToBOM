@@ -11,8 +11,9 @@ namespace NetToBOM
 		{
 			string stInFile;
 			string stOutFile;
+			bool fInfoHeader;
 			try {
-				ParseArgs(args, out stInFile, out stOutFile);
+				ParseArgs(args, out stInFile, out stOutFile, out fInfoHeader);
 			} catch (ApplicationException) {
 				Console.WriteLine("Usage: nettobom [-o outfile] [infile]");
 				return -1;
@@ -38,7 +39,7 @@ namespace NetToBOM
 			Munger munger = new NetToBOM.Munger();
 			munger.Input = reader;
 			munger.Output = writer;
-			munger.ProcessFile();
+			munger.ProcessFile(fInfoHeader);
 
 			if (fOpenedWriter)
 				writer.Close();
@@ -48,11 +49,13 @@ namespace NetToBOM
 
 		static void ParseArgs(string[] args,
 								out string stInFile,
-								out string stOutFile)
+								out string stOutFile,
+								out bool fInfoHeader)
 		{
 			string st;
 			stInFile = null;
 			stOutFile = null;
+			fInfoHeader = false;
 			System.Collections.IEnumerator iter = args.GetEnumerator();
 			while (iter.MoveNext() && (st = (string)iter.Current) != null) {
 				if (st.Length > 1 && st[0] == '-') {
@@ -60,6 +63,8 @@ namespace NetToBOM
 						if (!iter.MoveNext() || (st = (string)iter.Current) == null)
 							throw new ApplicationException("Missing argument for -o option");
 						stOutFile = st;
+					} else if (st == "-h") {
+						fInfoHeader = true;
 					} else {
 						throw new ApplicationException("Unknown option: " + st);
 					}
