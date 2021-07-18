@@ -15,7 +15,10 @@ namespace NetToBOM
 			try {
 				ParseArgs(args, out stInFile, out stOutFile, out fInfoHeader);
 			} catch (ApplicationException) {
-				Console.WriteLine("Usage: nettobom [-o outfile] [infile]");
+				Console.WriteLine("Usage: nettobom [-h] [-o outfile] [infile]");
+				Console.WriteLine("-h          Include a header section with info about the schematic.");
+				Console.WriteLine("-o outfile  Write output to the given file; otherwise, write to the console.");
+				Console.WriteLine("infile      Read input from the given file; otherwise, read from standard input.");
 				return -1;
 			}
 
