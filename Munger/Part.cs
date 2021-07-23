@@ -15,7 +15,7 @@ namespace NetToBOM
 			Name = nodeLib.Attributes.GetNamedItem("part").Value;
 			Value = nodePart.SelectSingleNode("value").InnerText;
 			Description = nodeLib.Attributes.GetNamedItem("description").Value;
-			Datasheet = nodePart.SelectSingleNode("datasheet").InnerText;
+			Datasheet = nodePart.SelectSingleNode("datasheet")?.InnerText;
 			if (Datasheet == "~")
 				Datasheet = null;
 			// Other fields
@@ -24,13 +24,31 @@ namespace NetToBOM
 				foreach (XmlNode nodeField in nodeFields.ChildNodes) {
 					string stName = nodeField.Attributes.GetNamedItem("name").Value;
 					string stValue = nodeField.InnerText;
-					// Some fields are special.
-					if (stName == "Note")
+					// Commonly-used fields are called out as properties.
+					// Some parts have info downloaded from Mouser.
+					if (stName == "Note") {
 						Note = stValue;
-					else if (stName == "Value2")
+					} else if (stName == "Value2") {
 						Value2 = stValue;
-					else
+					} else if (stName == "Manufacturer" || stName == "Manufacturer_Name") {
+						Manufacturer = stValue;
+					} else if (stName == "ManufacturerPartNum" || stName == "Manufacturer_Part_Number") {
+						ManufacturerPartNum = stValue;
+					} else if (stName == "Distributor") {
+						Distributor = stValue;
+					} else if (stName == "DistributorPartNum") {
+						DistributorPartNum = stValue;
+					} else if (stName == "Mouser Part Number") {
+						Distributor = "Mouser";
+						DistributorPartNum = stValue;
+					} else if (stName == "DistributorPartLink") {
+						DistributorPartLink = stValue;
+					} else if (stName == "Mouser Price/Stock") {
+						Distributor = "Mouser";
+						DistributorPartLink = stValue;
+					} else {
 						fields.Add(stName, stValue);
+					}
 				}
 			}
 		}
@@ -48,6 +66,16 @@ namespace NetToBOM
 		public string Description { get; private set; }
 
 		public string Datasheet { get; private set; }
+
+		public string Manufacturer { get; private set; }
+
+		public string ManufacturerPartNum { get; private set; }
+
+		public string Distributor { get; private set; }
+
+		public string DistributorPartNum { get; private set; }
+
+		public string DistributorPartLink { get; private set; }
 
 		private List<String> refs = new List<String>();
 		public List<String> Refs { get { return refs; } }

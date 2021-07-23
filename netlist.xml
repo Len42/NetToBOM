@@ -2,17 +2,17 @@
 <export version="D">
   <design>
     <source>C:\Users\Len\OneDrive\Documents\Electronics\Synth\Modules\Power-Supply\Power-Supply.sch</source>
-    <date>2021-07-16 22:16:25</date>
+    <date>2021-07-22 20:14:40</date>
     <tool>Eeschema (5.1.10)-1</tool>
     <sheet number="1" name="/" tstamps="/">
       <title_block>
         <title>Eurorack Power Supply</title>
         <company>Len Popp</company>
-        <rev>1.0</rev>
-        <date>2021-07-16</date>
+        <rev>1.1</rev>
+        <date>2021-07-17</date>
         <source>Power-Supply.sch</source>
         <comment number="1" value="Copyright © 2021 Len Popp CC BY-SA"/>
-        <comment number="2" value="Power supply with outputs +12 VDC, -12VDC (1.25 A), +5 VDC (500 mA)"/>
+        <comment number="2" value="Power supply with outputs +12 VDC, -12 VDC (1 A), +5 VDC (400 mA)"/>
         <comment number="3" value=""/>
         <comment number="4" value=""/>
       </title_block>
@@ -35,7 +35,7 @@
       <sheetpath names="/" tstamps="/"/>
       <tstamp>60BD6393</tstamp>
     </comp>
-    <comp ref="J4">
+    <comp ref="J3">
       <value>HDR_F</value>
       <footprint>Connector_PinSocket_2.54mm:PinSocket_1x04_P2.54mm_Vertical</footprint>
       <datasheet>~</datasheet>
@@ -46,7 +46,7 @@
       <sheetpath names="/" tstamps="/"/>
       <tstamp>60E8F087</tstamp>
     </comp>
-    <comp ref="J3">
+    <comp ref="J2">
       <value>HDR_M</value>
       <footprint>Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical</footprint>
       <datasheet>~</datasheet>
@@ -57,8 +57,9 @@
       <sheetpath names="/" tstamps="/"/>
       <tstamp>60E8E960</tstamp>
     </comp>
-    <comp ref="J2">
+    <comp ref="J1">
       <value>PJ-086H</value>
+      <footprint>-lmp-misc:NoFootprint</footprint>
       <datasheet>https://www.mouser.ca/datasheet/2/670/pj_086h-1779035.pdf</datasheet>
       <libsource lib="Connector" part="Jack-DC" description="DC Barrel Jack"/>
       <sheetpath names="/" tstamps="/"/>
@@ -66,6 +67,7 @@
     </comp>
     <comp ref="SW1">
       <value>632151-3B-HN</value>
+      <footprint>-lmp-misc:NoFootprint</footprint>
       <datasheet>https://www.mouser.ca/ProductDetail/Carling-Technologies/632151-3B-HN?qs=JTE4qh7jp8ik1N%2FHQcLdVQ%3D%3D</datasheet>
       <fields>
         <field name="Label">POWER</field>
@@ -131,14 +133,6 @@
       <sheetpath names="/" tstamps="/"/>
       <tstamp>60E3575C</tstamp>
     </comp>
-    <comp ref="J5">
-      <value>Conn_Eurorack_Pwr_16</value>
-      <footprint>-lmp-synth:IDC-Header-Eurorack-16-TH</footprint>
-      <datasheet>https://www.mouser.ca/datasheet/2/445/61201621621-1717735.pdf</datasheet>
-      <libsource lib="-lmp-synth" part="Conn_Eurorack_Pwr_16" description="Eurorack 16-pin board power/CV/gate bus connector"/>
-      <sheetpath names="/" tstamps="/"/>
-      <tstamp>60E383AB</tstamp>
-    </comp>
     <comp ref="PS1">
       <value>PYBE30-Q24-D12</value>
       <footprint>-lmp-synth:Converter_DCDC_CUI_PYBE30</footprint>
@@ -148,7 +142,7 @@
       <tstamp>60E73C9F</tstamp>
     </comp>
     <comp ref="HS1">
-      <value>HS_HSE-B20500-040H</value>
+      <value>HSE-B20500-040H</value>
       <footprint>-lmp-misc:HS_HSEB20500040H</footprint>
       <datasheet>https://www.mouser.ca/datasheet/2/670/hse_b20x-1778114.pdf</datasheet>
       <fields>
@@ -174,35 +168,148 @@
       <sheetpath names="/" tstamps="/"/>
       <tstamp>60EB2F02</tstamp>
     </comp>
-    <comp ref="R1">
-      <value>0R1</value>
-      <footprint>Resistor_THT:R_Axial_DIN0414_L11.9mm_D4.5mm_P15.24mm_Horizontal</footprint>
-      <datasheet>https://www.mouser.ca/datasheet/2/303/res_wl-1228631.pdf</datasheet>
-      <fields>
-        <field name="Value2">1% 2W</field>
-      </fields>
-      <libsource lib="-lmp" part="R" description="Resistor"/>
-      <sheetpath names="/" tstamps="/"/>
-      <tstamp>60FA632F</tstamp>
-    </comp>
-    <comp ref="TP1">
-      <value>TP1</value>
-      <footprint>TestPoint:TestPoint_2Pads_Pitch5.08mm_Drill1.3mm</footprint>
-      <datasheet>~</datasheet>
-      <fields>
-        <field name="Label">0.1V/A</field>
-      </fields>
-      <libsource lib="Connector" part="TestPoint_2Pole" description="2-polar test point"/>
-      <sheetpath names="/" tstamps="/"/>
-      <tstamp>60FBE386</tstamp>
-    </comp>
-    <comp ref="J6">
+    <comp ref="J5">
       <value>Conn_Eurorack_Pwr_16</value>
       <footprint>-lmp-synth:IDC-Header-Eurorack-16-TH</footprint>
       <datasheet>https://www.mouser.ca/datasheet/2/445/61201621621-1717735.pdf</datasheet>
       <libsource lib="-lmp-synth" part="Conn_Eurorack_Pwr_16" description="Eurorack 16-pin board power/CV/gate bus connector"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamp>60E628BC</tstamp>
+    </comp>
+    <comp ref="J4">
+      <value>Conn_Eurorack_Pwr_16</value>
+      <footprint>-lmp-synth:IDC-Header-Eurorack-16-TH</footprint>
+      <datasheet>https://www.mouser.ca/datasheet/2/445/61201621621-1717735.pdf</datasheet>
+      <libsource lib="-lmp-synth" part="Conn_Eurorack_Pwr_16" description="Eurorack 16-pin board power/CV/gate bus connector"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>60E383AB</tstamp>
+    </comp>
+    <comp ref="F1">
+      <value>0A4</value>
+      <footprint>-lmp-misc:NoFootprint</footprint>
+      <datasheet>~</datasheet>
+      <libsource lib="-lmp" part="Fuse" description="Fuse"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>60F6B4E2</tstamp>
+    </comp>
+    <comp ref="F2">
+      <value>1A</value>
+      <footprint>-lmp-misc:NoFootprint</footprint>
+      <datasheet>~</datasheet>
+      <libsource lib="-lmp" part="Fuse" description="Fuse"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>60F6BC33</tstamp>
+    </comp>
+    <comp ref="F3">
+      <value>1A</value>
+      <footprint>-lmp-misc:NoFootprint</footprint>
+      <datasheet>~</datasheet>
+      <libsource lib="-lmp" part="Fuse" description="Fuse"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>60F84FD0</tstamp>
+    </comp>
+    <comp ref="XF2">
+      <value>XF</value>
+      <footprint>-lmp-misc:FuseClip_D5mm_P5mm_52000001009</footprint>
+      <datasheet>https://www.littelfuse.com/~/media/electronics/datasheets/fuse_clips/littelfuse_fuse_clip_520_521_102071_datasheet.pdf.pdf</datasheet>
+      <fields>
+        <field name="Height">8</field>
+        <field name="Manufacturer_Name">LITTELFUSE</field>
+        <field name="Manufacturer_Part_Number">52000001009</field>
+        <field name="Mouser Part Number">576-52000001009</field>
+        <field name="Mouser Price/Stock">https://www.mouser.co.uk/ProductDetail/Littelfuse/52000001009?qs=TxeoXSYJMVRCKOrJrEyYEQ%3D%3D</field>
+      </fields>
+      <libsource lib="-lmp" part="FuseClip_D5mm_P5mm" description="Littelfuse Phosphor Bronze PCB Mount Fuse Clip for 5 x 20mm Cartridge Fuse"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>60FD9917</tstamp>
+    </comp>
+    <comp ref="XF3">
+      <value>XF</value>
+      <footprint>-lmp-misc:FuseClip_D5mm_P5mm_52000001009</footprint>
+      <datasheet>https://www.littelfuse.com/~/media/electronics/datasheets/fuse_clips/littelfuse_fuse_clip_520_521_102071_datasheet.pdf.pdf</datasheet>
+      <fields>
+        <field name="Height">8</field>
+        <field name="Manufacturer_Name">LITTELFUSE</field>
+        <field name="Manufacturer_Part_Number">52000001009</field>
+        <field name="Mouser Part Number">576-52000001009</field>
+        <field name="Mouser Price/Stock">https://www.mouser.co.uk/ProductDetail/Littelfuse/52000001009?qs=TxeoXSYJMVRCKOrJrEyYEQ%3D%3D</field>
+      </fields>
+      <libsource lib="-lmp" part="FuseClip_D5mm_P5mm" description="Littelfuse Phosphor Bronze PCB Mount Fuse Clip for 5 x 20mm Cartridge Fuse"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>60FE272A</tstamp>
+    </comp>
+    <comp ref="XF4">
+      <value>XF</value>
+      <footprint>-lmp-misc:FuseClip_D5mm_P5mm_52000001009</footprint>
+      <datasheet>https://www.littelfuse.com/~/media/electronics/datasheets/fuse_clips/littelfuse_fuse_clip_520_521_102071_datasheet.pdf.pdf</datasheet>
+      <fields>
+        <field name="Height">8</field>
+        <field name="Manufacturer_Name">LITTELFUSE</field>
+        <field name="Manufacturer_Part_Number">52000001009</field>
+        <field name="Mouser Part Number">576-52000001009</field>
+        <field name="Mouser Price/Stock">https://www.mouser.co.uk/ProductDetail/Littelfuse/52000001009?qs=TxeoXSYJMVRCKOrJrEyYEQ%3D%3D</field>
+      </fields>
+      <libsource lib="-lmp" part="FuseClip_D5mm_P5mm" description="Littelfuse Phosphor Bronze PCB Mount Fuse Clip for 5 x 20mm Cartridge Fuse"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>60FE2735</tstamp>
+    </comp>
+    <comp ref="XF5">
+      <value>XF</value>
+      <footprint>-lmp-misc:FuseClip_D5mm_P5mm_52000001009</footprint>
+      <datasheet>https://www.littelfuse.com/~/media/electronics/datasheets/fuse_clips/littelfuse_fuse_clip_520_521_102071_datasheet.pdf.pdf</datasheet>
+      <fields>
+        <field name="Height">8</field>
+        <field name="Manufacturer_Name">LITTELFUSE</field>
+        <field name="Manufacturer_Part_Number">52000001009</field>
+        <field name="Mouser Part Number">576-52000001009</field>
+        <field name="Mouser Price/Stock">https://www.mouser.co.uk/ProductDetail/Littelfuse/52000001009?qs=TxeoXSYJMVRCKOrJrEyYEQ%3D%3D</field>
+      </fields>
+      <libsource lib="-lmp" part="FuseClip_D5mm_P5mm" description="Littelfuse Phosphor Bronze PCB Mount Fuse Clip for 5 x 20mm Cartridge Fuse"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>60FE4F3D</tstamp>
+    </comp>
+    <comp ref="XF6">
+      <value>XF</value>
+      <footprint>-lmp-misc:FuseClip_D5mm_P5mm_52000001009</footprint>
+      <datasheet>https://www.littelfuse.com/~/media/electronics/datasheets/fuse_clips/littelfuse_fuse_clip_520_521_102071_datasheet.pdf.pdf</datasheet>
+      <fields>
+        <field name="Height">8</field>
+        <field name="Manufacturer_Name">LITTELFUSE</field>
+        <field name="Manufacturer_Part_Number">52000001009</field>
+        <field name="Mouser Part Number">576-52000001009</field>
+        <field name="Mouser Price/Stock">https://www.mouser.co.uk/ProductDetail/Littelfuse/52000001009?qs=TxeoXSYJMVRCKOrJrEyYEQ%3D%3D</field>
+      </fields>
+      <libsource lib="-lmp" part="FuseClip_D5mm_P5mm" description="Littelfuse Phosphor Bronze PCB Mount Fuse Clip for 5 x 20mm Cartridge Fuse"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>60FE4F48</tstamp>
+    </comp>
+    <comp ref="XF1">
+      <value>XF</value>
+      <footprint>-lmp-misc:FuseClip_D5mm_P5mm_52000001009</footprint>
+      <datasheet>https://www.littelfuse.com/~/media/electronics/datasheets/fuse_clips/littelfuse_fuse_clip_520_521_102071_datasheet.pdf.pdf</datasheet>
+      <fields>
+        <field name="Height">8</field>
+        <field name="Manufacturer_Name">LITTELFUSE</field>
+        <field name="Manufacturer_Part_Number">52000001009</field>
+        <field name="Mouser Part Number">576-52000001009</field>
+        <field name="Mouser Price/Stock">https://www.mouser.co.uk/ProductDetail/Littelfuse/52000001009?qs=TxeoXSYJMVRCKOrJrEyYEQ%3D%3D</field>
+      </fields>
+      <libsource lib="-lmp" part="FuseClip_D5mm_P5mm" description="Littelfuse Phosphor Bronze PCB Mount Fuse Clip for 5 x 20mm Cartridge Fuse"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>60FD92BF</tstamp>
+    </comp>
+    <comp ref="H1">
+      <value>PCB</value>
+      <footprint>-lmp-misc:NoFootprint</footprint>
+      <fields>
+        <field name="Distributor">Mouser</field>
+        <field name="DistributorPartLink">https://www.mouser.ca/ProductDetail/BusBoard-Prototype-Systems/ST2?qs=NGErKr1RxMAdSUqgGAVpyQ==</field>
+        <field name="Manufacturer">Busboard Prototype Systems</field>
+        <field name="ManufacturerPartNum">ST2</field>
+      </fields>
+      <libsource lib="-lmp" part="PCB" description="Printed Circuit Board"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>60F5009A</tstamp>
     </comp>
   </components>
   <libparts>
@@ -244,6 +351,41 @@
         <pin num="2" name="~" type="passive"/>
       </pins>
     </libpart>
+    <libpart lib="-lmp" part="Fuse">
+      <description>Fuse</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>*Fuse*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">F</field>
+        <field name="Value">Fuse</field>
+      </fields>
+      <pins>
+        <pin num="1" name="~" type="passive"/>
+        <pin num="2" name="~" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="-lmp" part="FuseClip_D5mm_P5mm">
+      <description>Littelfuse Phosphor Bronze PCB Mount Fuse Clip for 5 x 20mm Cartridge Fuse</description>
+      <docs>https://www.littelfuse.com/~/media/electronics/datasheets/fuse_clips/littelfuse_fuse_clip_520_521_102071_datasheet.pdf.pdf</docs>
+      <footprints>
+        <fp>Connector*:*_1x??_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">XF</field>
+        <field name="Value">FuseClip_D5mm_P5mm</field>
+        <field name="Footprint">-lmp-misc:FuseClip_D5mm_P5mm_52000001009</field>
+        <field name="Height">8</field>
+        <field name="Mouser Part Number">576-52000001009</field>
+        <field name="Mouser Price/Stock">https://www.mouser.co.uk/ProductDetail/Littelfuse/52000001009?qs=TxeoXSYJMVRCKOrJrEyYEQ%3D%3D</field>
+        <field name="Manufacturer_Name">LITTELFUSE</field>
+        <field name="Manufacturer_Part_Number">52000001009</field>
+      </fields>
+      <pins>
+        <pin num="1" name="Pin_1" type="passive"/>
+      </pins>
+    </libpart>
     <libpart lib="-lmp" part="HS_HSE-B20500-040H">
       <description>Heat Sinks 50x29x12.5mm w/pin extrusion TO-220</description>
       <docs>https://www.mouser.ca/datasheet/2/670/hse_b20x-1778114.pdf</docs>
@@ -281,21 +423,13 @@
         <field name="Footprint">-lmp-misc:Logo_OSHW</field>
       </fields>
     </libpart>
-    <libpart lib="-lmp" part="R">
-      <description>Resistor</description>
-      <docs>~</docs>
-      <footprints>
-        <fp>R_*</fp>
-      </footprints>
+    <libpart lib="-lmp" part="PCB">
+      <description>Printed Circuit Board</description>
       <fields>
-        <field name="Reference">R</field>
-        <field name="Value">R</field>
-        <field name="Footprint">-lmp-misc:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal</field>
+        <field name="Reference">H</field>
+        <field name="Value">PCB</field>
+        <field name="Footprint">-lmp-misc:NoFootprint</field>
       </fields>
-      <pins>
-        <pin num="1" name="~" type="passive"/>
-        <pin num="2" name="~" type="passive"/>
-      </pins>
     </libpart>
     <libpart lib="-lmp-regulator" part="LM7805_TO220">
       <aliases>
@@ -412,22 +546,6 @@
         <pin num="2" name="~" type="passive"/>
       </pins>
     </libpart>
-    <libpart lib="Connector" part="TestPoint_2Pole">
-      <description>2-polar test point</description>
-      <docs>~</docs>
-      <footprints>
-        <fp>Pin*</fp>
-        <fp>Test*</fp>
-      </footprints>
-      <fields>
-        <field name="Reference">TP</field>
-        <field name="Value">TestPoint_2Pole</field>
-      </fields>
-      <pins>
-        <pin num="1" name="1" type="passive"/>
-        <pin num="2" name="2" type="passive"/>
-      </pins>
-    </libpart>
     <libpart lib="Connector_Generic" part="Conn_01x04">
       <description>Generic connector, single row, 01x04, script generated (kicad-library-utils/schlib/autogen/connector/)</description>
       <docs>~</docs>
@@ -481,124 +599,136 @@
     </library>
   </libraries>
   <nets>
-    <net code="1" name="Net-(HS1-Pad1)">
-      <node ref="HS1" pin="1"/>
+    <net code="1" name="Net-(J4-Pad13)">
+      <node ref="J4" pin="13"/>
     </net>
-    <net code="2" name="Net-(HS1-Pad2)">
-      <node ref="HS1" pin="2"/>
+    <net code="2" name="Net-(J4-Pad14)">
+      <node ref="J4" pin="14"/>
     </net>
-    <net code="3" name="Net-(J3-Pad1)">
-      <node ref="SW1" pin="2"/>
-      <node ref="J3" pin="1"/>
-      <node ref="SW1" pin="4"/>
+    <net code="3" name="Net-(J4-Pad15)">
+      <node ref="J4" pin="15"/>
     </net>
-    <net code="4" name="GND">
-      <node ref="SW1" pin="3"/>
-      <node ref="C3" pin="2"/>
-      <node ref="C4" pin="1"/>
-      <node ref="C5" pin="2"/>
-      <node ref="C6" pin="1"/>
-      <node ref="J6" pin="3"/>
-      <node ref="J6" pin="6"/>
-      <node ref="J6" pin="4"/>
-      <node ref="J6" pin="5"/>
-      <node ref="J6" pin="7"/>
-      <node ref="J6" pin="8"/>
-      <node ref="J5" pin="8"/>
-      <node ref="U1" pin="2"/>
-      <node ref="J5" pin="7"/>
-      <node ref="C2" pin="2"/>
-      <node ref="J5" pin="6"/>
-      <node ref="J5" pin="5"/>
-      <node ref="J5" pin="4"/>
-      <node ref="J5" pin="3"/>
-      <node ref="J2" pin="2"/>
-      <node ref="J3" pin="4"/>
-      <node ref="J4" pin="4"/>
-      <node ref="C1" pin="2"/>
-      <node ref="PS1" pin="5"/>
-      <node ref="PS1" pin="2"/>
+    <net code="4" name="Net-(J4-Pad16)">
+      <node ref="J4" pin="16"/>
     </net>
-    <net code="5" name="Net-(J5-Pad13)">
-      <node ref="J5" pin="13"/>
-    </net>
-    <net code="6" name="Net-(J5-Pad15)">
+    <net code="5" name="Net-(J5-Pad15)">
       <node ref="J5" pin="15"/>
     </net>
-    <net code="7" name="Net-(J5-Pad16)">
-      <node ref="J5" pin="16"/>
-    </net>
-    <net code="8" name="Net-(J5-Pad14)">
-      <node ref="J5" pin="14"/>
-    </net>
-    <net code="9" name="Net-(PS1-Pad3)">
-      <node ref="PS1" pin="3"/>
-    </net>
-    <net code="10" name="Net-(C1-Pad1)">
-      <node ref="C1" pin="1"/>
-      <node ref="TP1" pin="2"/>
-      <node ref="U1" pin="1"/>
-      <node ref="R1" pin="1"/>
-      <node ref="PS1" pin="1"/>
-    </net>
-    <net code="11" name="Net-(J6-Pad13)">
-      <node ref="J6" pin="13"/>
-    </net>
-    <net code="12" name="Net-(J6-Pad15)">
-      <node ref="J6" pin="15"/>
-    </net>
-    <net code="13" name="Net-(J6-Pad16)">
-      <node ref="J6" pin="16"/>
-    </net>
-    <net code="14" name="Net-(J6-Pad14)">
-      <node ref="J6" pin="14"/>
-    </net>
-    <net code="15" name="VDC">
-      <node ref="J2" pin="1"/>
-      <node ref="SW1" pin="1"/>
-    </net>
-    <net code="16" name="Net-(J4-Pad2)">
-      <node ref="J4" pin="2"/>
-    </net>
-    <net code="17" name="Net-(J4-Pad1)">
-      <node ref="TP1" pin="1"/>
-      <node ref="J4" pin="1"/>
-      <node ref="R1" pin="2"/>
-    </net>
-    <net code="18" name="Net-(J4-Pad3)">
-      <node ref="J4" pin="3"/>
-    </net>
-    <net code="19" name="Net-(J3-Pad3)">
-      <node ref="J3" pin="3"/>
-    </net>
-    <net code="20" name="Net-(J3-Pad2)">
-      <node ref="J3" pin="2"/>
-    </net>
-    <net code="21" name="+12V">
+    <net code="6" name="+12V">
       <node ref="J5" pin="9"/>
       <node ref="J5" pin="10"/>
-      <node ref="PS1" pin="6"/>
-      <node ref="J6" pin="9"/>
-      <node ref="J6" pin="10"/>
-      <node ref="C3" pin="1"/>
-      <node ref="C5" pin="1"/>
+      <node ref="J4" pin="9"/>
+      <node ref="XF4" pin="1"/>
+      <node ref="J4" pin="10"/>
+      <node ref="F2" pin="1"/>
     </net>
-    <net code="22" name="-12V">
-      <node ref="J5" pin="1"/>
-      <node ref="J6" pin="2"/>
-      <node ref="J6" pin="1"/>
-      <node ref="J5" pin="2"/>
+    <net code="7" name="+5V">
+      <node ref="XF2" pin="1"/>
+      <node ref="F1" pin="1"/>
+      <node ref="J4" pin="11"/>
+      <node ref="J4" pin="12"/>
+      <node ref="J5" pin="12"/>
+      <node ref="J5" pin="11"/>
+    </net>
+    <net code="8" name="Net-(J5-Pad13)">
+      <node ref="J5" pin="13"/>
+    </net>
+    <net code="9" name="Net-(J5-Pad14)">
+      <node ref="J5" pin="14"/>
+    </net>
+    <net code="10" name="Net-(J5-Pad16)">
+      <node ref="J5" pin="16"/>
+    </net>
+    <net code="11" name="Net-(C1-Pad1)">
+      <node ref="J3" pin="1"/>
+      <node ref="C1" pin="1"/>
+      <node ref="U1" pin="1"/>
+      <node ref="PS1" pin="1"/>
+    </net>
+    <net code="12" name="Net-(C4-Pad2)">
+      <node ref="F3" pin="2"/>
       <node ref="C4" pin="2"/>
+      <node ref="XF5" pin="1"/>
       <node ref="C6" pin="2"/>
       <node ref="PS1" pin="4"/>
     </net>
-    <net code="23" name="+5V">
-      <node ref="J6" pin="11"/>
+    <net code="13" name="GND">
+      <node ref="C6" pin="1"/>
+      <node ref="U1" pin="2"/>
+      <node ref="C1" pin="2"/>
+      <node ref="C2" pin="2"/>
+      <node ref="PS1" pin="2"/>
+      <node ref="PS1" pin="5"/>
+      <node ref="SW1" pin="3"/>
+      <node ref="J1" pin="2"/>
+      <node ref="J2" pin="4"/>
+      <node ref="J3" pin="4"/>
+      <node ref="J4" pin="4"/>
+      <node ref="J4" pin="5"/>
+      <node ref="J4" pin="6"/>
+      <node ref="J5" pin="7"/>
+      <node ref="J5" pin="6"/>
+      <node ref="J5" pin="5"/>
+      <node ref="C5" pin="2"/>
+      <node ref="J4" pin="7"/>
+      <node ref="J4" pin="8"/>
+      <node ref="J5" pin="4"/>
+      <node ref="J5" pin="3"/>
+      <node ref="C4" pin="1"/>
+      <node ref="C3" pin="2"/>
+      <node ref="J5" pin="8"/>
+      <node ref="J4" pin="3"/>
+    </net>
+    <net code="14" name="-12V">
+      <node ref="XF6" pin="1"/>
+      <node ref="J5" pin="2"/>
+      <node ref="J5" pin="1"/>
+      <node ref="F3" pin="1"/>
+      <node ref="J4" pin="1"/>
+      <node ref="J4" pin="2"/>
+    </net>
+    <net code="15" name="Net-(J3-Pad2)">
+      <node ref="J3" pin="2"/>
+    </net>
+    <net code="16" name="Net-(J3-Pad3)">
+      <node ref="J3" pin="3"/>
+    </net>
+    <net code="17" name="Net-(J2-Pad3)">
+      <node ref="J2" pin="3"/>
+    </net>
+    <net code="18" name="Net-(J2-Pad2)">
+      <node ref="J2" pin="2"/>
+    </net>
+    <net code="19" name="VDC">
+      <node ref="SW1" pin="1"/>
+      <node ref="J1" pin="1"/>
+    </net>
+    <net code="20" name="Net-(J2-Pad1)">
+      <node ref="SW1" pin="2"/>
+      <node ref="SW1" pin="4"/>
+      <node ref="J2" pin="1"/>
+    </net>
+    <net code="21" name="Net-(C3-Pad1)">
+      <node ref="XF3" pin="1"/>
+      <node ref="C3" pin="1"/>
+      <node ref="C5" pin="1"/>
+      <node ref="F2" pin="2"/>
+      <node ref="PS1" pin="6"/>
+    </net>
+    <net code="22" name="Net-(C2-Pad1)">
       <node ref="C2" pin="1"/>
-      <node ref="J6" pin="12"/>
+      <node ref="XF1" pin="1"/>
       <node ref="U1" pin="3"/>
-      <node ref="J5" pin="11"/>
-      <node ref="J5" pin="12"/>
+      <node ref="F1" pin="2"/>
+    </net>
+    <net code="23" name="Net-(PS1-Pad3)">
+      <node ref="PS1" pin="3"/>
+    </net>
+    <net code="24" name="Net-(HS1-Pad1)">
+      <node ref="HS1" pin="1"/>
+    </net>
+    <net code="25" name="Net-(HS1-Pad2)">
+      <node ref="HS1" pin="2"/>
     </net>
   </nets>
 </export>
