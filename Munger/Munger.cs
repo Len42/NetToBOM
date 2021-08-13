@@ -26,14 +26,14 @@ namespace NetToBOM
 				// first (root) sheet.
 				string st;
 				XmlNode nodeSheet = nodeRoot.SelectSingleNode("./design/sheet/title_block");
-				Output.WriteLine("Title,Rev,By,Date,File");
+				Output.WriteLine("Title,Rev,Date,By,File");
 				st = nodeSheet.SelectSingleNode("title").InnerText;
 				Output.Write(String.Format("\"{0}\",", st));
 				st = nodeSheet.SelectSingleNode("rev").InnerText;
 				Output.Write(String.Format("\"rev {0}\",",st));
-				st = nodeSheet.SelectSingleNode("company").InnerText;
-				Output.Write(String.Format("\"{0}\",", st));
 				st = nodeSheet.SelectSingleNode("date").InnerText;
+				Output.Write(String.Format("\"{0}\",", st));
+				st = nodeSheet.SelectSingleNode("company").InnerText;
 				Output.Write(String.Format("\"{0}\",", st));
 				st = nodeSheet.SelectSingleNode("source").InnerText;
 				Output.WriteLine(String.Format("\"{0}\"", st));
