@@ -21,6 +21,9 @@ namespace NetToBOM
 			// Other fields
 			XmlNode nodeFields = nodePart.SelectSingleNode("./fields");
 			if (nodeFields != null) {
+				string stDistributor = null;
+				string stDistributorPartNum = null;
+				string stDistributorPartLink = null;
 				foreach (XmlNode nodeField in nodeFields.ChildNodes) {
 					string stName = nodeField.Attributes.GetNamedItem("name").Value;
 					string stValue = nodeField.InnerText;
@@ -34,23 +37,45 @@ namespace NetToBOM
 						Manufacturer = stValue;
 					} else if (stName == "ManufacturerPartNum" || stName == "Manufacturer_Part_Number") {
 						ManufacturerPartNum = stValue;
-					} else if (stName == "Distributor") {
-						Distributor = stValue;
-					} else if (stName == "DistributorPartNum") {
-						DistributorPartNum = stValue;
+					//} else if (stName == "Distributor") {
+					//	stDistributor = stValue;
+					//} else if (stName == "DistributorPartNum") {
+					//	stDistributorPartNum = stValue;
 					} else if (stName == "Mouser Part Number") {
-						Distributor = "Mouser";
-						DistributorPartNum = stValue;
-					} else if (stName == "DistributorPartLink") {
-						DistributorPartLink = stValue;
+						stDistributor = "Mouser";
+						stDistributorPartNum = stValue;
+					//} else if (stName == "DistributorPartLink") {
+					//	stDistributorPartLink = stValue;
 					} else if (stName == "Mouser Price/Stock") {
-						Distributor = "Mouser";
-						DistributorPartLink = stValue;
+						stDistributor = "Mouser";
+						stDistributorPartLink = stValue;
 					} else {
 						fields.Add(stName, stValue);
 					}
 				}
+				// Add a PartSource if "Mouser Part Number" was found.
+				if (stDistributor != null)
+					sources.Add(new PartSource(stDistributor, stDistributorPartNum, stDistributorPartLink));
+				// Find any additional PartSources by looking for "Distributor" fields.
+				// Doesn't matter if the first one is "Distributor" or "Distributor1".
+				// We'll never have more than 10 sources for a part, will we?
+				for (uint i = 0; i < 10; i++) {
+					string stFieldName = (i == 0) ? "Distributor" : $"Distributor{i}";
+					XmlNode nodeT = nodeFields.SelectSingleNode($"./field[@name='{stFieldName}']");
+					if (nodeT != null) {
+						stDistributor = nodeT.InnerText;
+						stFieldName = (i == 0) ? "DistributorPartNum" : $"DistributorPartNum{i}";
+						nodeT = nodeFields.SelectSingleNode($"./field[@name='{stFieldName}']");
+						stDistributorPartNum = (nodeT == null) ? null : nodeT.InnerText;
+						stFieldName = (i == 0) ? "DistributorPartLink" : $"DistributorPartLink{i}";
+						nodeT = nodeFields.SelectSingleNode($"./field[@name='{stFieldName}']");
+						stDistributorPartLink = (nodeT == null) ? null : nodeT.InnerText;
+						Sources.Add(new PartSource(stDistributor, stDistributorPartNum, stDistributorPartLink));
+					}
+				}
 			}
+			// TODO: Make a list!
+			//Source = new PartSource(stDistributor, stDistributorPartNum, stDistributorPartLink);
 		}
 
 		public string Lib { get; private set; }
@@ -71,11 +96,17 @@ namespace NetToBOM
 
 		public string ManufacturerPartNum { get; private set; }
 
-		public string Distributor { get; private set; }
+		// TODO: REMOVE
+		//public PartSource Source { get; private set; }
 
-		public string DistributorPartNum { get; private set; }
+		private List<PartSource> sources = new List<PartSource>();
+		public List<PartSource> Sources { get { return sources; } }
 
-		public string DistributorPartLink { get; private set; }
+		//		public string Distributor { get; private set; }
+
+		//		public string DistributorPartNum { get; private set; }
+
+		//		public string DistributorPartLink { get; private set; }
 
 		private List<String> refs = new List<String>();
 		public List<String> Refs { get { return refs; } }
@@ -121,10 +152,13 @@ namespace NetToBOM
 		{
 			get
 			{
-				return String.Format("\"{0}\",\"{1}\",\"{2}\",\"{3}\",\"{4}\",\"{5}\",\"{6}\",\"{7}\",\"{8}\",\"{9}\",\"{10}\",\"{11}\",\"{12}\"",
+				string stInfo = String.Format("\"{0}\",\"{1}\",\"{2}\",\"{3}\",\"{4}\",\"{5}\",\"{6}\",\"{7}\",\"{8}\",\"{9}\"",
 					RefListString, Refs.Count, Name, Value, Value2,
-					Note, Description, Datasheet, Manufacturer, ManufacturerPartNum,
-					Distributor, DistributorPartNum, DistributorPartLink);
+					Note, Description, Datasheet, Manufacturer, ManufacturerPartNum);
+				foreach (PartSource source in Sources) {
+					stInfo += $",\"{source.Distributor}\",\"{source.PartNum}\",\"{source.PartLink}\"";
+				}
+				return stInfo;
 			}
 		}
 

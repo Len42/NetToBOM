@@ -39,11 +39,14 @@ namespace NetToBOM
 				Output.WriteLine($"\"{st}\",");
 			}
 
-			// Process the list of components
-			// Note that we do not use the <libparts> data because it omits some properties,
+			// Process the list of components. Create a new Part for each *different* component.
+			// NOTE: We do not use the <libparts> data because it omits some properties,
 			// e.g. attributes of parts that are defined as aliases of other parts.
+			// NOTE: If a Part already exists for a component, some of that component's fields
+			// will be ignored (e.g. Manufacturer, Distributor, etc.).
 			List<Part> parts = new List<Part>();
 			XmlNode nodeParts = nodeRoot.SelectSingleNode("./components");
+			int numDistributors = 0;
 			foreach (XmlNode nodePart in nodeParts.ChildNodes) {
 				string stRef = GetPartRef(nodePart);
 				// Find this part in the list, or add it if it's not there.
@@ -55,13 +58,20 @@ namespace NetToBOM
 					part = parts[i];
 				// Add the current component's refdes to the list of refs for this part.
 				part.AddRef(stRef);
+				// Keep track of how many "Distributor" columns are needed.
+				numDistributors = Math.Max(numDistributors, part.Sources.Count);
 			}
 
 			// Sort the BOM list
 			parts.Sort(new PartComparer());
 			
 			// Output the BOM list
-			Output.WriteLine("Ref,Qty,Name,Value,Value2,Note,Description,Datasheet,Manufacturer,ManuPartNum,Distributor,DistribPartNum,DistribPartLink");
+			// TODO: count number of distributors
+			Output.Write("Ref,Qty,Name,Value,Value2,Note,Description,Datasheet,Manufacturer,ManuPartNum");
+			for(int i = 1; i <= numDistributors; i++) {
+				Output.Write($",Distributor{i},DistributorPartNum{i},DistributorPartLink{i}");
+			}
+			Output.WriteLine();
 			foreach (Part part in parts) {
 				Output.WriteLine(part.InfoLine);
 			}

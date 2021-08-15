@@ -1,315 +1,935 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <export version="D">
   <design>
-    <source>C:\Users\Len\OneDrive\Documents\Electronics\Synth\Modules\Power-Supply\Power-Supply.sch</source>
-    <date>2021-07-22 20:14:40</date>
+    <source>C:\Users\Len\OneDrive\Documents\Electronics\Synth\Modules\LFO-DigiVC\LFO-DigiVC.sch</source>
+    <date>2021-08-15 16:13:23</date>
     <tool>Eeschema (5.1.10)-1</tool>
     <sheet number="1" name="/" tstamps="/">
       <title_block>
-        <title>Eurorack Power Supply</title>
+        <title>Eurorack DigiLFO module</title>
         <company>Len Popp</company>
-        <rev>1.1</rev>
-        <date>2021-07-17</date>
-        <source>Power-Supply.sch</source>
+        <rev>1.0</rev>
+        <date>2021-08-13</date>
+        <source>LFO-DigiVC.sch</source>
         <comment number="1" value="Copyright © 2021 Len Popp CC BY-SA"/>
-        <comment number="2" value="Power supply with outputs +12 VDC, -12 VDC (1 A), +5 VDC (400 mA)"/>
-        <comment number="3" value=""/>
+        <comment number="2" value="Layout designed for 4HP module using Delptronics Module Construction Set"/>
+        <comment number="3" value="Eurorack microcontroller-based VC-LFO module"/>
+        <comment number="4" value=""/>
+      </title_block>
+    </sheet>
+    <sheet number="2" name="/Min/" tstamps="/610CEC44/">
+      <title_block>
+        <title>Eurorack DigiLFO module</title>
+        <company>Len Popp</company>
+        <rev>1.0</rev>
+        <date>2021-08-13</date>
+        <source>Main.sch</source>
+        <comment number="1" value="Copyright © 2021 Len Popp CC BY-SA"/>
+        <comment number="2" value="Layout designed for 4HP module using Delptronics Module Construction Set"/>
+        <comment number="3" value="Eurorack microcontroller-based VC-LFO module"/>
         <comment number="4" value=""/>
       </title_block>
     </sheet>
   </design>
   <components>
-    <comp ref="G2">
-      <value>Logo_CC_BY_SA</value>
-      <footprint>-lmp-misc:Logo_CC_BY_SA</footprint>
-      <datasheet>https://creativecommons.org/licenses/by-sa/4.0/</datasheet>
-      <libsource lib="-lmp" part="Logo_CC_BY_SA" description="Creative Commons BY-SA License logo"/>
-      <sheetpath names="/" tstamps="/"/>
-      <tstamp>60BD4DF8</tstamp>
-    </comp>
-    <comp ref="G1">
-      <value>Logo_OSHW</value>
-      <footprint>-lmp-misc:Logo_OSHW</footprint>
-      <datasheet>https://www.oshwa.org/definition/</datasheet>
-      <libsource lib="-lmp" part="Logo_OSHW" description="Open Source Hardware logo"/>
-      <sheetpath names="/" tstamps="/"/>
-      <tstamp>60BD6393</tstamp>
-    </comp>
-    <comp ref="J3">
-      <value>HDR_F</value>
-      <footprint>Connector_PinSocket_2.54mm:PinSocket_1x04_P2.54mm_Vertical</footprint>
-      <datasheet>~</datasheet>
-      <fields>
-        <field name="Note">Pin 3 filled in</field>
-      </fields>
-      <libsource lib="Connector_Generic" part="Conn_01x04" description="Generic connector, single row, 01x04, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
-      <sheetpath names="/" tstamps="/"/>
-      <tstamp>60E8F087</tstamp>
-    </comp>
-    <comp ref="J2">
-      <value>HDR_M</value>
-      <footprint>Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical</footprint>
-      <datasheet>~</datasheet>
-      <fields>
-        <field name="Note">Pin 3 removed</field>
-      </fields>
-      <libsource lib="Connector_Generic" part="Conn_01x04" description="Generic connector, single row, 01x04, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
-      <sheetpath names="/" tstamps="/"/>
-      <tstamp>60E8E960</tstamp>
-    </comp>
-    <comp ref="J1">
-      <value>PJ-086H</value>
-      <footprint>-lmp-misc:NoFootprint</footprint>
-      <datasheet>https://www.mouser.ca/datasheet/2/670/pj_086h-1779035.pdf</datasheet>
-      <libsource lib="Connector" part="Jack-DC" description="DC Barrel Jack"/>
-      <sheetpath names="/" tstamps="/"/>
-      <tstamp>60DFF006</tstamp>
-    </comp>
-    <comp ref="SW1">
-      <value>632151-3B-HN</value>
-      <footprint>-lmp-misc:NoFootprint</footprint>
-      <datasheet>https://www.mouser.ca/ProductDetail/Carling-Technologies/632151-3B-HN?qs=JTE4qh7jp8ik1N%2FHQcLdVQ%3D%3D</datasheet>
-      <fields>
-        <field name="Label">POWER</field>
-      </fields>
-      <libsource lib="Switch" part="SW_SPST_Lamp" description="Single Pole Single Throw (SPST) switch with signal lamp, generic"/>
-      <sheetpath names="/" tstamps="/"/>
-      <tstamp>60E25BD3</tstamp>
-    </comp>
     <comp ref="C3">
-      <value>220U</value>
-      <footprint>Capacitor_THT:CP_Radial_D8.0mm_P5.00mm</footprint>
-      <datasheet>~</datasheet>
-      <fields>
-        <field name="Value2">25VDC</field>
-      </fields>
-      <libsource lib="-lmp" part="CP" description="Capacitor - Electrolytic"/>
-      <sheetpath names="/" tstamps="/"/>
-      <tstamp>60E2B16D</tstamp>
-    </comp>
-    <comp ref="C4">
-      <value>220U</value>
-      <footprint>Capacitor_THT:CP_Radial_D8.0mm_P5.00mm</footprint>
-      <datasheet>~</datasheet>
-      <fields>
-        <field name="Value2">25VDC</field>
-      </fields>
-      <libsource lib="-lmp" part="CP" description="Capacitor - Electrolytic"/>
-      <sheetpath names="/" tstamps="/"/>
-      <tstamp>60E2B55C</tstamp>
-    </comp>
-    <comp ref="C5">
       <value>100N</value>
-      <footprint>-lmp-stripboard:SB_Gen_2</footprint>
-      <datasheet>~</datasheet>
-      <libsource lib="-lmp" part="CC" description="Capacitor - Ceramic"/>
+      <footprint>-lmp-misc:C_Disc_D5.0mm_W2.5mm_P2.50mm</footprint>
+      <datasheet>https://product.tdk.com/system/files/dam/doc/product/capacitor/ceramic/lead-mlcc/catalog/leadmlcc_halogenfree_fg_en.pdf</datasheet>
+      <fields>
+        <field name="Distributor">Mouser</field>
+        <field name="DistributorPartLink">https://www.mouser.ca/ProductDetail/810-FG18X7R1H104KNT6</field>
+        <field name="DistributorPartNum">810-FG18X7R1H104KNT6</field>
+        <field name="Manufacturer">TDK</field>
+        <field name="ManufacturerPartNum">FG18X7R1H104KNT06</field>
+        <field name="Note">IC decoupling</field>
+      </fields>
+      <libsource lib="-lmp" part="CC_100N" description="Capacitor - Ceramic - IC decoupling"/>
       <sheetpath names="/" tstamps="/"/>
-      <tstamp>60E2D235</tstamp>
-    </comp>
-    <comp ref="C6">
-      <value>100N</value>
-      <footprint>-lmp-stripboard:SB_Gen_2</footprint>
-      <datasheet>~</datasheet>
-      <libsource lib="-lmp" part="CC" description="Capacitor - Ceramic"/>
-      <sheetpath names="/" tstamps="/"/>
-      <tstamp>60E2D464</tstamp>
+      <tstamp>60BF0922</tstamp>
     </comp>
     <comp ref="U1">
-      <value>LM7805</value>
-      <footprint>Package_TO_SOT_THT:TO-220-3_Vertical</footprint>
-      <datasheet>https://www.onsemi.cn/PowerSolutions/document/MC7800-D.PDF</datasheet>
+      <value>L78L05_TO92</value>
+      <footprint>-lmp-misc:TO-92_Inline_Wide</footprint>
+      <datasheet>http://www.st.com/content/ccc/resource/technical/document/datasheet/15/55/e5/aa/23/5b/43/fd/CD00000446.pdf/files/CD00000446.pdf/jcr:content/translations/en.CD00000446.pdf</datasheet>
       <fields>
-        <field name="Value2">0.5A</field>
+        <field name="Distributor">Mouser</field>
+        <field name="DistributorPartLink">https://www.mouser.ca/ProductDetail/STMicroelectronics/L78L05ACZ-AP?qs=sGAEpiMZZMuLLNXTG1MZanrpqIdcnbmrowz4nhu1BnI%3D</field>
+        <field name="DistributorPartNum">511-L78L05ACZ-AP</field>
+        <field name="Manufacturer">STMicroelectronics </field>
+        <field name="ManufacturerPartNum">L78L05ACZ-AP</field>
       </fields>
-      <libsource lib="-lmp-regulator" part="LM7805_TO220" description="Positive 1A 35V Linear Regulator, Fixed Output 5V, TO-220"/>
+      <libsource lib="-lmp-regulator" part="L78L05_TO92" description="Positive 100mA 30V Linear Regulator, Fixed Output 5V, TO-92"/>
       <sheetpath names="/" tstamps="/"/>
-      <tstamp>60E33D0C</tstamp>
+      <tstamp>60BE6D11</tstamp>
+    </comp>
+    <comp ref="C1">
+      <value>10U</value>
+      <footprint>-lmp-misc:CP_Radial_D5.0mm_P2.50mm</footprint>
+      <datasheet>https://industrial.panasonic.com/cdbs/www-data/pdf/RDF0000/ABA0000C1209.pdf</datasheet>
+      <fields>
+        <field name="Distributor">Mouser</field>
+        <field name="DistributorPartLink">https://www.mouser.ca/ProductDetail/Panasonic/EEA-FC1E100?qs=nLJruSqDb94EJwiFQJd4iw%3D%3D</field>
+        <field name="DistributorPartNum">667-EEA-FC1E100</field>
+        <field name="Manufacturer">Panasonic</field>
+        <field name="ManufacturerPartNum">EEA-FC1E100</field>
+        <field name="Note ">12 V decoupling</field>
+        <field name="Value2">25 VDC</field>
+      </fields>
+      <libsource lib="-lmp-synth" part="CP_10U" description="Capacitor - Electrolytic - 12 V decoupling"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>60C8030A</tstamp>
     </comp>
     <comp ref="C2">
+      <value>10U</value>
+      <footprint>-lmp-misc:CP_Radial_D5.0mm_P2.50mm</footprint>
+      <datasheet>https://industrial.panasonic.com/cdbs/www-data/pdf/RDF0000/ABA0000C1209.pdf</datasheet>
+      <fields>
+        <field name="Distributor">Mouser</field>
+        <field name="DistributorPartLink">https://www.mouser.ca/ProductDetail/Panasonic/EEA-FC1E100?qs=nLJruSqDb94EJwiFQJd4iw%3D%3D</field>
+        <field name="DistributorPartNum">667-EEA-FC1E100</field>
+        <field name="Manufacturer">Panasonic</field>
+        <field name="ManufacturerPartNum">EEA-FC1E100</field>
+        <field name="Note ">12 V decoupling</field>
+        <field name="Value2">25 VDC</field>
+      </fields>
+      <libsource lib="-lmp-synth" part="CP_10U" description="Capacitor - Electrolytic - 12 V decoupling"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>60C7FBFA</tstamp>
+    </comp>
+    <comp ref="D2">
+      <value>MBR150</value>
+      <footprint>Diode_THT:D_DO-41_SOD81_P7.62mm_Horizontal</footprint>
+      <datasheet>https://www.onsemi.com/pdf/datasheet/mbr150-d.pdf</datasheet>
+      <fields>
+        <field name="Distributor">Mouser</field>
+        <field name="DistributorPartLink">https://www.mouser.ca/ProductDetail/ON-Semiconductor/MBR150RLG?qs=3JMERSakebpMUdfDTQP0Kw%3D%3D</field>
+        <field name="DistributorPartNum">863-MBR150RLG</field>
+        <field name="Manufacturer">On Semi</field>
+        <field name="ManufacturerPartNum">MBR150RLG</field>
+      </fields>
+      <libsource lib="-lmp-diode" part="MBR150" description="Schottky rectifier diode"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>60C7C23D</tstamp>
+    </comp>
+    <comp ref="D1">
+      <value>MBR150</value>
+      <footprint>Diode_THT:D_DO-41_SOD81_P7.62mm_Horizontal</footprint>
+      <datasheet>https://www.onsemi.com/pdf/datasheet/mbr150-d.pdf</datasheet>
+      <fields>
+        <field name="Distributor">Mouser</field>
+        <field name="DistributorPartLink">https://www.mouser.ca/ProductDetail/ON-Semiconductor/MBR150RLG?qs=3JMERSakebpMUdfDTQP0Kw%3D%3D</field>
+        <field name="DistributorPartNum">863-MBR150RLG</field>
+        <field name="Manufacturer">On Semi</field>
+        <field name="ManufacturerPartNum">MBR150RLG</field>
+      </fields>
+      <libsource lib="-lmp-diode" part="MBR150" description="Schottky rectifier diode"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>60C7B644</tstamp>
+    </comp>
+    <comp ref="J9">
+      <value>Eurorack_10</value>
+      <footprint>Connector_PinHeader_2.54mm:PinHeader_2x05_P2.54mm_Vertical</footprint>
+      <datasheet>~</datasheet>
+      <libsource lib="-lmp-synth" part="Conn_Eurorack_Pwr_10" description="Eurorack 10-pin board power connector"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>60C34745</tstamp>
+    </comp>
+    <comp ref="J10">
+      <value>Conn_Front</value>
+      <footprint>-lmp-synth:PinSocket_Delptronics_Front</footprint>
+      <datasheet>https://delptronics.com/documents/MCS-Control-Connections.pdf</datasheet>
+      <libsource lib="-lmp-synth" part="Conn_Delptronics_Front_Left_4HP" description="Delptronics Module Construction Set board connector"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>60CA1E30</tstamp>
+    </comp>
+    <comp ref="RV5">
+      <value>10K</value>
+      <footprint>-lmp-synth:Potentiometer_Alpha_RD901F-40-00D_Single_Vertical</footprint>
+      <datasheet>https://www.mouser.ca/datasheet/2/13/alpha_taiwan_08192019_RD901F-40-15R1-B(resistance_-1627810.pdf</datasheet>
+      <fields>
+        <field name="Distributor">Mouser</field>
+        <field name="DistributorPartLink">https://www.mouser.ca/c/passive-components/potentiometers-trimmers-rheostats/potentiometers/?m=Alpha+(Taiwan)&amp;series=RD901F</field>
+        <field name="DistributorPartNum">311-1940F-*</field>
+        <field name="Label">Rate</field>
+        <field name="Manufacturer">Alpha</field>
+        <field name="ManufacturerPartNum">RD901F-*</field>
+        <field name="Value2">LIN</field>
+      </fields>
+      <libsource lib="-lmp-synth" part="R_POT_Panel_PCB_Alpha" description="Potentiometer"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>60F3A7B4</tstamp>
+    </comp>
+    <comp ref="U5">
+      <value>TL074</value>
+      <footprint>-lmp-misc:DIP-14_W7.62mm_LongPads</footprint>
+      <datasheet>http://www.ti.com/lit/ds/symlink/tl071.pdf</datasheet>
+      <fields>
+        <field name="Distributor">Mouser</field>
+        <field name="DistributorPartLink">https://www.mouser.ca/ProductDetail/?qs=vxEfx8VrU7BHurOY5iQdiA%3D%3D</field>
+        <field name="DistributorPartNum">595-TL074BCN</field>
+        <field name="Manufacturer">Texas Instruments</field>
+        <field name="ManufacturerPartNum">TL074BCN</field>
+      </fields>
+      <libsource lib="-lmp-opamp" part="TL074" description="Quad Low-Noise JFET-Input Operational Amplifiers, DIP-14/SOIC-14"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>611111ED</tstamp>
+    </comp>
+    <comp ref="C4">
       <value>100N</value>
       <footprint>-lmp-misc:C_Disc_D5.0mm_W2.5mm_P2.50mm</footprint>
       <datasheet>~</datasheet>
-      <libsource lib="-lmp" part="CC" description="Capacitor - Ceramic"/>
-      <sheetpath names="/" tstamps="/"/>
-      <tstamp>60E3575C</tstamp>
-    </comp>
-    <comp ref="PS1">
-      <value>PYBE30-Q24-D12</value>
-      <footprint>-lmp-synth:Converter_DCDC_CUI_PYBE30</footprint>
-      <datasheet>https://www.mouser.ca/datasheet/2/670/pybe30-1525754.pdf</datasheet>
-      <libsource lib="-lmp-synth" part="Converter_DCDC_PYBE30" description="Isolated 4:1 input DC/DC converter module, DIP"/>
-      <sheetpath names="/" tstamps="/"/>
-      <tstamp>60E73C9F</tstamp>
-    </comp>
-    <comp ref="HS1">
-      <value>HSE-B20500-040H</value>
-      <footprint>-lmp-misc:HS_HSEB20500040H</footprint>
-      <datasheet>https://www.mouser.ca/datasheet/2/670/hse_b20x-1778114.pdf</datasheet>
-      <fields>
-        <field name="Description">Heat Sinks 50x29x12.5mm w/pin extrusion TO-220</field>
-        <field name="Height">50.5</field>
-        <field name="Manufacturer_Name">CUI Inc.</field>
-        <field name="Manufacturer_Part_Number">HSE-B20500-040H</field>
-        <field name="Mouser Part Number">490-HSE-B20500-040H</field>
-        <field name="Mouser Price/Stock">https://www.mouser.co.uk/ProductDetail/CUI-Devices/HSE-B20500-040H/?qs=5aG0NVq1C4xE0e8j9RWAzQ%3D%3D</field>
-      </fields>
-      <libsource lib="-lmp" part="HS_HSE-B20500-040H" description="Heat Sinks 50x29x12.5mm w/pin extrusion TO-220"/>
-      <sheetpath names="/" tstamps="/"/>
-      <tstamp>60E9DF34</tstamp>
-    </comp>
-    <comp ref="C1">
-      <value>100U</value>
-      <footprint>Capacitor_THT:CP_Radial_D8.0mm_P5.00mm</footprint>
-      <datasheet>~</datasheet>
-      <fields>
-        <field name="Value2">35VDC</field>
-      </fields>
-      <libsource lib="-lmp" part="CP" description="Capacitor - Electrolytic"/>
-      <sheetpath names="/" tstamps="/"/>
-      <tstamp>60EB2F02</tstamp>
-    </comp>
-    <comp ref="J5">
-      <value>Conn_Eurorack_Pwr_16</value>
-      <footprint>-lmp-synth:IDC-Header-Eurorack-16-TH</footprint>
-      <datasheet>https://www.mouser.ca/datasheet/2/445/61201621621-1717735.pdf</datasheet>
-      <libsource lib="-lmp-synth" part="Conn_Eurorack_Pwr_16" description="Eurorack 16-pin board power/CV/gate bus connector"/>
-      <sheetpath names="/" tstamps="/"/>
-      <tstamp>60E628BC</tstamp>
-    </comp>
-    <comp ref="J4">
-      <value>Conn_Eurorack_Pwr_16</value>
-      <footprint>-lmp-synth:IDC-Header-Eurorack-16-TH</footprint>
-      <datasheet>https://www.mouser.ca/datasheet/2/445/61201621621-1717735.pdf</datasheet>
-      <libsource lib="-lmp-synth" part="Conn_Eurorack_Pwr_16" description="Eurorack 16-pin board power/CV/gate bus connector"/>
-      <sheetpath names="/" tstamps="/"/>
-      <tstamp>60E383AB</tstamp>
-    </comp>
-    <comp ref="F1">
-      <value>0A4</value>
-      <footprint>-lmp-misc:NoFootprint</footprint>
-      <datasheet>~</datasheet>
-      <libsource lib="-lmp" part="Fuse" description="Fuse"/>
-      <sheetpath names="/" tstamps="/"/>
-      <tstamp>60F6B4E2</tstamp>
-    </comp>
-    <comp ref="F2">
-      <value>1A</value>
-      <footprint>-lmp-misc:NoFootprint</footprint>
-      <datasheet>~</datasheet>
-      <libsource lib="-lmp" part="Fuse" description="Fuse"/>
-      <sheetpath names="/" tstamps="/"/>
-      <tstamp>60F6BC33</tstamp>
-    </comp>
-    <comp ref="F3">
-      <value>1A</value>
-      <footprint>-lmp-misc:NoFootprint</footprint>
-      <datasheet>~</datasheet>
-      <libsource lib="-lmp" part="Fuse" description="Fuse"/>
-      <sheetpath names="/" tstamps="/"/>
-      <tstamp>60F84FD0</tstamp>
-    </comp>
-    <comp ref="XF2">
-      <value>XF</value>
-      <footprint>-lmp-misc:FuseClip_D5mm_P5mm_52000001009</footprint>
-      <datasheet>https://www.littelfuse.com/~/media/electronics/datasheets/fuse_clips/littelfuse_fuse_clip_520_521_102071_datasheet.pdf.pdf</datasheet>
-      <fields>
-        <field name="Height">8</field>
-        <field name="Manufacturer_Name">LITTELFUSE</field>
-        <field name="Manufacturer_Part_Number">52000001009</field>
-        <field name="Mouser Part Number">576-52000001009</field>
-        <field name="Mouser Price/Stock">https://www.mouser.co.uk/ProductDetail/Littelfuse/52000001009?qs=TxeoXSYJMVRCKOrJrEyYEQ%3D%3D</field>
-      </fields>
-      <libsource lib="-lmp" part="FuseClip_D5mm_P5mm" description="Littelfuse Phosphor Bronze PCB Mount Fuse Clip for 5 x 20mm Cartridge Fuse"/>
-      <sheetpath names="/" tstamps="/"/>
-      <tstamp>60FD9917</tstamp>
-    </comp>
-    <comp ref="XF3">
-      <value>XF</value>
-      <footprint>-lmp-misc:FuseClip_D5mm_P5mm_52000001009</footprint>
-      <datasheet>https://www.littelfuse.com/~/media/electronics/datasheets/fuse_clips/littelfuse_fuse_clip_520_521_102071_datasheet.pdf.pdf</datasheet>
-      <fields>
-        <field name="Height">8</field>
-        <field name="Manufacturer_Name">LITTELFUSE</field>
-        <field name="Manufacturer_Part_Number">52000001009</field>
-        <field name="Mouser Part Number">576-52000001009</field>
-        <field name="Mouser Price/Stock">https://www.mouser.co.uk/ProductDetail/Littelfuse/52000001009?qs=TxeoXSYJMVRCKOrJrEyYEQ%3D%3D</field>
-      </fields>
-      <libsource lib="-lmp" part="FuseClip_D5mm_P5mm" description="Littelfuse Phosphor Bronze PCB Mount Fuse Clip for 5 x 20mm Cartridge Fuse"/>
-      <sheetpath names="/" tstamps="/"/>
-      <tstamp>60FE272A</tstamp>
-    </comp>
-    <comp ref="XF4">
-      <value>XF</value>
-      <footprint>-lmp-misc:FuseClip_D5mm_P5mm_52000001009</footprint>
-      <datasheet>https://www.littelfuse.com/~/media/electronics/datasheets/fuse_clips/littelfuse_fuse_clip_520_521_102071_datasheet.pdf.pdf</datasheet>
-      <fields>
-        <field name="Height">8</field>
-        <field name="Manufacturer_Name">LITTELFUSE</field>
-        <field name="Manufacturer_Part_Number">52000001009</field>
-        <field name="Mouser Part Number">576-52000001009</field>
-        <field name="Mouser Price/Stock">https://www.mouser.co.uk/ProductDetail/Littelfuse/52000001009?qs=TxeoXSYJMVRCKOrJrEyYEQ%3D%3D</field>
-      </fields>
-      <libsource lib="-lmp" part="FuseClip_D5mm_P5mm" description="Littelfuse Phosphor Bronze PCB Mount Fuse Clip for 5 x 20mm Cartridge Fuse"/>
-      <sheetpath names="/" tstamps="/"/>
-      <tstamp>60FE2735</tstamp>
-    </comp>
-    <comp ref="XF5">
-      <value>XF</value>
-      <footprint>-lmp-misc:FuseClip_D5mm_P5mm_52000001009</footprint>
-      <datasheet>https://www.littelfuse.com/~/media/electronics/datasheets/fuse_clips/littelfuse_fuse_clip_520_521_102071_datasheet.pdf.pdf</datasheet>
-      <fields>
-        <field name="Height">8</field>
-        <field name="Manufacturer_Name">LITTELFUSE</field>
-        <field name="Manufacturer_Part_Number">52000001009</field>
-        <field name="Mouser Part Number">576-52000001009</field>
-        <field name="Mouser Price/Stock">https://www.mouser.co.uk/ProductDetail/Littelfuse/52000001009?qs=TxeoXSYJMVRCKOrJrEyYEQ%3D%3D</field>
-      </fields>
-      <libsource lib="-lmp" part="FuseClip_D5mm_P5mm" description="Littelfuse Phosphor Bronze PCB Mount Fuse Clip for 5 x 20mm Cartridge Fuse"/>
-      <sheetpath names="/" tstamps="/"/>
-      <tstamp>60FE4F3D</tstamp>
-    </comp>
-    <comp ref="XF6">
-      <value>XF</value>
-      <footprint>-lmp-misc:FuseClip_D5mm_P5mm_52000001009</footprint>
-      <datasheet>https://www.littelfuse.com/~/media/electronics/datasheets/fuse_clips/littelfuse_fuse_clip_520_521_102071_datasheet.pdf.pdf</datasheet>
-      <fields>
-        <field name="Height">8</field>
-        <field name="Manufacturer_Name">LITTELFUSE</field>
-        <field name="Manufacturer_Part_Number">52000001009</field>
-        <field name="Mouser Part Number">576-52000001009</field>
-        <field name="Mouser Price/Stock">https://www.mouser.co.uk/ProductDetail/Littelfuse/52000001009?qs=TxeoXSYJMVRCKOrJrEyYEQ%3D%3D</field>
-      </fields>
-      <libsource lib="-lmp" part="FuseClip_D5mm_P5mm" description="Littelfuse Phosphor Bronze PCB Mount Fuse Clip for 5 x 20mm Cartridge Fuse"/>
-      <sheetpath names="/" tstamps="/"/>
-      <tstamp>60FE4F48</tstamp>
-    </comp>
-    <comp ref="XF1">
-      <value>XF</value>
-      <footprint>-lmp-misc:FuseClip_D5mm_P5mm_52000001009</footprint>
-      <datasheet>https://www.littelfuse.com/~/media/electronics/datasheets/fuse_clips/littelfuse_fuse_clip_520_521_102071_datasheet.pdf.pdf</datasheet>
-      <fields>
-        <field name="Height">8</field>
-        <field name="Manufacturer_Name">LITTELFUSE</field>
-        <field name="Manufacturer_Part_Number">52000001009</field>
-        <field name="Mouser Part Number">576-52000001009</field>
-        <field name="Mouser Price/Stock">https://www.mouser.co.uk/ProductDetail/Littelfuse/52000001009?qs=TxeoXSYJMVRCKOrJrEyYEQ%3D%3D</field>
-      </fields>
-      <libsource lib="-lmp" part="FuseClip_D5mm_P5mm" description="Littelfuse Phosphor Bronze PCB Mount Fuse Clip for 5 x 20mm Cartridge Fuse"/>
-      <sheetpath names="/" tstamps="/"/>
-      <tstamp>60FD92BF</tstamp>
-    </comp>
-    <comp ref="H1">
-      <value>PCB</value>
-      <footprint>-lmp-misc:NoFootprint</footprint>
       <fields>
         <field name="Distributor">Mouser</field>
-        <field name="DistributorPartLink">https://www.mouser.ca/ProductDetail/BusBoard-Prototype-Systems/ST2?qs=NGErKr1RxMAdSUqgGAVpyQ==</field>
-        <field name="Manufacturer">Busboard Prototype Systems</field>
-        <field name="ManufacturerPartNum">ST2</field>
+        <field name="DistributorPartLink">https://www.mouser.ca/ProductDetail/810-FG18X7R1H104KNT6</field>
+        <field name="DistributorPartNum">810-FG18X7R1H104KNT6</field>
+        <field name="Manufacturer">TDK</field>
+        <field name="ManufacturerPartNum">FG18X7R1H104KNT06</field>
+        <field name="Note">IC decoupling</field>
       </fields>
-      <libsource lib="-lmp" part="PCB" description="Printed Circuit Board"/>
+      <libsource lib="-lmp" part="CC_100N" description="Capacitor - Ceramic - IC decoupling"/>
       <sheetpath names="/" tstamps="/"/>
-      <tstamp>60F5009A</tstamp>
+      <tstamp>61112161</tstamp>
+    </comp>
+    <comp ref="C5">
+      <value>100N</value>
+      <footprint>-lmp-misc:C_Disc_D5.0mm_W2.5mm_P2.50mm</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Distributor">Mouser</field>
+        <field name="DistributorPartLink">https://www.mouser.ca/ProductDetail/810-FG18X7R1H104KNT6</field>
+        <field name="DistributorPartNum">810-FG18X7R1H104KNT6</field>
+        <field name="Manufacturer">TDK</field>
+        <field name="ManufacturerPartNum">FG18X7R1H104KNT06</field>
+        <field name="Note">IC decoupling</field>
+      </fields>
+      <libsource lib="-lmp" part="CC_100N" description="Capacitor - Ceramic - IC decoupling"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>61114367</tstamp>
+    </comp>
+    <comp ref="RV7">
+      <value>10K</value>
+      <footprint>-lmp-synth:Potentiometer_Alpha_RD901F-40-00D_Single_Vertical</footprint>
+      <datasheet>https://www.mouser.ca/datasheet/2/13/alpha_taiwan_08192019_RD901F-40-15R1-B(resistance_-1627810.pdf</datasheet>
+      <fields>
+        <field name="Distributor">Mouser</field>
+        <field name="DistributorPartLink">https://www.mouser.ca/c/passive-components/potentiometers-trimmers-rheostats/potentiometers/?m=Alpha+(Taiwan)&amp;series=RD901F</field>
+        <field name="DistributorPartNum">311-1940F-*</field>
+        <field name="Label">CV Amt</field>
+        <field name="Manufacturer">Alpha</field>
+        <field name="ManufacturerPartNum">RD901F-*</field>
+        <field name="Value2">LIN</field>
+      </fields>
+      <libsource lib="-lmp-synth" part="R_POT_Panel_PCB_Alpha" description="Potentiometer"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>61127E7E</tstamp>
+    </comp>
+    <comp ref="J8">
+      <value>WQP-PJ398</value>
+      <footprint>-lmp-synth:Jack_3.5mm_QingPu_WQP-PJ398SM_Vertical_CircularHoles</footprint>
+      <datasheet>http://www.qingpu-electronics.com/en/products/WQP-PJ398SM-362.html</datasheet>
+      <fields>
+        <field name="Distributor">Thonk</field>
+        <field name="Distributor2">SynthCube</field>
+        <field name="Distributor3">Adadfruit</field>
+        <field name="DistributorPartLink">https://www.thonk.co.uk/shop/thonkiconn/</field>
+        <field name="DistributorPartLink2">https://synthcube.com/cart/3-5mm-euro-jacks</field>
+        <field name="DistributorPartLink3">https://www.adafruit.com/product/4031</field>
+        <field name="DistributorPartNum">PJ398SM</field>
+        <field name="DistributorPartNum2">WQP518MA</field>
+        <field name="DistributorPartNum3">4031</field>
+        <field name="Label">OUT-3</field>
+        <field name="Manufacturer">QingPu / Thonk</field>
+        <field name="ManufacturerPartNum">PJ398SM / WQP518MA</field>
+      </fields>
+      <libsource lib="-lmp-synth" part="Jack_WQP-PJ398" description="Audio Jack, 2 Poles (Mono / TS), Switched T Pole (Normalling), QingPu / Thonkiconn"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>6112A780</tstamp>
+    </comp>
+    <comp ref="J7">
+      <value>WQP-PJ398</value>
+      <footprint>-lmp-synth:Jack_3.5mm_QingPu_WQP-PJ398SM_Vertical_CircularHoles</footprint>
+      <datasheet>http://www.qingpu-electronics.com/en/products/WQP-PJ398SM-362.html</datasheet>
+      <fields>
+        <field name="Distributor">Thonk</field>
+        <field name="Distributor2">SynthCube</field>
+        <field name="Distributor3">Adadfruit</field>
+        <field name="DistributorPartLink">https://www.thonk.co.uk/shop/thonkiconn/</field>
+        <field name="DistributorPartLink2">https://synthcube.com/cart/3-5mm-euro-jacks</field>
+        <field name="DistributorPartLink3">https://www.adafruit.com/product/4031</field>
+        <field name="DistributorPartNum">PJ398SM</field>
+        <field name="DistributorPartNum2">WQP518MA</field>
+        <field name="DistributorPartNum3">4031</field>
+        <field name="Label">OUT-2</field>
+        <field name="Manufacturer">QingPu / Thonk</field>
+        <field name="ManufacturerPartNum">PJ398SM / WQP518MA</field>
+      </fields>
+      <libsource lib="-lmp-synth" part="Jack_WQP-PJ398" description="Audio Jack, 2 Poles (Mono / TS), Switched T Pole (Normalling), QingPu / Thonkiconn"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>6112A052</tstamp>
+    </comp>
+    <comp ref="J6">
+      <value>WQP-PJ398</value>
+      <footprint>-lmp-synth:Jack_3.5mm_QingPu_WQP-PJ398SM_Vertical_CircularHoles</footprint>
+      <datasheet>http://www.qingpu-electronics.com/en/products/WQP-PJ398SM-362.html</datasheet>
+      <fields>
+        <field name="Distributor">Thonk</field>
+        <field name="Distributor2">SynthCube</field>
+        <field name="Distributor3">Adadfruit</field>
+        <field name="DistributorPartLink">https://www.thonk.co.uk/shop/thonkiconn/</field>
+        <field name="DistributorPartLink2">https://synthcube.com/cart/3-5mm-euro-jacks</field>
+        <field name="DistributorPartLink3">https://www.adafruit.com/product/4031</field>
+        <field name="DistributorPartNum">PJ398SM</field>
+        <field name="DistributorPartNum2">WQP518MA</field>
+        <field name="DistributorPartNum3">4031</field>
+        <field name="Label">OUT-1</field>
+        <field name="Manufacturer">QingPu / Thonk</field>
+        <field name="ManufacturerPartNum">PJ398SM / WQP518MA</field>
+      </fields>
+      <libsource lib="-lmp-synth" part="Jack_WQP-PJ398" description="Audio Jack, 2 Poles (Mono / TS), Switched T Pole (Normalling), QingPu / Thonkiconn"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>6112987D</tstamp>
+    </comp>
+    <comp ref="D5">
+      <value>VAOL-5LSBY1</value>
+      <footprint>LED_THT:LED_D5.0mm</footprint>
+      <datasheet>https://www.mouser.ca/datasheet/2/423/VAOL-5LSBY1-1064871.pdf</datasheet>
+      <fields>
+        <field name="Distributor">Mouser</field>
+        <field name="DistributorPartLink">https://www.mouser.ca/ProductDetail/VCC/VAOL-5LSBY1?qs=sGAEpiMZZMvHYEB9WUp7EneOMcS%2FsWIS9dCGd3NWsaQ%3D</field>
+        <field name="DistributorPartNum">593-VAOL-5LSBY1</field>
+        <field name="Label">LFO</field>
+        <field name="Manufacturer">VCC</field>
+        <field name="ManufacturerPartNum">VAOL-5LSBY1</field>
+      </fields>
+      <libsource lib="-lmp-synth" part="LED_5mm_Blue" description="Blue Light Emitting Diode"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>612E3EBC</tstamp>
+    </comp>
+    <comp ref="SW6">
+      <value>10TC412</value>
+      <footprint>-lmp-misc:SW_SPDT_THT_2.54</footprint>
+      <datasheet>https://www.mouser.ca/datasheet/2/221/MS-100542-1173960.pdf</datasheet>
+      <fields>
+        <field name="Distributor">Mouser</field>
+        <field name="DistributorPartLink">https://www.mouser.ca/ProductDetail/Mountain-Switch/10TC412?qs=ITV4B%252BNEbTr7VI8tqT4%252BiQ%3D%3D</field>
+        <field name="DistributorPartNum">10TC412</field>
+        <field name="Label">Range</field>
+        <field name="Manufacturer">Mountain Switch</field>
+        <field name="ManufacturerPartNum">10TC412</field>
+      </fields>
+      <libsource lib="-lmp-synth" part="SW_SPDT_ON_OFF_ON_10TC412" description="Switch, single pole double throw, center OFF position"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>6117B12D</tstamp>
+    </comp>
+    <comp ref="J11">
+      <value>Conn_Back</value>
+      <footprint>-lmp-synth:PinHeader_Delptronics_Back_Left_4HP</footprint>
+      <datasheet>https://delptronics.com/documents/MCS-Control-Connections.pdf</datasheet>
+      <libsource lib="-lmp-synth" part="Conn_Delptronics_Back_Left_4HP" description="Delptronics Module Construction Set board connector"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>60CAA39B</tstamp>
+    </comp>
+    <comp ref="SW8">
+      <value>10TC405</value>
+      <footprint>-lmp-misc:SW_SPST_THT_2.54</footprint>
+      <datasheet>https://www.mouser.ca/datasheet/2/221/MS-100542-1173960.pdf</datasheet>
+      <fields>
+        <field name="Distributor">Mouser</field>
+        <field name="DistributorPartLink">https://www.mouser.ca/ProductDetail/Mountain-Switch/10TC405?qs=iZD9pWtnGRc4L7BaVXXEAQ%3D%3D</field>
+        <field name="DistributorPartNum">10TC405</field>
+        <field name="Label">Function</field>
+        <field name="Manufacturer">Mountain Switch</field>
+        <field name="ManufacturerPartNum">10TC405</field>
+      </fields>
+      <libsource lib="-lmp-synth" part="SW_SPST" description="Single Pole Single Throw (SPST) sub-mini toggle switch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>611F5ADD</tstamp>
+    </comp>
+    <comp ref="J5">
+      <value>WQP-PJ398</value>
+      <footprint>-lmp-synth:Jack_3.5mm_QingPu_WQP-PJ398SM_Vertical_CircularHoles</footprint>
+      <datasheet>http://www.qingpu-electronics.com/en/products/WQP-PJ398SM-362.html</datasheet>
+      <fields>
+        <field name="Distributor">Thonk</field>
+        <field name="Distributor2">SynthCube</field>
+        <field name="Distributor3">Adadfruit</field>
+        <field name="DistributorPartLink">https://www.thonk.co.uk/shop/thonkiconn/</field>
+        <field name="DistributorPartLink2">https://synthcube.com/cart/3-5mm-euro-jacks</field>
+        <field name="DistributorPartLink3">https://www.adafruit.com/product/4031</field>
+        <field name="DistributorPartNum">PJ398SM</field>
+        <field name="DistributorPartNum2">WQP518MA</field>
+        <field name="DistributorPartNum3">4031</field>
+        <field name="Label">IN-2</field>
+        <field name="Manufacturer">QingPu / Thonk</field>
+        <field name="ManufacturerPartNum">PJ398SM / WQP518MA</field>
+      </fields>
+      <libsource lib="-lmp-synth" part="Jack_WQP-PJ398" description="Audio Jack, 2 Poles (Mono / TS), Switched T Pole (Normalling), QingPu / Thonkiconn"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>6111E03E</tstamp>
+    </comp>
+    <comp ref="C6">
+      <value>100N</value>
+      <footprint>-lmp-misc:C_Disc_D5.0mm_W2.5mm_P2.50mm</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Distributor">Mouser</field>
+        <field name="DistributorPartLink">https://www.mouser.ca/ProductDetail/810-FG18X7R1H104KNT6</field>
+        <field name="DistributorPartNum">810-FG18X7R1H104KNT6</field>
+        <field name="Manufacturer">TDK</field>
+        <field name="ManufacturerPartNum">FG18X7R1H104KNT06</field>
+        <field name="Note">IC decoupling</field>
+      </fields>
+      <libsource lib="-lmp" part="CC_100N" description="Capacitor - Ceramic - IC decoupling"/>
+      <sheetpath names="/Min/" tstamps="/610CEC44/"/>
+      <tstamp>610DAF89</tstamp>
+    </comp>
+    <comp ref="C7">
+      <value>100N</value>
+      <footprint>-lmp-misc:C_Disc_D5.0mm_W2.5mm_P2.50mm</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Distributor">Mouser</field>
+        <field name="DistributorPartLink">https://www.mouser.ca/ProductDetail/810-FG18X7R1H104KNT6</field>
+        <field name="DistributorPartNum">810-FG18X7R1H104KNT6</field>
+        <field name="Manufacturer">TDK</field>
+        <field name="ManufacturerPartNum">FG18X7R1H104KNT06</field>
+        <field name="Note">IC decoupling</field>
+      </fields>
+      <libsource lib="-lmp" part="CC_100N" description="Capacitor - Ceramic - IC decoupling"/>
+      <sheetpath names="/Min/" tstamps="/610CEC44/"/>
+      <tstamp>610DAFA9</tstamp>
+    </comp>
+    <comp ref="R3">
+      <value>10K</value>
+      <footprint>-lmp-stripboard:SB_Gen_2</footprint>
+      <datasheet>https://www.mouser.ca/datasheet/2/447/Yageo_LR_MFR_1-1714151.pdf</datasheet>
+      <fields>
+        <field name="Distributor">Mouser</field>
+        <field name="DistributorPartLink">https://www.mouser.ca/ProductDetail/YAGEO/MFR-12FRF52-10K?qs=sGAEpiMZZMsPqMdJzcrNwl7IR%2FWPk8YP7c4XT%2Fr88hQ%3D</field>
+        <field name="DistributorPartNum">603-MFR-12FRF5210K</field>
+        <field name="Manufacturer">YAGEO</field>
+        <field name="ManufacturerPartNum">MFR-12FRF52-10K</field>
+      </fields>
+      <libsource lib="-lmp" part="R" description="Resistor"/>
+      <sheetpath names="/Min/" tstamps="/610CEC44/"/>
+      <tstamp>610DAFE1</tstamp>
+    </comp>
+    <comp ref="SW1">
+      <value>FSM4JRT</value>
+      <footprint>-lmp-misc:SW_PUSH_6mm_Alt</footprint>
+      <datasheet>https://www.mouser.ca/datasheet/2/418/1/NG_CD_2-1437565-2_P6-663780.pdf</datasheet>
+      <fields>
+        <field name="Distributor">Mouser</field>
+        <field name="DistributorPartLink">https://www.mouser.ca/ProductDetail/TE-Connectivity-Alcoswitch/FSM4JRT?qs=k5V78Jg%2Feq5ZxoOe%2FIcPaQ%3D%3D</field>
+        <field name="DistributorPartNum">506-FSM4JRT</field>
+        <field name="Label">Reset</field>
+        <field name="Manufacturer">TE Connectivity / Alcoswitch</field>
+        <field name="ManufacturerPartNum">FSM4JRT</field>
+      </fields>
+      <libsource lib="-lmp" part="SW_Push_Tact_6mm" description="Push button switch, generic, two pins"/>
+      <sheetpath names="/Min/" tstamps="/610CEC44/"/>
+      <tstamp>610DAFF2</tstamp>
+    </comp>
+    <comp ref="J1">
+      <value>FTDI</value>
+      <footprint>Connector_PinHeader_2.54mm:PinHeader_1x06_P2.54mm_Vertical</footprint>
+      <datasheet>~</datasheet>
+      <libsource lib="-lmp" part="Conn_FTDI" description="Pin header for FTDI USB-serial cable"/>
+      <sheetpath names="/Min/" tstamps="/610CEC44/"/>
+      <tstamp>610DB006</tstamp>
+    </comp>
+    <comp ref="C8">
+      <value>100N</value>
+      <footprint>-lmp-misc:C_Disc_D5.0mm_W2.5mm_P2.50mm</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Distributor">Mouser</field>
+        <field name="DistributorPartLink">https://www.mouser.ca/ProductDetail/810-FG18X7R1H104KNT6</field>
+        <field name="DistributorPartNum">810-FG18X7R1H104KNT6</field>
+        <field name="Manufacturer">TDK</field>
+        <field name="ManufacturerPartNum">FG18X7R1H104KNT06</field>
+        <field name="Note">IC decoupling</field>
+      </fields>
+      <libsource lib="-lmp" part="CC_100N" description="Capacitor - Ceramic - IC decoupling"/>
+      <sheetpath names="/Min/" tstamps="/610CEC44/"/>
+      <tstamp>610DB012</tstamp>
+    </comp>
+    <comp ref="U3">
+      <value>MCP4822</value>
+      <footprint>-lmp-misc:DIP-8_W7.62mm_LongPads</footprint>
+      <datasheet>https://www.mouser.ca/datasheet/2/268/21953a-8929.pdf</datasheet>
+      <fields>
+        <field name="Distributor">Mouser</field>
+        <field name="DistributorPartLink">https://www.mouser.ca/ProductDetail/Microchip-Technology/MCP4822-E-P?qs=usxtMOJb1RzHfzfJDNfOOg%3D%3D</field>
+        <field name="DistributorPartNum">579-MCP4822-E/P</field>
+        <field name="Manufacturer">Microchip</field>
+        <field name="ManufacturerPartNum">MCP4822-E/P</field>
+      </fields>
+      <libsource lib="Analog_DAC" part="MCP4822" description="2-Channel 12-Bit D/A Converters with SPI Interface and Internal Reference (2.048V)"/>
+      <sheetpath names="/Min/" tstamps="/610CEC44/"/>
+      <tstamp>610E3AA3</tstamp>
+    </comp>
+    <comp ref="C9">
+      <value>100N</value>
+      <footprint>-lmp-misc:C_Disc_D5.0mm_W2.5mm_P2.50mm</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Distributor">Mouser</field>
+        <field name="DistributorPartLink">https://www.mouser.ca/ProductDetail/810-FG18X7R1H104KNT6</field>
+        <field name="DistributorPartNum">810-FG18X7R1H104KNT6</field>
+        <field name="Manufacturer">TDK</field>
+        <field name="ManufacturerPartNum">FG18X7R1H104KNT06</field>
+        <field name="Note">IC decoupling</field>
+      </fields>
+      <libsource lib="-lmp" part="CC_100N" description="Capacitor - Ceramic - IC decoupling"/>
+      <sheetpath names="/Min/" tstamps="/610CEC44/"/>
+      <tstamp>610E7BA7</tstamp>
+    </comp>
+    <comp ref="C10">
+      <value>100N</value>
+      <footprint>-lmp-misc:C_Disc_D5.0mm_W2.5mm_P2.50mm</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Distributor">Mouser</field>
+        <field name="DistributorPartLink">https://www.mouser.ca/ProductDetail/810-FG18X7R1H104KNT6</field>
+        <field name="DistributorPartNum">810-FG18X7R1H104KNT6</field>
+        <field name="Manufacturer">TDK</field>
+        <field name="ManufacturerPartNum">FG18X7R1H104KNT06</field>
+        <field name="Note">IC decoupling</field>
+      </fields>
+      <libsource lib="-lmp" part="CC_100N" description="Capacitor - Ceramic - IC decoupling"/>
+      <sheetpath names="/Min/" tstamps="/610CEC44/"/>
+      <tstamp>610E91F7</tstamp>
+    </comp>
+    <comp ref="R13">
+      <value>30K</value>
+      <footprint>-lmp-stripboard:SB_Gen_1</footprint>
+      <datasheet>https://www.mouser.ca/datasheet/2/447/Yageo_LR_MFR_1-1714151.pdf</datasheet>
+      <fields>
+        <field name="Distributor">Mouser</field>
+        <field name="DistributorPartLink">https://www.mouser.ca/ProductDetail/YAGEO/MFR-12FTF52-30K?qs=oAGoVhmvjhx41C7LP55%2FiQ%3D%3D</field>
+        <field name="DistributorPartNum">603-MFR-12FTF52-30K</field>
+        <field name="Manufacturer">YAGEO</field>
+        <field name="ManufacturerPartNum">MFR-12FTF52-30K</field>
+      </fields>
+      <libsource lib="-lmp" part="R" description="Resistor"/>
+      <sheetpath names="/Min/" tstamps="/610CEC44/"/>
+      <tstamp>61106BB2</tstamp>
+    </comp>
+    <comp ref="R16">
+      <value>1K</value>
+      <footprint>-lmp-misc:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal</footprint>
+      <datasheet>https://www.mouser.ca/datasheet/2/427/ccf07-1762725.pdf</datasheet>
+      <fields>
+        <field name="Distributor">Mouser</field>
+        <field name="DistributorPartLink">https://www.mouser.ca/ProductDetail/Vishay-Dale/CCF071K00JKE36?qs=sGAEpiMZZMsPqMdJzcrNwqw41JD0NFylHV1MADcQnpo%3D</field>
+        <field name="DistributorPartNum">71-CCF071K00JKE36</field>
+        <field name="Manufacturer">Vishay / Dale</field>
+        <field name="ManufacturerPartNum">CCF071K00JKE36</field>
+        <field name="Note">Output limiting</field>
+        <field name="Value2">5%, 1/4 W</field>
+      </fields>
+      <libsource lib="-lmp-synth" part="R_1K_Output" description="Resistor"/>
+      <sheetpath names="/Min/" tstamps="/610CEC44/"/>
+      <tstamp>6111DA63</tstamp>
+    </comp>
+    <comp ref="R14">
+      <value>30K</value>
+      <footprint>-lmp-stripboard:SB_Gen_1</footprint>
+      <datasheet>https://www.mouser.ca/datasheet/2/447/Yageo_LR_MFR_1-1714151.pdf</datasheet>
+      <fields>
+        <field name="Distributor">Mouser</field>
+        <field name="DistributorPartLink">https://www.mouser.ca/ProductDetail/YAGEO/MFR-12FTF52-30K?qs=oAGoVhmvjhx41C7LP55%2FiQ%3D%3D</field>
+        <field name="DistributorPartNum">603-MFR-12FTF52-30K</field>
+        <field name="Manufacturer">YAGEO</field>
+        <field name="ManufacturerPartNum">MFR-12FTF52-30K</field>
+      </fields>
+      <libsource lib="-lmp" part="R" description="Resistor"/>
+      <sheetpath names="/Min/" tstamps="/610CEC44/"/>
+      <tstamp>61128D69</tstamp>
+    </comp>
+    <comp ref="R6">
+      <value>20K</value>
+      <footprint>-lmp-stripboard:SB_Gen_4</footprint>
+      <datasheet>https://www.mouser.ca/datasheet/2/447/Yageo_LR_MFR_1-1714151.pdf</datasheet>
+      <fields>
+        <field name="Distributor">Mouser</field>
+        <field name="DistributorPartLink">https://www.mouser.ca/ProductDetail/YAGEO/MFR-12FTF52-20K?qs=sGAEpiMZZMsPqMdJzcrNwiweiCzxKzWL3Dli7pqtTkM%3D</field>
+        <field name="DistributorPartNum">603-MFR-12FTF52-20K</field>
+        <field name="Manufacturer">YAGEO</field>
+        <field name="ManufacturerPartNum">MFR-12FTF52-20K</field>
+      </fields>
+      <libsource lib="-lmp" part="R" description="Resistor"/>
+      <sheetpath names="/Min/" tstamps="/610CEC44/"/>
+      <tstamp>61128D75</tstamp>
+    </comp>
+    <comp ref="R17">
+      <value>1K</value>
+      <footprint>-lmp-stripboard:SB_Gen_1</footprint>
+      <datasheet>https://www.mouser.ca/datasheet/2/427/ccf07-1762725.pdf</datasheet>
+      <fields>
+        <field name="Distributor">Mouser</field>
+        <field name="DistributorPartLink">https://www.mouser.ca/ProductDetail/Vishay-Dale/CCF071K00JKE36?qs=sGAEpiMZZMsPqMdJzcrNwqw41JD0NFylHV1MADcQnpo%3D</field>
+        <field name="DistributorPartNum">71-CCF071K00JKE36</field>
+        <field name="Manufacturer">Vishay / Dale</field>
+        <field name="ManufacturerPartNum">CCF071K00JKE36</field>
+        <field name="Note">Output limiting</field>
+        <field name="Value2">5%, 1/4 W</field>
+      </fields>
+      <libsource lib="-lmp-synth" part="R_1K_Output" description="Resistor"/>
+      <sheetpath names="/Min/" tstamps="/610CEC44/"/>
+      <tstamp>61128DA3</tstamp>
+    </comp>
+    <comp ref="R15">
+      <value>30K</value>
+      <footprint>-lmp-stripboard:SB_Gen_1</footprint>
+      <datasheet>https://www.mouser.ca/datasheet/2/447/Yageo_LR_MFR_1-1714151.pdf</datasheet>
+      <fields>
+        <field name="Distributor">Mouser</field>
+        <field name="DistributorPartLink">https://www.mouser.ca/ProductDetail/YAGEO/MFR-12FTF52-30K?qs=oAGoVhmvjhx41C7LP55%2FiQ%3D%3D</field>
+        <field name="DistributorPartNum">603-MFR-12FTF52-30K</field>
+        <field name="Manufacturer">YAGEO</field>
+        <field name="ManufacturerPartNum">MFR-12FTF52-30K</field>
+      </fields>
+      <libsource lib="-lmp" part="R" description="Resistor"/>
+      <sheetpath names="/Min/" tstamps="/610CEC44/"/>
+      <tstamp>611301F7</tstamp>
+    </comp>
+    <comp ref="R8">
+      <value>20K</value>
+      <footprint>-lmp-stripboard:SB_Gen_2</footprint>
+      <datasheet>https://www.mouser.ca/datasheet/2/447/Yageo_LR_MFR_1-1714151.pdf</datasheet>
+      <fields>
+        <field name="Distributor">Mouser</field>
+        <field name="DistributorPartLink">https://www.mouser.ca/ProductDetail/YAGEO/MFR-12FTF52-20K?qs=sGAEpiMZZMsPqMdJzcrNwiweiCzxKzWL3Dli7pqtTkM%3D</field>
+        <field name="DistributorPartNum">603-MFR-12FTF52-20K</field>
+        <field name="Manufacturer">YAGEO</field>
+        <field name="ManufacturerPartNum">MFR-12FTF52-20K</field>
+      </fields>
+      <libsource lib="-lmp" part="R" description="Resistor"/>
+      <sheetpath names="/Min/" tstamps="/610CEC44/"/>
+      <tstamp>61130203</tstamp>
+    </comp>
+    <comp ref="R18">
+      <value>1K</value>
+      <footprint>-lmp-misc:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal</footprint>
+      <datasheet>https://www.mouser.ca/datasheet/2/427/ccf07-1762725.pdf</datasheet>
+      <fields>
+        <field name="Distributor">Mouser</field>
+        <field name="DistributorPartLink">https://www.mouser.ca/ProductDetail/Vishay-Dale/CCF071K00JKE36?qs=sGAEpiMZZMsPqMdJzcrNwqw41JD0NFylHV1MADcQnpo%3D</field>
+        <field name="DistributorPartNum">71-CCF071K00JKE36</field>
+        <field name="Manufacturer">Vishay / Dale</field>
+        <field name="ManufacturerPartNum">CCF071K00JKE36</field>
+        <field name="Note">Output limiting</field>
+        <field name="Value2">5%, 1/4 W</field>
+      </fields>
+      <libsource lib="-lmp-synth" part="R_1K_Output" description="Resistor"/>
+      <sheetpath names="/Min/" tstamps="/610CEC44/"/>
+      <tstamp>61130231</tstamp>
+    </comp>
+    <comp ref="R2">
+      <value>10K</value>
+      <footprint>-lmp-stripboard:SB_Gen_1</footprint>
+      <datasheet>https://www.mouser.ca/datasheet/2/447/Yageo_LR_MFR_1-1714151.pdf</datasheet>
+      <fields>
+        <field name="Distributor">Mouser</field>
+        <field name="DistributorPartLink">https://www.mouser.ca/ProductDetail/YAGEO/MFR-12FRF52-10K?qs=sGAEpiMZZMsPqMdJzcrNwl7IR%2FWPk8YP7c4XT%2Fr88hQ%3D</field>
+        <field name="DistributorPartNum">603-MFR-12FRF5210K</field>
+        <field name="Manufacturer">YAGEO</field>
+        <field name="ManufacturerPartNum">MFR-12FRF52-10K</field>
+      </fields>
+      <libsource lib="-lmp" part="R" description="Resistor"/>
+      <sheetpath names="/Min/" tstamps="/610CEC44/"/>
+      <tstamp>611AD009</tstamp>
+    </comp>
+    <comp ref="R1">
+      <value>10K</value>
+      <footprint>-lmp-stripboard:SB_Gen_1</footprint>
+      <datasheet>https://www.mouser.ca/datasheet/2/447/Yageo_LR_MFR_1-1714151.pdf</datasheet>
+      <fields>
+        <field name="Distributor">Mouser</field>
+        <field name="DistributorPartLink">https://www.mouser.ca/ProductDetail/YAGEO/MFR-12FRF52-10K?qs=sGAEpiMZZMsPqMdJzcrNwl7IR%2FWPk8YP7c4XT%2Fr88hQ%3D</field>
+        <field name="DistributorPartNum">603-MFR-12FRF5210K</field>
+        <field name="Manufacturer">YAGEO</field>
+        <field name="ManufacturerPartNum">MFR-12FRF52-10K</field>
+      </fields>
+      <libsource lib="-lmp" part="R" description="Resistor"/>
+      <sheetpath names="/Min/" tstamps="/610CEC44/"/>
+      <tstamp>611ADB76</tstamp>
+    </comp>
+    <comp ref="D3">
+      <value>1N5711</value>
+      <footprint>-lmp-stripboard:SB_Gen_1</footprint>
+      <datasheet>https://www.mouser.ca/datasheet/2/389/cd00000759-1795802.pdf</datasheet>
+      <fields>
+        <field name="Distributor">Mouser</field>
+        <field name="DistributorPartLink">https://www.mouser.ca/ProductDetail/STMicroelectronics/1N5711?qs=FITO%2F%2FQgYDnH7pJ7rS2FRA%3D%3D</field>
+        <field name="DistributorPartNum">511-1N5711</field>
+        <field name="Manufacturer">STMicroelectronics</field>
+        <field name="ManufacturerPartNum">1N5711</field>
+      </fields>
+      <libsource lib="-lmp-diode" part="1N5711" description="Schottky signal diode"/>
+      <sheetpath names="/Min/" tstamps="/610CEC44/"/>
+      <tstamp>611AFD1A</tstamp>
+    </comp>
+    <comp ref="D4">
+      <value>1N5711</value>
+      <footprint>-lmp-stripboard:SB_Gen_2</footprint>
+      <datasheet>https://www.mouser.ca/datasheet/2/389/cd00000759-1795802.pdf</datasheet>
+      <fields>
+        <field name="Distributor">Mouser</field>
+        <field name="DistributorPartLink">https://www.mouser.ca/ProductDetail/STMicroelectronics/1N5711?qs=FITO%2F%2FQgYDnH7pJ7rS2FRA%3D%3D</field>
+        <field name="DistributorPartNum">511-1N5711</field>
+        <field name="Manufacturer">STMicroelectronics</field>
+        <field name="ManufacturerPartNum">1N5711</field>
+      </fields>
+      <libsource lib="-lmp-diode" part="1N5711" description="Schottky signal diode"/>
+      <sheetpath names="/Min/" tstamps="/610CEC44/"/>
+      <tstamp>610873D1</tstamp>
+    </comp>
+    <comp ref="U4">
+      <value>MCP4821</value>
+      <footprint>-lmp-misc:DIP-8_W7.62mm_LongPads</footprint>
+      <datasheet>http://ww1.microchip.com/downloads/en/DeviceDoc/22244B.pdf</datasheet>
+      <fields>
+        <field name="Distributor">Mouser</field>
+        <field name="DistributorPartLink">https://www.mouser.ca/ProductDetail/Microchip-Technology/MCP4821-E-P?qs=usxtMOJb1RzzS7usFBeRHg%3D%3D</field>
+        <field name="DistributorPartNum">579-MCP4821-E/P</field>
+        <field name="Manufacturer">Microchip</field>
+        <field name="ManufacturerPartNum">MCP4821-E/P</field>
+      </fields>
+      <libsource lib="Analog_DAC" part="MCP4821" description="12-Bit D/A Converters with SPI Interface, internal Reference (2.048V)"/>
+      <sheetpath names="/Min/" tstamps="/610CEC44/"/>
+      <tstamp>611EE830</tstamp>
+    </comp>
+    <comp ref="R19">
+      <value>100K</value>
+      <footprint>-lmp-stripboard:SB_Gen_2</footprint>
+      <datasheet>https://www.mouser.ca/datasheet/2/447/Yageo_LR_MFR_1-1714151.pdf</datasheet>
+      <fields>
+        <field name="Distributor">Mouser</field>
+        <field name="DistributorPartLink">https://www.mouser.ca/ProductDetail/YAGEO/MFR-12FTF52-100K?qs=oAGoVhmvjhxn7uX6J9%2FOug%3D%3D</field>
+        <field name="DistributorPartNum">603-MFR-12FTF52-100K</field>
+        <field name="Manufacturer">YAGEO</field>
+        <field name="ManufacturerPartNum">MFR-12FTF52-100K</field>
+      </fields>
+      <libsource lib="-lmp" part="R" description="Resistor"/>
+      <sheetpath names="/Min/" tstamps="/610CEC44/"/>
+      <tstamp>6122E436</tstamp>
+    </comp>
+    <comp ref="Y1">
+      <value>16MHz</value>
+      <footprint>Crystal:Resonator_muRata_CSTLSxxxX-3Pin_W5.5mm_H3.0mm</footprint>
+      <datasheet>https://www.mouser.ca/datasheet/2/281/p16e-522700.pdf</datasheet>
+      <fields>
+        <field name="Distributor">Mouser</field>
+        <field name="DistributorPartLink">https://www.mouser.ca/ProductDetail/?qs=%2F86%2Fe1WMjuvG1Dfcz2nWSg%3D%3D</field>
+        <field name="DistributorPartNum">81-CSTLS16M0X55-B0</field>
+        <field name="Manufacturer">Murata</field>
+        <field name="ManufacturerPartNum">CSTLS16M0X55-B0</field>
+      </fields>
+      <libsource lib="-lmp" part="Resonator" description="Three pin ceramic resonator, small symbol"/>
+      <sheetpath names="/Min/" tstamps="/610CEC44/"/>
+      <tstamp>610DAFCD</tstamp>
+    </comp>
+    <comp ref="R4">
+      <value>20K</value>
+      <footprint>-lmp-stripboard:SB_Gen_2</footprint>
+      <datasheet>https://www.mouser.ca/datasheet/2/447/Yageo_LR_MFR_1-1714151.pdf</datasheet>
+      <fields>
+        <field name="Distributor">Mouser</field>
+        <field name="DistributorPartLink">https://www.mouser.ca/ProductDetail/YAGEO/MFR-12FTF52-20K?qs=sGAEpiMZZMsPqMdJzcrNwiweiCzxKzWL3Dli7pqtTkM%3D</field>
+        <field name="DistributorPartNum">603-MFR-12FTF52-20K</field>
+        <field name="Manufacturer">YAGEO</field>
+        <field name="ManufacturerPartNum">MFR-12FTF52-20K</field>
+      </fields>
+      <libsource lib="-lmp" part="R" description="Resistor"/>
+      <sheetpath names="/Min/" tstamps="/610CEC44/"/>
+      <tstamp>61108202</tstamp>
+    </comp>
+    <comp ref="R7">
+      <value>20K</value>
+      <footprint>-lmp-stripboard:SB_Gen_1</footprint>
+      <datasheet>https://www.mouser.ca/datasheet/2/447/Yageo_LR_MFR_1-1714151.pdf</datasheet>
+      <fields>
+        <field name="Distributor">Mouser</field>
+        <field name="DistributorPartLink">https://www.mouser.ca/ProductDetail/YAGEO/MFR-12FTF52-20K?qs=sGAEpiMZZMsPqMdJzcrNwiweiCzxKzWL3Dli7pqtTkM%3D</field>
+        <field name="DistributorPartNum">603-MFR-12FTF52-20K</field>
+        <field name="Manufacturer">YAGEO</field>
+        <field name="ManufacturerPartNum">MFR-12FTF52-20K</field>
+      </fields>
+      <libsource lib="-lmp" part="R" description="Resistor"/>
+      <sheetpath names="/Min/" tstamps="/610CEC44/"/>
+      <tstamp>611977F4</tstamp>
+    </comp>
+    <comp ref="R5">
+      <value>10K</value>
+      <footprint>-lmp-stripboard:SB_Gen_1</footprint>
+      <datasheet>https://www.mouser.ca/datasheet/2/447/Yageo_LR_MFR_1-1714151.pdf</datasheet>
+      <fields>
+        <field name="Distributor">Mouser</field>
+        <field name="DistributorPartLink">https://www.mouser.ca/ProductDetail/YAGEO/MFR-12FRF52-10K?qs=sGAEpiMZZMsPqMdJzcrNwl7IR%2FWPk8YP7c4XT%2Fr88hQ%3D</field>
+        <field name="DistributorPartNum">603-MFR-12FRF5210K</field>
+        <field name="Manufacturer">YAGEO</field>
+        <field name="ManufacturerPartNum">MFR-12FRF52-10K</field>
+      </fields>
+      <libsource lib="-lmp" part="R" description="Resistor"/>
+      <sheetpath names="/Min/" tstamps="/610CEC44/"/>
+      <tstamp>61195D93</tstamp>
+    </comp>
+    <comp ref="U2">
+      <value>ATmega328P-PU</value>
+      <footprint>Package_DIP:DIP-28_W7.62mm</footprint>
+      <datasheet>https://www.microchip.com/en-us/product/ATmega328P</datasheet>
+      <fields>
+        <field name="Distributor">Mouser</field>
+        <field name="DistributorPartLink">https://www.mouser.ca/ProductDetail/?qs=K8BHR703ZXguOQv3sKbWcg%3D%3D</field>
+        <field name="DistributorPartNum">556-ATMEGA328P-PU</field>
+        <field name="Manufacturer">Microchip</field>
+        <field name="ManufacturerPartNum">ATMEGA328P-PU</field>
+        <field name="Note">16 MHz</field>
+      </fields>
+      <libsource lib="-lmp-IC-misc" part="ATmega328P-PU" description="20MHz, 32kB Flash, 2kB SRAM, 1kB EEPROM, DIP-28"/>
+      <sheetpath names="/Min/" tstamps="/610CEC44/"/>
+      <tstamp>610DAF7D</tstamp>
+    </comp>
+    <comp ref="R10">
+      <value>30K</value>
+      <footprint>-lmp-misc:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal</footprint>
+      <datasheet>https://www.mouser.ca/datasheet/2/447/Yageo_LR_MFR_1-1714151.pdf</datasheet>
+      <fields>
+        <field name="Distributor">Mouser</field>
+        <field name="DistributorPartLink">https://www.mouser.ca/ProductDetail/YAGEO/MFR-12FTF52-30K?qs=oAGoVhmvjhx41C7LP55%2FiQ%3D%3D</field>
+        <field name="DistributorPartNum">603-MFR-12FTF52-30K</field>
+        <field name="Manufacturer">YAGEO</field>
+        <field name="ManufacturerPartNum">MFR-12FTF52-30K</field>
+      </fields>
+      <libsource lib="-lmp" part="R" description="Resistor"/>
+      <sheetpath names="/Min/" tstamps="/610CEC44/"/>
+      <tstamp>6111F890</tstamp>
+    </comp>
+    <comp ref="C12">
+      <value>1N</value>
+      <footprint>-lmp-misc:C_Rect_Kemet_L7.2mm_W2.5mm_P5mm</footprint>
+      <datasheet>https://www.mouser.ca/datasheet/2/212/F3294_MMK-1101858.pdf</datasheet>
+      <fields>
+        <field name="Distributor">Mouser</field>
+        <field name="DistributorPartLink">https://www.mouser.ca/ProductDetail/KEMET/MMK5102J100J01L165TA18?qs=IKDMbYZLynDyIIzWkajPBA%3D%3D</field>
+        <field name="DistributorPartNum">80-MMK5102J100J1TA18</field>
+        <field name="Manufacturer">KEMET</field>
+        <field name="ManufacturerPartNum">MMK5102J100J01L16.5TA18</field>
+      </fields>
+      <libsource lib="-lmp" part="CF" description="Capacitor - Film"/>
+      <sheetpath names="/Min/" tstamps="/610CEC44/"/>
+      <tstamp>61120921</tstamp>
+    </comp>
+    <comp ref="R9">
+      <value>30K</value>
+      <footprint>-lmp-misc:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal</footprint>
+      <datasheet>https://www.mouser.ca/datasheet/2/447/Yageo_LR_MFR_1-1714151.pdf</datasheet>
+      <fields>
+        <field name="Distributor">Mouser</field>
+        <field name="DistributorPartLink">https://www.mouser.ca/ProductDetail/YAGEO/MFR-12FTF52-30K?qs=oAGoVhmvjhx41C7LP55%2FiQ%3D%3D</field>
+        <field name="DistributorPartNum">603-MFR-12FTF52-30K</field>
+        <field name="Manufacturer">YAGEO</field>
+        <field name="ManufacturerPartNum">MFR-12FTF52-30K</field>
+      </fields>
+      <libsource lib="-lmp" part="R" description="Resistor"/>
+      <sheetpath names="/Min/" tstamps="/610CEC44/"/>
+      <tstamp>61136DAC</tstamp>
+    </comp>
+    <comp ref="C11">
+      <value>1N</value>
+      <footprint>-lmp-misc:C_Rect_Kemet_L7.2mm_W2.5mm_P5mm</footprint>
+      <datasheet>https://www.mouser.ca/datasheet/2/212/F3294_MMK-1101858.pdf</datasheet>
+      <fields>
+        <field name="Distributor">Mouser</field>
+        <field name="DistributorPartLink">https://www.mouser.ca/ProductDetail/KEMET/MMK5102J100J01L165TA18?qs=IKDMbYZLynDyIIzWkajPBA%3D%3D</field>
+        <field name="DistributorPartNum">80-MMK5102J100J1TA18</field>
+        <field name="Manufacturer">KEMET</field>
+        <field name="ManufacturerPartNum">MMK5102J100J01L16.5TA18 </field>
+      </fields>
+      <libsource lib="-lmp" part="CF" description="Capacitor - Film"/>
+      <sheetpath names="/Min/" tstamps="/610CEC44/"/>
+      <tstamp>61136DB7</tstamp>
+    </comp>
+    <comp ref="R11">
+      <value>30K</value>
+      <footprint>-lmp-misc:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal</footprint>
+      <datasheet>https://www.mouser.ca/datasheet/2/447/Yageo_LR_MFR_1-1714151.pdf</datasheet>
+      <fields>
+        <field name="Distributor">Mouser</field>
+        <field name="DistributorPartLink">https://www.mouser.ca/ProductDetail/YAGEO/MFR-12FTF52-30K?qs=oAGoVhmvjhx41C7LP55%2FiQ%3D%3D</field>
+        <field name="DistributorPartNum">603-MFR-12FTF52-30K</field>
+        <field name="Manufacturer">YAGEO</field>
+        <field name="ManufacturerPartNum">MFR-12FTF52-30K</field>
+      </fields>
+      <libsource lib="-lmp" part="R" description="Resistor"/>
+      <sheetpath names="/Min/" tstamps="/610CEC44/"/>
+      <tstamp>6113E043</tstamp>
+    </comp>
+    <comp ref="C13">
+      <value>1N</value>
+      <footprint>-lmp-misc:C_Rect_Kemet_L7.2mm_W2.5mm_P5mm</footprint>
+      <datasheet>https://www.mouser.ca/datasheet/2/212/F3294_MMK-1101858.pdf</datasheet>
+      <fields>
+        <field name="Distributor">Mouser</field>
+        <field name="DistributorPartLink">https://www.mouser.ca/ProductDetail/KEMET/MMK5102J100J01L165TA18?qs=IKDMbYZLynDyIIzWkajPBA%3D%3D</field>
+        <field name="DistributorPartNum">80-MMK5102J100J1TA18</field>
+        <field name="Manufacturer">KEMET</field>
+        <field name="ManufacturerPartNum">MMK5102J100J01L16.5TA18</field>
+      </fields>
+      <libsource lib="-lmp" part="CF" description="Capacitor - Film"/>
+      <sheetpath names="/Min/" tstamps="/610CEC44/"/>
+      <tstamp>6113E04E</tstamp>
+    </comp>
+    <comp ref="Q1">
+      <value>2N3904</value>
+      <footprint>-lmp-misc:TO-92_Inline_Wide</footprint>
+      <datasheet>https://www.onsemi.com/pub/Collateral/2N3903-D.PDF</datasheet>
+      <fields>
+        <field name="Distributor">Mouser</field>
+        <field name="DistributorPartLink">https://www.mouser.ca/ProductDetail/Central-Semiconductor/2N3904-PBFREE?qs=u16ybLDytRZopNVvg2vJjA%3D%3D</field>
+        <field name="DistributorPartNum">610-2N3904</field>
+        <field name="Manufacturer">Central Semiconductor</field>
+        <field name="ManufacturerPartNum">2N3904 PBFREE</field>
+      </fields>
+      <libsource lib="-lmp" part="Q_NPN_2N3904" description="Small Signal NPN Transistor, 0.2A Ic, 40V Vce, TO-92"/>
+      <sheetpath names="/Min/" tstamps="/610CEC44/"/>
+      <tstamp>6117CA30</tstamp>
+    </comp>
+    <comp ref="R12">
+      <value>10K</value>
+      <footprint>-lmp-stripboard:SB_Gen_11</footprint>
+      <datasheet>https://www.mouser.ca/datasheet/2/447/Yageo_LR_MFR_1-1714151.pdf</datasheet>
+      <fields>
+        <field name="Distributor">Mouser</field>
+        <field name="DistributorPartLink">https://www.mouser.ca/ProductDetail/YAGEO/MFR-12FRF52-10K?qs=sGAEpiMZZMsPqMdJzcrNwl7IR%2FWPk8YP7c4XT%2Fr88hQ%3D</field>
+        <field name="DistributorPartNum">603-MFR-12FRF5210K</field>
+        <field name="Manufacturer">YAGEO</field>
+        <field name="ManufacturerPartNum">MFR-12FRF52-10K</field>
+      </fields>
+      <libsource lib="-lmp" part="R" description="Resistor"/>
+      <sheetpath names="/Min/" tstamps="/610CEC44/"/>
+      <tstamp>6119FC5B</tstamp>
+    </comp>
+    <comp ref="R20">
+      <value>1K</value>
+      <footprint>-lmp-stripboard:SB_Gen_6</footprint>
+      <datasheet>https://www.mouser.ca/datasheet/2/427/ccf07-1762725.pdf</datasheet>
+      <fields>
+        <field name="Distributor">Mouser</field>
+        <field name="DistributorPartLink">https://www.mouser.ca/ProductDetail/Vishay-Dale/CCF071K00JKE36?qs=sGAEpiMZZMsPqMdJzcrNwqw41JD0NFylHV1MADcQnpo%3D</field>
+        <field name="DistributorPartNum">71-CCF071K00JKE36</field>
+        <field name="Manufacturer">Vishay / Dale</field>
+        <field name="ManufacturerPartNum">CCF071K00JKE36</field>
+        <field name="Note">Output limiting</field>
+        <field name="Value2">5%, 1/4 W</field>
+      </fields>
+      <libsource lib="-lmp-synth" part="R_1K_Output" description="Resistor"/>
+      <sheetpath names="/Min/" tstamps="/610CEC44/"/>
+      <tstamp>6114A4C2</tstamp>
     </comp>
   </components>
   <libparts>
@@ -333,161 +953,396 @@
         <pin num="2" name="~" type="passive"/>
       </pins>
     </libpart>
-    <libpart lib="-lmp" part="CP">
-      <aliases>
-        <alias>CT</alias>
-      </aliases>
-      <description>Capacitor - Electrolytic</description>
+    <libpart lib="-lmp" part="CC_100N">
+      <description>Capacitor - Ceramic - IC decoupling</description>
+      <docs>https://product.tdk.com/system/files/dam/doc/product/capacitor/ceramic/lead-mlcc/catalog/leadmlcc_halogenfree_fg_en.pdf</docs>
+      <footprints>
+        <fp>C_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">C</field>
+        <field name="Value">CC_100N</field>
+        <field name="Footprint">-lmp-misc:C_Disc_D5.0mm_W2.5mm_P2.50mm</field>
+        <field name="Note">IC decoupling</field>
+        <field name="Manufacturer">TDK</field>
+        <field name="ManufacturerPartNum">FG18X7R1H104KNT06</field>
+        <field name="Distributor">Mouser</field>
+        <field name="DistributorPartNum">810-FG18X7R1H104KNT6</field>
+        <field name="DistributorPartLink">https://www.mouser.ca/ProductDetail/810-FG18X7R1H104KNT6</field>
+      </fields>
+      <pins>
+        <pin num="1" name="~" type="passive"/>
+        <pin num="2" name="~" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="-lmp" part="Conn_FTDI">
+      <description>Pin header for FTDI USB-serial cable</description>
       <docs>~</docs>
+      <footprints>
+        <fp>Connector*:*_1x??_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">Conn_FTDI</field>
+        <field name="Footprint">Connector_PinHeader_2.54mm:PinHeader_1x06_P2.54mm_Vertical</field>
+      </fields>
+      <pins>
+        <pin num="1" name="GND" type="passive"/>
+        <pin num="2" name="CTS" type="passive"/>
+        <pin num="3" name="VCC" type="passive"/>
+        <pin num="4" name="TXO" type="passive"/>
+        <pin num="5" name="RXI" type="passive"/>
+        <pin num="6" name="DTR" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="-lmp" part="Q_NPN_2N3904">
+      <description>Small Signal NPN Transistor, 0.2A Ic, 40V Vce, TO-92</description>
+      <docs>https://www.onsemi.com/pub/Collateral/2N3903-D.PDF</docs>
+      <footprints>
+        <fp>TO?92*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">Q</field>
+        <field name="Value">Q_NPN_2N3904</field>
+        <field name="Footprint">-lmp-misc:TO-92_Inline_Wide</field>
+        <field name="Manufacturer">Central Semiconductor</field>
+        <field name="ManufacturerPartNum">2N3904 PBFREE</field>
+        <field name="Distributor">Mouser</field>
+        <field name="DistributorPartNum">610-2N3904</field>
+        <field name="DistributorPartLink">https://www.mouser.ca/ProductDetail/Central-Semiconductor/2N3904-PBFREE?qs=u16ybLDytRZopNVvg2vJjA%3D%3D</field>
+      </fields>
+      <pins>
+        <pin num="1" name="E" type="passive"/>
+        <pin num="2" name="B" type="passive"/>
+        <pin num="3" name="C" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="-lmp" part="R">
+      <description>Resistor</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>R_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">R</field>
+        <field name="Value">R</field>
+        <field name="Footprint">-lmp-misc:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal</field>
+      </fields>
+      <pins>
+        <pin num="1" name="~" type="passive"/>
+        <pin num="2" name="~" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="-lmp" part="Resonator">
+      <description>Three pin ceramic resonator, small symbol</description>
+      <docs>https://www.mouser.ca/datasheet/2/281/p16e-522700.pdf</docs>
+      <footprints>
+        <fp>Filter*</fp>
+        <fp>Resonator*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">Y</field>
+        <field name="Value">Resonator</field>
+        <field name="Footprint">Crystal:Resonator_muRata_CSTLSxxxX-3Pin_W5.5mm_H3.0mm</field>
+        <field name="Manufacturer">Murata</field>
+        <field name="ManufacturerPartNum">CSTLS16M0X55-B0</field>
+        <field name="Distributor">Mouser</field>
+        <field name="DistributorPartNum">81-CSTLS16M0X55-B0</field>
+        <field name="DistributorPartLink">https://www.mouser.ca/ProductDetail/?qs=%2F86%2Fe1WMjuvG1Dfcz2nWSg%3D%3D</field>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+        <pin num="3" name="3" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="-lmp" part="SW_Push_Tact_6mm">
+      <description>Push button switch, generic, two pins</description>
+      <docs>https://www.mouser.ca/datasheet/2/60/pts645-965362.pdf</docs>
+      <fields>
+        <field name="Reference">SW</field>
+        <field name="Value">SW_Push_Tact_6mm</field>
+        <field name="Footprint">-lmp-misc:SW_PUSH_6mm</field>
+        <field name="Manufacturer">C&amp;K</field>
+        <field name="ManufacturerPartNum">PTS645SM502LFS</field>
+        <field name="Distributor">Mouser</field>
+        <field name="DistributorPartNum">611-PTS645SM502</field>
+        <field name="DistributorPartLink">https://www.mouser.ca/ProductDetail/CK/PTS645SM502LFS?qs=FQH5YrIbzh%252BkEXi8sqys0Q%3D%3D</field>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="-lmp-IC-misc" part="ATmega328P-PU">
+      <description>20MHz, 32kB Flash, 2kB SRAM, 1kB EEPROM, DIP-28</description>
+      <docs>https://www.microchip.com/en-us/product/ATmega328P</docs>
+      <footprints>
+        <fp>DIP*W7.62mm*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">ATmega328P-PU</field>
+        <field name="Footprint">Package_DIP:DIP-28_W7.62mm</field>
+        <field name="Note">16 MHz</field>
+        <field name="Manufacturer">Microchip</field>
+        <field name="ManufacturerPartNum">ATMEGA328P-PU</field>
+        <field name="Distributor">Mouser</field>
+        <field name="DistributorPartNum">556-ATMEGA328P-PU</field>
+        <field name="DistributorPartLink">https://www.mouser.ca/ProductDetail/?qs=K8BHR703ZXguOQv3sKbWcg%3D%3D</field>
+      </fields>
+      <pins>
+        <pin num="1" name="(PCINT14/~RESET~/)PC6" type="BiDi"/>
+        <pin num="2" name="(PCINT16/RXD/PD0)d0" type="BiDi"/>
+        <pin num="3" name="(PCINT17/TXD/PD1)d1" type="BiDi"/>
+        <pin num="4" name="(PCINT18/INT0/PD2)d2" type="BiDi"/>
+        <pin num="5" name="(PCINT19/OC2B/INT1/PD3)d3" type="BiDi"/>
+        <pin num="6" name="(PCINT20/XCK/T0/PD4)d4" type="BiDi"/>
+        <pin num="7" name="VCC" type="power_in"/>
+        <pin num="8" name="GND" type="power_in"/>
+        <pin num="9" name="(PCINT6/XTAL1/TOSC1)PB6" type="BiDi"/>
+        <pin num="10" name="(PCINT7/XTAL2/TOSC2)PB7" type="BiDi"/>
+        <pin num="11" name="(PCINT21/OC0B/T1/PD5)d5" type="BiDi"/>
+        <pin num="12" name="(PCINT22/OC0A/AIN0/PD6)d6" type="BiDi"/>
+        <pin num="13" name="(PCINT23/AIN1/PD7)d7" type="BiDi"/>
+        <pin num="14" name="(PCINT0/CLKO/ICP1/PB0)d8" type="BiDi"/>
+        <pin num="15" name="(PCINT1/OC1A/PB1)d9" type="BiDi"/>
+        <pin num="16" name="(PCINT2/OC1B/~SS~/PB2)d10" type="BiDi"/>
+        <pin num="17" name="(PCINT3/OC2A/MOSI/PB3)d11" type="BiDi"/>
+        <pin num="18" name="(PCINT4/MISO/PB4)d12" type="BiDi"/>
+        <pin num="19" name="(PCINT5/SCK/PB5)d13" type="BiDi"/>
+        <pin num="20" name="AVCC" type="power_in"/>
+        <pin num="21" name="AREF" type="passive"/>
+        <pin num="22" name="GND" type="power_in"/>
+        <pin num="23" name="(PCINT8/ADC0/PC0)a0" type="BiDi"/>
+        <pin num="24" name="(PCINT9/ADC1/PC1)a1" type="BiDi"/>
+        <pin num="25" name="(PCINT10/ADC2/PC2)a2" type="BiDi"/>
+        <pin num="26" name="(PCINT11/ADC3/PC3)a3" type="BiDi"/>
+        <pin num="27" name="(PCINT12/SDA/ADC4/PC4)a4" type="BiDi"/>
+        <pin num="28" name="(PCINT13/SCL/ADC5/PC5)a5" type="BiDi"/>
+      </pins>
+    </libpart>
+    <libpart lib="-lmp-diode" part="1N5711">
+      <description>Schottky signal diode</description>
+      <docs>https://www.mouser.ca/datasheet/2/389/cd00000759-1795802.pdf</docs>
+      <footprints>
+        <fp>TO-???*</fp>
+        <fp>*_Diode_*</fp>
+        <fp>*SingleDiode*</fp>
+        <fp>D_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">D</field>
+        <field name="Value">1N5711</field>
+        <field name="Footprint">Diode_THT:D_DO-35_SOD27_P7.62mm_Horizontal</field>
+        <field name="Manufacturer">STMicroelectronics</field>
+        <field name="ManufacturerPartNum">1N5711</field>
+        <field name="Distributor">Mouser</field>
+        <field name="DistributorPartNum">511-1N5711</field>
+        <field name="DistributorPartLink">https://www.mouser.ca/ProductDetail/STMicroelectronics/1N5711?qs=FITO%2F%2FQgYDnH7pJ7rS2FRA%3D%3D</field>
+      </fields>
+      <pins>
+        <pin num="1" name="K" type="passive"/>
+        <pin num="2" name="A" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="-lmp-diode" part="MBR150">
+      <description>Schottky rectifier diode</description>
+      <docs>https://www.onsemi.com/pdf/datasheet/mbr150-d.pdf</docs>
+      <footprints>
+        <fp>TO-???*</fp>
+        <fp>*_Diode_*</fp>
+        <fp>*SingleDiode*</fp>
+        <fp>D_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">D</field>
+        <field name="Value">MBR150</field>
+        <field name="Footprint">Diode_THT:D_DO-41_SOD81_P7.62mm_Horizontal</field>
+        <field name="Manufacturer">On Semi</field>
+        <field name="ManufacturerPartNum">MBR150RLG</field>
+        <field name="Distributor">Mouser</field>
+        <field name="DistributorPartNum">863-MBR150RLG</field>
+        <field name="DistributorPartLink">https://www.mouser.ca/ProductDetail/ON-Semiconductor/MBR150RLG?qs=3JMERSakebpMUdfDTQP0Kw%3D%3D</field>
+      </fields>
+      <pins>
+        <pin num="1" name="K" type="passive"/>
+        <pin num="2" name="A" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="-lmp-opamp" part="TL074">
+      <description>Quad Low-Noise JFET-Input Operational Amplifiers, DIP-14/SOIC-14</description>
+      <docs>http://www.ti.com/lit/ds/symlink/tl071.pdf</docs>
+      <footprints>
+        <fp>SOIC*3.9x8.7mm*P1.27mm*</fp>
+        <fp>DIP*W7.62mm*</fp>
+        <fp>TSSOP*4.4x5mm*P0.65mm*</fp>
+        <fp>SSOP*5.3x6.2mm*P0.65mm*</fp>
+        <fp>MSOP*3x3mm*P0.5mm*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">TL074</field>
+        <field name="Footprint">-lmp-misc:DIP-14_W7.62mm_LongPads</field>
+        <field name="Manufacturer">Texas Instruments</field>
+        <field name="ManufacturerPartNum">TL074BCN</field>
+        <field name="Distributor">Mouser</field>
+        <field name="DistributorPartNum">595-TL074BCN</field>
+        <field name="DistributorPartLink">https://www.mouser.ca/ProductDetail/?qs=vxEfx8VrU7BHurOY5iQdiA%3D%3D</field>
+      </fields>
+      <pins>
+        <pin num="1" name="~" type="output"/>
+        <pin num="2" name="-" type="input"/>
+        <pin num="3" name="+" type="input"/>
+        <pin num="4" name="V+" type="power_in"/>
+        <pin num="5" name="+" type="input"/>
+        <pin num="6" name="-" type="input"/>
+        <pin num="7" name="~" type="output"/>
+        <pin num="8" name="~" type="output"/>
+        <pin num="9" name="-" type="input"/>
+        <pin num="10" name="+" type="input"/>
+        <pin num="11" name="V-" type="power_in"/>
+        <pin num="12" name="+" type="input"/>
+        <pin num="13" name="-" type="input"/>
+        <pin num="14" name="~" type="output"/>
+      </pins>
+    </libpart>
+    <libpart lib="-lmp-regulator" part="L78L05_TO92">
+      <description>Positive 100mA 30V Linear Regulator, Fixed Output 5V, TO-92</description>
+      <docs>http://www.st.com/content/ccc/resource/technical/document/datasheet/15/55/e5/aa/23/5b/43/fd/CD00000446.pdf/files/CD00000446.pdf/jcr:content/translations/en.CD00000446.pdf</docs>
+      <footprints>
+        <fp>TO?92*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">L78L05_TO92</field>
+        <field name="Footprint">-lmp-misc:TO-92_Inline_Wide</field>
+        <field name="Manufacturer">STMicroelectronics </field>
+        <field name="ManufacturerPartNum">L78L05ACZ-AP</field>
+        <field name="Distributor">Mouser</field>
+        <field name="DistributorPartNum">511-L78L05ACZ-AP</field>
+        <field name="DistributorPartLink">https://www.mouser.ca/ProductDetail/STMicroelectronics/L78L05ACZ-AP?qs=sGAEpiMZZMuLLNXTG1MZanrpqIdcnbmrowz4nhu1BnI%3D</field>
+      </fields>
+      <pins>
+        <pin num="1" name="VO" type="power_out"/>
+        <pin num="2" name="GND" type="power_in"/>
+        <pin num="3" name="VI" type="power_in"/>
+      </pins>
+    </libpart>
+    <libpart lib="-lmp-synth" part="CP_10U">
+      <description>Capacitor - Electrolytic - 12 V decoupling</description>
+      <docs>https://industrial.panasonic.com/cdbs/www-data/pdf/RDF0000/ABA0000C1209.pdf</docs>
       <footprints>
         <fp>CP_*</fp>
       </footprints>
       <fields>
         <field name="Reference">C</field>
-        <field name="Value">CP</field>
+        <field name="Value">CP_10U</field>
+        <field name="Footprint">-lmp-misc:CP_Radial_D5.0mm_P2.50mm</field>
+        <field name="Value2">25 VDC</field>
+        <field name="Note ">12 V decoupling</field>
+        <field name="Manufacturer">Panasonic</field>
+        <field name="ManufacturerPartNum">EEA-FC1E100</field>
+        <field name="Distributor">Mouser</field>
+        <field name="DistributorPartNum">667-EEA-FC1E100</field>
+        <field name="DistributorPartLink">https://www.mouser.ca/ProductDetail/Panasonic/EEA-FC1E100?qs=nLJruSqDb94EJwiFQJd4iw%3D%3D</field>
       </fields>
       <pins>
         <pin num="1" name="~" type="passive"/>
         <pin num="2" name="~" type="passive"/>
       </pins>
     </libpart>
-    <libpart lib="-lmp" part="Fuse">
-      <description>Fuse</description>
-      <docs>~</docs>
-      <footprints>
-        <fp>*Fuse*</fp>
-      </footprints>
-      <fields>
-        <field name="Reference">F</field>
-        <field name="Value">Fuse</field>
-      </fields>
-      <pins>
-        <pin num="1" name="~" type="passive"/>
-        <pin num="2" name="~" type="passive"/>
-      </pins>
-    </libpart>
-    <libpart lib="-lmp" part="FuseClip_D5mm_P5mm">
-      <description>Littelfuse Phosphor Bronze PCB Mount Fuse Clip for 5 x 20mm Cartridge Fuse</description>
-      <docs>https://www.littelfuse.com/~/media/electronics/datasheets/fuse_clips/littelfuse_fuse_clip_520_521_102071_datasheet.pdf.pdf</docs>
+    <libpart lib="-lmp-synth" part="Conn_Delptronics_Back_Left_4HP">
+      <description>Delptronics Module Construction Set board connector</description>
+      <docs>https://delptronics.com/documents/MCS-Control-Connections.pdf</docs>
       <footprints>
         <fp>Connector*:*_1x??_*</fp>
       </footprints>
       <fields>
-        <field name="Reference">XF</field>
-        <field name="Value">FuseClip_D5mm_P5mm</field>
-        <field name="Footprint">-lmp-misc:FuseClip_D5mm_P5mm_52000001009</field>
-        <field name="Height">8</field>
-        <field name="Mouser Part Number">576-52000001009</field>
-        <field name="Mouser Price/Stock">https://www.mouser.co.uk/ProductDetail/Littelfuse/52000001009?qs=TxeoXSYJMVRCKOrJrEyYEQ%3D%3D</field>
-        <field name="Manufacturer_Name">LITTELFUSE</field>
-        <field name="Manufacturer_Part_Number">52000001009</field>
+        <field name="Reference">J</field>
+        <field name="Value">Conn_Delptronics_Back_Left_4HP</field>
+        <field name="Footprint">-lmp-synth:PinHeader_Delptronics_Back_Left_4HP</field>
       </fields>
       <pins>
-        <pin num="1" name="Pin_1" type="passive"/>
+        <pin num="1" name="P5_3" type="passive"/>
+        <pin num="2" name="P5_2" type="passive"/>
+        <pin num="3" name="P5_1" type="passive"/>
+        <pin num="4" name="J5_2" type="passive"/>
+        <pin num="5" name="J5_1" type="passive"/>
+        <pin num="6" name="P6_3" type="passive"/>
+        <pin num="7" name="P6_2" type="passive"/>
+        <pin num="8" name="P6_1" type="passive"/>
+        <pin num="9" name="J6_2" type="passive"/>
+        <pin num="10" name="J6_1" type="passive"/>
+        <pin num="11" name="P7_3" type="passive"/>
+        <pin num="12" name="P7_2" type="passive"/>
+        <pin num="13" name="P7_1" type="passive"/>
+        <pin num="14" name="J7_2" type="passive"/>
+        <pin num="15" name="J7_1" type="passive"/>
+        <pin num="16" name="P8_3" type="passive"/>
+        <pin num="17" name="P8_2" type="passive"/>
+        <pin num="18" name="P8_1" type="passive"/>
+        <pin num="19" name="J8_2" type="passive"/>
+        <pin num="20" name="J8_1" type="passive"/>
+        <pin num="21" name="B1_3" type="passive"/>
+        <pin num="22" name="B1_2" type="passive"/>
+        <pin num="23" name="B1_1" type="passive"/>
+        <pin num="24" name="GND" type="power_in"/>
       </pins>
     </libpart>
-    <libpart lib="-lmp" part="HS_HSE-B20500-040H">
-      <description>Heat Sinks 50x29x12.5mm w/pin extrusion TO-220</description>
-      <docs>https://www.mouser.ca/datasheet/2/670/hse_b20x-1778114.pdf</docs>
-      <fields>
-        <field name="Reference">HS</field>
-        <field name="Value">HS_HSE-B20500-040H</field>
-        <field name="Footprint">-lmp-misc:HS_HSEB20500040H</field>
-        <field name="Description">Heat Sinks 50x29x12.5mm w/pin extrusion TO-220</field>
-        <field name="Height">50.5</field>
-        <field name="Mouser Part Number">490-HSE-B20500-040H</field>
-        <field name="Mouser Price/Stock">https://www.mouser.co.uk/ProductDetail/CUI-Devices/HSE-B20500-040H/?qs=5aG0NVq1C4xE0e8j9RWAzQ%3D%3D</field>
-        <field name="Manufacturer_Name">CUI Inc.</field>
-        <field name="Manufacturer_Part_Number">HSE-B20500-040H</field>
-      </fields>
-      <pins>
-        <pin num="1" name="1" type="NotConnected"/>
-        <pin num="2" name="2" type="NotConnected"/>
-      </pins>
-    </libpart>
-    <libpart lib="-lmp" part="Logo_CC_BY_SA">
-      <description>Creative Commons BY-SA License logo</description>
-      <docs>https://creativecommons.org/licenses/by-sa/4.0/</docs>
-      <fields>
-        <field name="Reference">G</field>
-        <field name="Value">Logo_CC_BY_SA</field>
-        <field name="Footprint">-lmp-misc:Logo_CC_BY_SA</field>
-      </fields>
-    </libpart>
-    <libpart lib="-lmp" part="Logo_OSHW">
-      <description>Open Source Hardware logo</description>
-      <docs>https://www.oshwa.org/definition/</docs>
-      <fields>
-        <field name="Reference">G</field>
-        <field name="Value">Logo_OSHW</field>
-        <field name="Footprint">-lmp-misc:Logo_OSHW</field>
-      </fields>
-    </libpart>
-    <libpart lib="-lmp" part="PCB">
-      <description>Printed Circuit Board</description>
-      <fields>
-        <field name="Reference">H</field>
-        <field name="Value">PCB</field>
-        <field name="Footprint">-lmp-misc:NoFootprint</field>
-      </fields>
-    </libpart>
-    <libpart lib="-lmp-regulator" part="LM7805_TO220">
-      <aliases>
-        <alias>LM7806_TO220</alias>
-        <alias>LM7808_TO220</alias>
-        <alias>LM7809_TO220</alias>
-        <alias>LM7810_TO220</alias>
-        <alias>LM7812_TO220</alias>
-        <alias>LM7815_TO220</alias>
-        <alias>LM7818_TO220</alias>
-        <alias>LM7824_TO220</alias>
-        <alias>LM78M05_TO220</alias>
-        <alias>SPX2920U-3.3_TO220</alias>
-        <alias>SPX2920U-5.0_TO220</alias>
-        <alias>LF15_TO220</alias>
-        <alias>LF18_TO220</alias>
-        <alias>LF25_TO220</alias>
-        <alias>LF33_TO220</alias>
-        <alias>LF50_TO220</alias>
-        <alias>LF60_TO220</alias>
-        <alias>LF80_TO220</alias>
-        <alias>LF85_TO220</alias>
-        <alias>LF120_TO220</alias>
-        <alias>LF47_TO220</alias>
-        <alias>LF90_TO220</alias>
-        <alias>LM341T-05_TO220</alias>
-        <alias>LM341T-12_TO220</alias>
-        <alias>LM341T-15_TO220</alias>
-        <alias>LM2937xT</alias>
-        <alias>LM2931-3.3_TO220</alias>
-        <alias>LM2931-5.0_TO220</alias>
-      </aliases>
-      <description>Positive 1A 35V Linear Regulator, Fixed Output 5V, TO-220</description>
-      <docs>https://www.onsemi.cn/PowerSolutions/document/MC7800-D.PDF</docs>
+    <libpart lib="-lmp-synth" part="Conn_Delptronics_Front_Left_4HP">
+      <description>Delptronics Module Construction Set board connector</description>
+      <docs>https://delptronics.com/documents/MCS-Control-Connections.pdf</docs>
       <footprints>
-        <fp>TO?220*</fp>
+        <fp>Connector*:*_1x??_*</fp>
       </footprints>
       <fields>
-        <field name="Reference">U</field>
-        <field name="Value">LM7805_TO220</field>
-        <field name="Footprint">Package_TO_SOT_THT:TO-220-3_Vertical</field>
+        <field name="Reference">J</field>
+        <field name="Value">Conn_Delptronics_Front_Left_4HP</field>
+        <field name="Footprint">-lmp-synth:PinSocket_Delptronics_Front</field>
       </fields>
       <pins>
-        <pin num="1" name="VI" type="power_in"/>
-        <pin num="2" name="GND" type="power_in"/>
-        <pin num="3" name="VO" type="power_out"/>
+        <pin num="1" name="P5_3" type="passive"/>
+        <pin num="2" name="P5_2" type="passive"/>
+        <pin num="3" name="P5_1" type="passive"/>
+        <pin num="4" name="J5_2" type="passive"/>
+        <pin num="5" name="J5_1" type="passive"/>
+        <pin num="6" name="P6_3" type="passive"/>
+        <pin num="7" name="P6_2" type="passive"/>
+        <pin num="8" name="P6_1" type="passive"/>
+        <pin num="9" name="J6_2" type="passive"/>
+        <pin num="10" name="J6_1" type="passive"/>
+        <pin num="11" name="P7_3" type="passive"/>
+        <pin num="12" name="P7_2" type="passive"/>
+        <pin num="13" name="P7_1" type="passive"/>
+        <pin num="14" name="J7_2" type="passive"/>
+        <pin num="15" name="J7_1" type="passive"/>
+        <pin num="16" name="P8_3" type="passive"/>
+        <pin num="17" name="P8_2" type="passive"/>
+        <pin num="18" name="P8_1" type="passive"/>
+        <pin num="19" name="J8_2" type="passive"/>
+        <pin num="20" name="J8_1" type="passive"/>
+        <pin num="21" name="B1_3" type="passive"/>
+        <pin num="22" name="B1_2" type="passive"/>
+        <pin num="23" name="B1_1" type="passive"/>
+        <pin num="24" name="GND" type="power_in"/>
       </pins>
     </libpart>
-    <libpart lib="-lmp-synth" part="Conn_Eurorack_Pwr_16">
-      <description>Eurorack 16-pin board power/CV/gate bus connector</description>
-      <docs>https://www.mouser.ca/datasheet/2/445/61201621621-1717735.pdf</docs>
+    <libpart lib="-lmp-synth" part="Conn_Eurorack_Pwr_10">
+      <description>Eurorack 10-pin board power connector</description>
+      <docs>https://www.mouser.ca/datasheet/2/445/61201021621-1717731.pdf</docs>
       <footprints>
         <fp>Connector*:*_2x??_*</fp>
       </footprints>
       <fields>
         <field name="Reference">J</field>
-        <field name="Value">Conn_Eurorack_Pwr_16</field>
-        <field name="Footprint">-lmp-synth:IDC-Header-Eurorack-16-TH</field>
+        <field name="Value">Conn_Eurorack_Pwr_10</field>
+        <field name="Footprint">-lmp-synth:IDC-Header-Eurorack-10-TH</field>
+        <field name="Manufacturer">Wurth Elektronik</field>
+        <field name="ManufacturerPartNum">61201021621</field>
+        <field name="Distributor">Mouser</field>
+        <field name="DistributorPartNum">710-61201021621</field>
+        <field name="DistributorPartLink">https://www.mouser.ca/ProductDetail/Wurth-Elektronik/61201021621?qs=%2Fha2pyFadugkhyfdWLPRIwz9kroMfF%252BXZWEETFcVSqiQRaqHzEC2RQ%3D%3D</field>
       </fields>
       <pins>
         <pin num="1" name="-12V" type="power_in"/>
@@ -500,81 +1355,199 @@
         <pin num="8" name="~" type="power_in"/>
         <pin num="9" name="+12V" type="power_in"/>
         <pin num="10" name="~" type="power_in"/>
-        <pin num="11" name="+5V" type="power_in"/>
-        <pin num="12" name="~" type="power_in"/>
-        <pin num="13" name="CV" type="BiDi"/>
-        <pin num="14" name="~" type="BiDi"/>
-        <pin num="15" name="GATE" type="BiDi"/>
-        <pin num="16" name="~" type="BiDi"/>
       </pins>
     </libpart>
-    <libpart lib="-lmp-synth" part="Converter_DCDC_PYBE30">
-      <description>Isolated 4:1 input DC/DC converter module, DIP</description>
-      <docs>https://www.mouser.ca/datasheet/2/670/pybe30-1525754.pdf</docs>
+    <libpart lib="-lmp-synth" part="Jack_WQP-PJ398">
+      <description>Audio Jack, 2 Poles (Mono / TS), Switched T Pole (Normalling), QingPu / Thonkiconn</description>
+      <docs>http://www.qingpu-electronics.com/en/products/WQP-PJ398SM-362.html</docs>
       <footprints>
-        <fp>Converter*DCDC*</fp>
-      </footprints>
-      <fields>
-        <field name="Reference">PS</field>
-        <field name="Value">Converter_DCDC_PYBE30</field>
-        <field name="Footprint">-lmp-synth:Converter_DCDC_CUI_PYBE30</field>
-      </fields>
-      <pins>
-        <pin num="1" name="+VIN" type="power_in"/>
-        <pin num="2" name="-VIN" type="power_in"/>
-        <pin num="3" name="CTRL" type="input"/>
-        <pin num="4" name="-VOUT" type="power_out"/>
-        <pin num="5" name="0V" type="power_out"/>
-        <pin num="6" name="+VOUT" type="power_out"/>
-      </pins>
-    </libpart>
-    <libpart lib="Connector" part="Barrel_Jack">
-      <aliases>
-        <alias>Jack-DC</alias>
-      </aliases>
-      <description>DC Barrel Jack</description>
-      <docs>~</docs>
-      <footprints>
-        <fp>BarrelJack*</fp>
+        <fp>Jack*</fp>
       </footprints>
       <fields>
         <field name="Reference">J</field>
-        <field name="Value">Barrel_Jack</field>
+        <field name="Value">Jack_WQP-PJ398</field>
+        <field name="Footprint">-lmp-synth:Jack_3.5mm_QingPu_WQP-PJ398SM_Vertical_CircularHoles</field>
+        <field name="Label">[label]</field>
+        <field name="Manufacturer">QingPu / Thonk</field>
+        <field name="ManufacturerPartNum">PJ398SM / WQP518MA</field>
+        <field name="Distributor">Thonk</field>
+        <field name="DistributorPartNum">PJ398SM</field>
+        <field name="DistributorPartLink">https://www.thonk.co.uk/shop/thonkiconn/</field>
+        <field name="Distributor2">SynthCube</field>
+        <field name="Distributor3">Adadfruit</field>
+        <field name="DistributorPartNum2">WQP518MA</field>
+        <field name="DistributorPartNum3">4031</field>
+        <field name="DistributorPartLink2">https://synthcube.com/cart/3-5mm-euro-jacks</field>
+        <field name="DistributorPartLink3">https://www.adafruit.com/product/4031</field>
+      </fields>
+      <pins>
+        <pin num="S" name="~" type="passive"/>
+        <pin num="T" name="~" type="passive"/>
+        <pin num="TN" name="~" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="-lmp-synth" part="LED_5mm_Blue">
+      <description>Blue Light Emitting Diode</description>
+      <docs>https://www.mouser.ca/datasheet/2/423/VAOL-5LSBY1-1064871.pdf</docs>
+      <footprints>
+        <fp>LED*</fp>
+        <fp>LED_SMD:*</fp>
+        <fp>LED_THT:*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">D</field>
+        <field name="Value">LED_5mm_Blue</field>
+        <field name="Footprint">LED_THT:LED_D5.0mm</field>
+        <field name="Label">[label]</field>
+        <field name="Manufacturer">VCC</field>
+        <field name="ManufacturerPartNum">VAOL-5LSBY1</field>
+        <field name="Distributor">Mouser</field>
+        <field name="DistributorPartNum">593-VAOL-5LSBY1</field>
+        <field name="DistributorPartLink">https://www.mouser.ca/ProductDetail/VCC/VAOL-5LSBY1?qs=sGAEpiMZZMvHYEB9WUp7EneOMcS%2FsWIS9dCGd3NWsaQ%3D</field>
+      </fields>
+      <pins>
+        <pin num="1" name="K" type="passive"/>
+        <pin num="2" name="A" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="-lmp-synth" part="R_1K_Output">
+      <description>Resistor</description>
+      <docs>https://www.mouser.ca/datasheet/2/427/ccf07-1762725.pdf</docs>
+      <footprints>
+        <fp>R_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">R</field>
+        <field name="Value">R_1K_Output</field>
+        <field name="Footprint">-lmp-misc:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal</field>
+        <field name="Value2">5%, 1/4 W</field>
+        <field name="Note">Output limiting</field>
+        <field name="Manufacturer">Vishay / Dale</field>
+        <field name="ManufacturerPartNum">CCF071K00JKE36</field>
+        <field name="Distributor">Mouser</field>
+        <field name="DistributorPartNum">71-CCF071K00JKE36</field>
+        <field name="DistributorPartLink">https://www.mouser.ca/ProductDetail/Vishay-Dale/CCF071K00JKE36?qs=sGAEpiMZZMsPqMdJzcrNwqw41JD0NFylHV1MADcQnpo%3D</field>
       </fields>
       <pins>
         <pin num="1" name="~" type="passive"/>
         <pin num="2" name="~" type="passive"/>
       </pins>
     </libpart>
-    <libpart lib="Connector_Generic" part="Conn_01x04">
-      <description>Generic connector, single row, 01x04, script generated (kicad-library-utils/schlib/autogen/connector/)</description>
-      <docs>~</docs>
+    <libpart lib="-lmp-synth" part="R_POT_Panel_PCB_Alpha">
+      <description>Potentiometer</description>
+      <docs>https://www.mouser.ca/datasheet/2/13/alpha_taiwan_08192019_RD901F-40-15R1-B(resistance_-1627810.pdf</docs>
       <footprints>
-        <fp>Connector*:*_1x??_*</fp>
+        <fp>Potentiometer*</fp>
       </footprints>
       <fields>
-        <field name="Reference">J</field>
-        <field name="Value">Conn_01x04</field>
-      </fields>
-      <pins>
-        <pin num="1" name="Pin_1" type="passive"/>
-        <pin num="2" name="Pin_2" type="passive"/>
-        <pin num="3" name="Pin_3" type="passive"/>
-        <pin num="4" name="Pin_4" type="passive"/>
-      </pins>
-    </libpart>
-    <libpart lib="Switch" part="SW_SPST_Lamp">
-      <description>Single Pole Single Throw (SPST) switch with signal lamp, generic</description>
-      <docs>~</docs>
-      <fields>
-        <field name="Reference">SW</field>
-        <field name="Value">SW_SPST_Lamp</field>
+        <field name="Reference">RV</field>
+        <field name="Value">R_POT_Panel_PCB_Alpha</field>
+        <field name="Footprint">-lmp-synth:Potentiometer_Alpha_RD901F-40-00D_Single_Vertical</field>
+        <field name="Value2">[LIN/LOG]</field>
+        <field name="Label">[label]</field>
+        <field name="Manufacturer">Alpha</field>
+        <field name="ManufacturerPartNum">RD901F-*</field>
+        <field name="Distributor">Thonk</field>
+        <field name="DistributorPartNum">Group_Pot_Alpha_6.35mm</field>
+        <field name="DistributorPartLink">https://www.thonk.co.uk/shop/alpha-9mm-pots/</field>
       </fields>
       <pins>
         <pin num="1" name="1" type="passive"/>
         <pin num="2" name="2" type="passive"/>
-        <pin num="3" name="L" type="passive"/>
-        <pin num="4" name="L" type="passive"/>
+        <pin num="3" name="3" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="-lmp-synth" part="SW_SPDT_ON_OFF_ON_10TC412">
+      <description>Switch, single pole double throw, center OFF position</description>
+      <docs>https://www.mouser.ca/datasheet/2/221/MS-100542-1173960.pdf</docs>
+      <fields>
+        <field name="Reference">SW</field>
+        <field name="Value">SW_SPDT_ON_OFF_ON_10TC412</field>
+        <field name="Footprint">-lmp-misc:SW_SPDT_THT_2.54</field>
+        <field name="Label">[label]</field>
+        <field name="Manufacturer">Mountain Switch</field>
+        <field name="ManufacturerPartNum">10TC412</field>
+        <field name="Distributor">Mouser</field>
+        <field name="DistributorPartNum">10TC412</field>
+        <field name="DistributorPartLink">https://www.mouser.ca/ProductDetail/Mountain-Switch/10TC412?qs=ITV4B%252BNEbTr7VI8tqT4%252BiQ%3D%3D</field>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+        <pin num="3" name="3" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="-lmp-synth" part="SW_SPST">
+      <description>Single Pole Single Throw (SPST) sub-mini toggle switch</description>
+      <docs>https://www.mouser.ca/datasheet/2/221/MS-100542-1173960.pdf</docs>
+      <fields>
+        <field name="Reference">SW</field>
+        <field name="Value">SW_SPST</field>
+        <field name="Footprint">-lmp-misc:SW_SPST_THT_2.54</field>
+        <field name="Manufacturer">Mountain Switch</field>
+        <field name="ManufacturerPartNum">10TC405</field>
+        <field name="DistributorPartLink">https://www.mouser.ca/ProductDetail/Mountain-Switch/10TC405?qs=iZD9pWtnGRc4L7BaVXXEAQ%3D%3D</field>
+        <field name="Distributor">Mouser</field>
+        <field name="DistributorPartNum">10TC405</field>
+        <field name="Label">[label]</field>
+      </fields>
+      <pins>
+        <pin num="1" name="A" type="passive"/>
+        <pin num="2" name="B" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Analog_DAC" part="MCP4801">
+      <aliases>
+        <alias>MCP4811</alias>
+        <alias>MCP4821</alias>
+      </aliases>
+      <description>8-Bit D/A Converters with SPI Interface, internal Reference (2.048V)</description>
+      <docs>http://ww1.microchip.com/downloads/en/DeviceDoc/22244B.pdf</docs>
+      <footprints>
+        <fp>DIP*W7.62mm*</fp>
+        <fp>MSOP*3x3mm*P0.65mm*</fp>
+        <fp>SOIC*3.9x4.9mm*P1.27mm*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">MCP4801</field>
+      </fields>
+      <pins>
+        <pin num="1" name="Vdd" type="power_in"/>
+        <pin num="2" name="~CS" type="input"/>
+        <pin num="3" name="SCK" type="input"/>
+        <pin num="4" name="SDI" type="input"/>
+        <pin num="5" name="~LDAC" type="input"/>
+        <pin num="6" name="~SHDN" type="input"/>
+        <pin num="7" name="Vss" type="power_in"/>
+        <pin num="8" name="Vout" type="output"/>
+      </pins>
+    </libpart>
+    <libpart lib="Analog_DAC" part="MCP4802">
+      <aliases>
+        <alias>MCP4812</alias>
+        <alias>MCP4822</alias>
+      </aliases>
+      <description>2-Channel 8-Bit D/A Converters with SPI Interface and Internal Reference (2.048V)</description>
+      <docs>http://ww1.microchip.com/downloads/en/DeviceDoc/20002249B.pdf</docs>
+      <footprints>
+        <fp>DIP*W7.62mm*</fp>
+        <fp>SOIC*3.9x4.9mm*P1.27mm*</fp>
+        <fp>MSOP*3x3mm*P0.65mm*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">MCP4802</field>
+      </fields>
+      <pins>
+        <pin num="1" name="Vdd" type="power_in"/>
+        <pin num="2" name="~CS" type="input"/>
+        <pin num="3" name="SCK" type="input"/>
+        <pin num="4" name="SDI" type="input"/>
+        <pin num="5" name="~LDAC" type="input"/>
+        <pin num="6" name="VB" type="output"/>
+        <pin num="7" name="Vss" type="power_in"/>
+        <pin num="8" name="VA" type="output"/>
       </pins>
     </libpart>
   </libparts>
@@ -582,153 +1555,429 @@
     <library logical="-lmp">
       <uri>C:/Users/Len/OneDrive/Documents/Electronics/KiCad/symbols/lmp.lib</uri>
     </library>
+    <library logical="-lmp-IC-misc">
+      <uri>C:/Users/Len/OneDrive/Documents/Electronics/KiCad/symbols/lmp-IC-misc.lib</uri>
+    </library>
+    <library logical="-lmp-diode">
+      <uri>C:/Users/Len/OneDrive/Documents/Electronics/KiCad/symbols/lmp-diode.lib</uri>
+    </library>
+    <library logical="-lmp-opamp">
+      <uri>C:/Users/Len/OneDrive/Documents/Electronics/KiCad/symbols/lmp-opamp.lib</uri>
+    </library>
     <library logical="-lmp-regulator">
       <uri>C:/Users/Len/OneDrive/Documents/Electronics/KiCad/symbols/lmp-regulator.lib</uri>
     </library>
     <library logical="-lmp-synth">
       <uri>C:/Users/Len/OneDrive/Documents/Electronics/KiCad/symbols/lmp-synth.lib</uri>
     </library>
-    <library logical="Connector">
-      <uri>C:\Program Files\KiCad\share\kicad\library/Connector.lib</uri>
-    </library>
-    <library logical="Connector_Generic">
-      <uri>C:\Program Files\KiCad\share\kicad\library/Connector_Generic.lib</uri>
-    </library>
-    <library logical="Switch">
-      <uri>C:\Program Files\KiCad\share\kicad\library/Switch.lib</uri>
+    <library logical="Analog_DAC">
+      <uri>C:\Program Files\KiCad\share\kicad\library/Analog_DAC.lib</uri>
     </library>
   </libraries>
   <nets>
-    <net code="1" name="Net-(J4-Pad13)">
-      <node ref="J4" pin="13"/>
+    <net code="1" name="Net-(J6-PadTN)">
+      <node ref="J6" pin="TN"/>
     </net>
-    <net code="2" name="Net-(J4-Pad14)">
-      <node ref="J4" pin="14"/>
+    <net code="2" name="Net-(J10-Pad10)">
+      <node ref="J10" pin="10"/>
+      <node ref="J6" pin="T"/>
     </net>
-    <net code="3" name="Net-(J4-Pad15)">
-      <node ref="J4" pin="15"/>
+    <net code="3" name="Net-(J7-PadTN)">
+      <node ref="J7" pin="TN"/>
     </net>
-    <net code="4" name="Net-(J4-Pad16)">
-      <node ref="J4" pin="16"/>
+    <net code="4" name="LED-A">
+      <node ref="J11" pin="23"/>
+      <node ref="R20" pin="1"/>
     </net>
-    <net code="5" name="Net-(J5-Pad15)">
-      <node ref="J5" pin="15"/>
+    <net code="5" name="IN-SW-FUNCTION">
+      <node ref="U2" pin="12"/>
+      <node ref="J11" pin="16"/>
     </net>
-    <net code="6" name="+12V">
-      <node ref="J5" pin="9"/>
-      <node ref="J5" pin="10"/>
-      <node ref="J4" pin="9"/>
-      <node ref="XF4" pin="1"/>
-      <node ref="J4" pin="10"/>
-      <node ref="F2" pin="1"/>
+    <net code="6" name="Net-(D5-Pad2)">
+      <node ref="D5" pin="2"/>
+      <node ref="J10" pin="23"/>
     </net>
-    <net code="7" name="+5V">
-      <node ref="XF2" pin="1"/>
-      <node ref="F1" pin="1"/>
-      <node ref="J4" pin="11"/>
-      <node ref="J4" pin="12"/>
-      <node ref="J5" pin="12"/>
-      <node ref="J5" pin="11"/>
+    <net code="7" name="Net-(D5-Pad1)">
+      <node ref="D5" pin="1"/>
+      <node ref="J10" pin="22"/>
     </net>
-    <net code="8" name="Net-(J5-Pad13)">
-      <node ref="J5" pin="13"/>
+    <net code="8" name="Net-(J10-Pad15)">
+      <node ref="J10" pin="15"/>
+      <node ref="J7" pin="T"/>
     </net>
-    <net code="9" name="Net-(J5-Pad14)">
-      <node ref="J5" pin="14"/>
+    <net code="9" name="LED-C">
+      <node ref="Q1" pin="3"/>
+      <node ref="J11" pin="22"/>
     </net>
-    <net code="10" name="Net-(J5-Pad16)">
-      <node ref="J5" pin="16"/>
+    <net code="10" name="Net-(J10-Pad4)">
+      <node ref="J10" pin="4"/>
     </net>
-    <net code="11" name="Net-(C1-Pad1)">
-      <node ref="J3" pin="1"/>
-      <node ref="C1" pin="1"/>
-      <node ref="U1" pin="1"/>
-      <node ref="PS1" pin="1"/>
+    <net code="11" name="Net-(J11-Pad18)">
+      <node ref="J11" pin="18"/>
     </net>
-    <net code="12" name="Net-(C4-Pad2)">
-      <node ref="F3" pin="2"/>
-      <node ref="C4" pin="2"/>
-      <node ref="XF5" pin="1"/>
-      <node ref="C6" pin="2"/>
-      <node ref="PS1" pin="4"/>
+    <net code="12" name="Net-(J11-Pad14)">
+      <node ref="J11" pin="14"/>
     </net>
-    <net code="13" name="GND">
+    <net code="13" name="Net-(J10-Pad21)">
+      <node ref="J10" pin="21"/>
+    </net>
+    <net code="14" name="Net-(J10-Pad19)">
+      <node ref="J10" pin="19"/>
+    </net>
+    <net code="15" name="Net-(J10-Pad18)">
+      <node ref="J10" pin="18"/>
+    </net>
+    <net code="16" name="Net-(J10-Pad14)">
+      <node ref="J10" pin="14"/>
+    </net>
+    <net code="17" name="Net-(J11-Pad9)">
+      <node ref="J11" pin="9"/>
+    </net>
+    <net code="18" name="Net-(J10-Pad9)">
+      <node ref="J10" pin="9"/>
+    </net>
+    <net code="19" name="Net-(J11-Pad4)">
+      <node ref="J11" pin="4"/>
+    </net>
+    <net code="20" name="Net-(J11-Pad19)">
+      <node ref="J11" pin="19"/>
+    </net>
+    <net code="21" name="POT-IN-1-HI">
+      <node ref="U3" pin="1"/>
+      <node ref="C10" pin="2"/>
+      <node ref="C9" pin="2"/>
+      <node ref="J11" pin="1"/>
+      <node ref="R5" pin="1"/>
+      <node ref="D3" pin="1"/>
+      <node ref="U2" pin="20"/>
+      <node ref="R19" pin="1"/>
+      <node ref="U2" pin="7"/>
+      <node ref="U4" pin="1"/>
       <node ref="C6" pin="1"/>
-      <node ref="U1" pin="2"/>
-      <node ref="C1" pin="2"/>
-      <node ref="C2" pin="2"/>
-      <node ref="PS1" pin="2"/>
-      <node ref="PS1" pin="5"/>
-      <node ref="SW1" pin="3"/>
-      <node ref="J1" pin="2"/>
-      <node ref="J2" pin="4"/>
-      <node ref="J3" pin="4"/>
-      <node ref="J4" pin="4"/>
-      <node ref="J4" pin="5"/>
-      <node ref="J4" pin="6"/>
-      <node ref="J5" pin="7"/>
-      <node ref="J5" pin="6"/>
-      <node ref="J5" pin="5"/>
-      <node ref="C5" pin="2"/>
-      <node ref="J4" pin="7"/>
-      <node ref="J4" pin="8"/>
-      <node ref="J5" pin="4"/>
-      <node ref="J5" pin="3"/>
-      <node ref="C4" pin="1"/>
-      <node ref="C3" pin="2"/>
-      <node ref="J5" pin="8"/>
-      <node ref="J4" pin="3"/>
-    </net>
-    <net code="14" name="-12V">
-      <node ref="XF6" pin="1"/>
-      <node ref="J5" pin="2"/>
-      <node ref="J5" pin="1"/>
-      <node ref="F3" pin="1"/>
-      <node ref="J4" pin="1"/>
-      <node ref="J4" pin="2"/>
-    </net>
-    <net code="15" name="Net-(J3-Pad2)">
-      <node ref="J3" pin="2"/>
-    </net>
-    <net code="16" name="Net-(J3-Pad3)">
-      <node ref="J3" pin="3"/>
-    </net>
-    <net code="17" name="Net-(J2-Pad3)">
-      <node ref="J2" pin="3"/>
-    </net>
-    <net code="18" name="Net-(J2-Pad2)">
-      <node ref="J2" pin="2"/>
-    </net>
-    <net code="19" name="VDC">
-      <node ref="SW1" pin="1"/>
-      <node ref="J1" pin="1"/>
-    </net>
-    <net code="20" name="Net-(J2-Pad1)">
-      <node ref="SW1" pin="2"/>
-      <node ref="SW1" pin="4"/>
-      <node ref="J2" pin="1"/>
-    </net>
-    <net code="21" name="Net-(C3-Pad1)">
-      <node ref="XF3" pin="1"/>
+      <node ref="J1" pin="3"/>
+      <node ref="R3" pin="1"/>
+      <node ref="U1" pin="1"/>
       <node ref="C3" pin="1"/>
+    </net>
+    <net code="22" name="POT-IN-1">
+      <node ref="U2" pin="24"/>
+      <node ref="J11" pin="2"/>
+    </net>
+    <net code="23" name="POT-IN-1-LO">
+      <node ref="U2" pin="22"/>
+      <node ref="R2" pin="2"/>
+      <node ref="Y1" pin="2"/>
+      <node ref="U4" pin="7"/>
+      <node ref="R7" pin="2"/>
+      <node ref="D4" pin="2"/>
+      <node ref="SW1" pin="2"/>
+      <node ref="J10" pin="24"/>
+      <node ref="C4" pin="2"/>
+      <node ref="U2" pin="8"/>
       <node ref="C5" pin="1"/>
-      <node ref="F2" pin="2"/>
-      <node ref="PS1" pin="6"/>
+      <node ref="J1" pin="2"/>
+      <node ref="C9" pin="1"/>
+      <node ref="C10" pin="1"/>
+      <node ref="U3" pin="7"/>
+      <node ref="J1" pin="1"/>
+      <node ref="C6" pin="2"/>
+      <node ref="C13" pin="2"/>
+      <node ref="C11" pin="2"/>
+      <node ref="C12" pin="2"/>
+      <node ref="C7" pin="2"/>
+      <node ref="Q1" pin="1"/>
+      <node ref="J11" pin="3"/>
+      <node ref="J11" pin="24"/>
+      <node ref="J6" pin="S"/>
+      <node ref="J8" pin="S"/>
+      <node ref="C3" pin="2"/>
+      <node ref="J11" pin="7"/>
+      <node ref="U1" pin="2"/>
+      <node ref="J7" pin="S"/>
+      <node ref="J5" pin="TN"/>
+      <node ref="C2" pin="2"/>
+      <node ref="C1" pin="1"/>
+      <node ref="J11" pin="17"/>
+      <node ref="J11" pin="13"/>
+      <node ref="J5" pin="S"/>
+      <node ref="J9" pin="5"/>
+      <node ref="J9" pin="6"/>
+      <node ref="J9" pin="8"/>
+      <node ref="J9" pin="7"/>
+      <node ref="J9" pin="3"/>
+      <node ref="J9" pin="4"/>
     </net>
-    <net code="22" name="Net-(C2-Pad1)">
-      <node ref="C2" pin="1"/>
-      <node ref="XF1" pin="1"/>
+    <net code="24" name="IN-2">
+      <node ref="J11" pin="5"/>
+      <node ref="J11" pin="11"/>
+    </net>
+    <net code="25" name="POT-IN-2">
+      <node ref="R1" pin="2"/>
+      <node ref="J11" pin="12"/>
+    </net>
+    <net code="26" name="OUT-1">
+      <node ref="J11" pin="10"/>
+      <node ref="R16" pin="1"/>
+    </net>
+    <net code="27" name="Net-(J8-PadTN)">
+      <node ref="J8" pin="TN"/>
+    </net>
+    <net code="28" name="Net-(J10-Pad20)">
+      <node ref="J10" pin="20"/>
+      <node ref="J8" pin="T"/>
+    </net>
+    <net code="29" name="Net-(J11-Pad21)">
+      <node ref="J11" pin="21"/>
+    </net>
+    <net code="30" name="Net-(J10-Pad5)">
+      <node ref="J10" pin="5"/>
+      <node ref="J5" pin="T"/>
+    </net>
+    <net code="31" name="Net-(J10-Pad1)">
+      <node ref="J10" pin="1"/>
+      <node ref="RV5" pin="3"/>
+    </net>
+    <net code="32" name="Net-(J10-Pad17)">
+      <node ref="J10" pin="17"/>
+      <node ref="SW8" pin="1"/>
+    </net>
+    <net code="33" name="Net-(J10-Pad16)">
+      <node ref="SW8" pin="2"/>
+      <node ref="J10" pin="16"/>
+    </net>
+    <net code="34" name="Net-(J10-Pad8)">
+      <node ref="J10" pin="8"/>
+      <node ref="SW6" pin="3"/>
+    </net>
+    <net code="35" name="IN-SW-RANGE-HI">
+      <node ref="U2" pin="11"/>
+      <node ref="J11" pin="8"/>
+    </net>
+    <net code="36" name="IN-SW-RANGE-LO">
+      <node ref="J11" pin="6"/>
+      <node ref="U2" pin="6"/>
+    </net>
+    <net code="37" name="Net-(J10-Pad11)">
+      <node ref="RV7" pin="3"/>
+      <node ref="J10" pin="11"/>
+    </net>
+    <net code="38" name="OUT-3">
+      <node ref="R18" pin="1"/>
+      <node ref="J11" pin="20"/>
+    </net>
+    <net code="39" name="OUT-2">
+      <node ref="R17" pin="1"/>
+      <node ref="J11" pin="15"/>
+    </net>
+    <net code="40" name="Net-(J10-Pad6)">
+      <node ref="SW6" pin="1"/>
+      <node ref="J10" pin="6"/>
+    </net>
+    <net code="41" name="Net-(J10-Pad7)">
+      <node ref="SW6" pin="2"/>
+      <node ref="J10" pin="7"/>
+    </net>
+    <net code="42" name="Net-(D1-Pad1)">
+      <node ref="D1" pin="1"/>
+      <node ref="J9" pin="1"/>
+      <node ref="J9" pin="2"/>
+    </net>
+    <net code="43" name="-12V">
+      <node ref="C5" pin="2"/>
+      <node ref="D1" pin="2"/>
+      <node ref="C1" pin="2"/>
+      <node ref="U5" pin="11"/>
+    </net>
+    <net code="44" name="Net-(D2-Pad2)">
+      <node ref="J9" pin="9"/>
+      <node ref="D2" pin="2"/>
+      <node ref="J9" pin="10"/>
+    </net>
+    <net code="45" name="Net-(J10-Pad3)">
+      <node ref="RV5" pin="1"/>
+      <node ref="J10" pin="3"/>
+    </net>
+    <net code="46" name="Net-(J10-Pad2)">
+      <node ref="RV5" pin="2"/>
+      <node ref="J10" pin="2"/>
+    </net>
+    <net code="47" name="+12V">
       <node ref="U1" pin="3"/>
-      <node ref="F1" pin="2"/>
+      <node ref="C4" pin="1"/>
+      <node ref="U5" pin="4"/>
+      <node ref="D2" pin="1"/>
+      <node ref="R20" pin="2"/>
+      <node ref="C2" pin="1"/>
     </net>
-    <net code="23" name="Net-(PS1-Pad3)">
-      <node ref="PS1" pin="3"/>
+    <net code="48" name="Net-(J10-Pad12)">
+      <node ref="RV7" pin="2"/>
+      <node ref="J10" pin="12"/>
     </net>
-    <net code="24" name="Net-(HS1-Pad1)">
-      <node ref="HS1" pin="1"/>
+    <net code="49" name="Net-(J10-Pad13)">
+      <node ref="J10" pin="13"/>
+      <node ref="RV7" pin="1"/>
     </net>
-    <net code="25" name="Net-(HS1-Pad2)">
-      <node ref="HS1" pin="2"/>
+    <net code="50" name="Net-(U2-Pad13)">
+      <node ref="U2" pin="13"/>
+    </net>
+    <net code="51" name="Net-(U2-Pad18)">
+      <node ref="U2" pin="18"/>
+    </net>
+    <net code="52" name="Net-(R14-Pad1)">
+      <node ref="U5" pin="7"/>
+      <node ref="R14" pin="1"/>
+      <node ref="R17" pin="2"/>
+    </net>
+    <net code="53" name="Net-(R14-Pad2)">
+      <node ref="U5" pin="6"/>
+      <node ref="R6" pin="1"/>
+      <node ref="R14" pin="2"/>
+    </net>
+    <net code="54" name="Net-(R15-Pad1)">
+      <node ref="R18" pin="2"/>
+      <node ref="R15" pin="1"/>
+      <node ref="U5" pin="8"/>
+    </net>
+    <net code="55" name="Net-(U2-Pad16)">
+      <node ref="U4" pin="2"/>
+      <node ref="U2" pin="16"/>
+    </net>
+    <net code="56" name="Net-(U2-Pad17)">
+      <node ref="U2" pin="17"/>
+      <node ref="U4" pin="4"/>
+      <node ref="U3" pin="4"/>
+    </net>
+    <net code="57" name="Net-(U2-Pad14)">
+      <node ref="U2" pin="14"/>
+      <node ref="U4" pin="5"/>
+      <node ref="U3" pin="5"/>
+    </net>
+    <net code="58" name="Net-(R13-Pad1)">
+      <node ref="R13" pin="1"/>
+      <node ref="U5" pin="14"/>
+      <node ref="R16" pin="2"/>
+    </net>
+    <net code="59" name="Net-(U2-Pad9)">
+      <node ref="U2" pin="9"/>
+      <node ref="Y1" pin="3"/>
+    </net>
+    <net code="60" name="Net-(J1-Pad4)">
+      <node ref="U2" pin="2"/>
+      <node ref="J1" pin="4"/>
+    </net>
+    <net code="61" name="Net-(U2-Pad4)">
+      <node ref="U2" pin="4"/>
+    </net>
+    <net code="62" name="Net-(J1-Pad5)">
+      <node ref="U2" pin="3"/>
+      <node ref="J1" pin="5"/>
+    </net>
+    <net code="63" name="Net-(U2-Pad28)">
+      <node ref="U2" pin="28"/>
+    </net>
+    <net code="64" name="Net-(U2-Pad27)">
+      <node ref="U2" pin="27"/>
+    </net>
+    <net code="65" name="Net-(U2-Pad26)">
+      <node ref="U2" pin="26"/>
+    </net>
+    <net code="66" name="Net-(U2-Pad25)">
+      <node ref="U2" pin="25"/>
+    </net>
+    <net code="67" name="Net-(D3-Pad2)">
+      <node ref="R2" pin="1"/>
+      <node ref="R1" pin="1"/>
+      <node ref="D3" pin="2"/>
+      <node ref="D4" pin="1"/>
+      <node ref="U2" pin="23"/>
+    </net>
+    <net code="68" name="Net-(R5-Pad2)">
+      <node ref="U5" pin="3"/>
+      <node ref="R5" pin="2"/>
+      <node ref="R7" pin="1"/>
+    </net>
+    <net code="69" name="/Min/VREF">
+      <node ref="U5" pin="1"/>
+      <node ref="U5" pin="2"/>
+      <node ref="R4" pin="2"/>
+      <node ref="R8" pin="2"/>
+      <node ref="R6" pin="2"/>
+    </net>
+    <net code="70" name="Net-(R13-Pad2)">
+      <node ref="U5" pin="13"/>
+      <node ref="R4" pin="1"/>
+      <node ref="R13" pin="2"/>
+    </net>
+    <net code="71" name="Net-(U2-Pad10)">
+      <node ref="U2" pin="10"/>
+      <node ref="Y1" pin="1"/>
+    </net>
+    <net code="72" name="Net-(U2-Pad15)">
+      <node ref="U3" pin="2"/>
+      <node ref="U2" pin="15"/>
+    </net>
+    <net code="73" name="Net-(R12-Pad2)">
+      <node ref="R12" pin="2"/>
+      <node ref="U2" pin="5"/>
+    </net>
+    <net code="74" name="Net-(Q1-Pad2)">
+      <node ref="Q1" pin="2"/>
+      <node ref="R12" pin="1"/>
+    </net>
+    <net code="75" name="Net-(C8-Pad2)">
+      <node ref="U2" pin="1"/>
+      <node ref="R3" pin="2"/>
+      <node ref="C8" pin="2"/>
+      <node ref="SW1" pin="1"/>
+    </net>
+    <net code="76" name="Net-(C8-Pad1)">
+      <node ref="C8" pin="1"/>
+      <node ref="J1" pin="6"/>
+    </net>
+    <net code="77" name="Net-(R9-Pad2)">
+      <node ref="R9" pin="2"/>
+      <node ref="U3" pin="8"/>
+    </net>
+    <net code="78" name="Net-(C11-Pad1)">
+      <node ref="U5" pin="12"/>
+      <node ref="C11" pin="1"/>
+      <node ref="R9" pin="1"/>
+    </net>
+    <net code="79" name="Net-(R11-Pad2)">
+      <node ref="U4" pin="8"/>
+      <node ref="R11" pin="2"/>
+    </net>
+    <net code="80" name="Net-(C12-Pad1)">
+      <node ref="C12" pin="1"/>
+      <node ref="R10" pin="1"/>
+      <node ref="U5" pin="5"/>
+    </net>
+    <net code="81" name="Net-(R10-Pad2)">
+      <node ref="R10" pin="2"/>
+      <node ref="U3" pin="6"/>
+    </net>
+    <net code="82" name="Net-(C13-Pad1)">
+      <node ref="U5" pin="10"/>
+      <node ref="C13" pin="1"/>
+      <node ref="R11" pin="1"/>
+    </net>
+    <net code="83" name="Net-(U2-Pad19)">
+      <node ref="U4" pin="3"/>
+      <node ref="U2" pin="19"/>
+      <node ref="U3" pin="3"/>
+    </net>
+    <net code="84" name="Net-(C7-Pad1)">
+      <node ref="C7" pin="1"/>
+      <node ref="U2" pin="21"/>
+    </net>
+    <net code="85" name="Net-(R19-Pad2)">
+      <node ref="R19" pin="2"/>
+      <node ref="U4" pin="6"/>
+    </net>
+    <net code="86" name="Net-(R15-Pad2)">
+      <node ref="U5" pin="9"/>
+      <node ref="R15" pin="2"/>
+      <node ref="R8" pin="1"/>
     </net>
   </nets>
 </export>
