@@ -28,15 +28,15 @@ namespace NetToBOM
 				XmlNode nodeSheet = nodeRoot.SelectSingleNode("./design/sheet/title_block");
 				Output.WriteLine("Title,Rev,Date,By,File");
 				st = nodeSheet.SelectSingleNode("title").InnerText;
-				Output.Write(String.Format("\"{0}\",", st));
+				Output.Write($"\"{st}\",");
 				st = nodeSheet.SelectSingleNode("rev").InnerText;
-				Output.Write(String.Format("\"rev {0}\",",st));
+				Output.Write($"\"{st}\",");
 				st = nodeSheet.SelectSingleNode("date").InnerText;
-				Output.Write(String.Format("\"{0}\",", st));
+				Output.Write($"\"{st}\",");
 				st = nodeSheet.SelectSingleNode("company").InnerText;
-				Output.Write(String.Format("\"{0}\",", st));
+				Output.Write($"\"{st}\",");
 				st = nodeSheet.SelectSingleNode("source").InnerText;
-				Output.WriteLine(String.Format("\"{0}\"", st));
+				Output.WriteLine($"\"{st}\",");
 			}
 
 			// Process the list of components
@@ -53,6 +53,7 @@ namespace NetToBOM
 					parts.Add(part);
 				else
 					part = parts[i];
+				// Add the current component's refdes to the list of refs for this part.
 				part.AddRef(stRef);
 			}
 
@@ -62,9 +63,7 @@ namespace NetToBOM
 			// Output the BOM list
 			Output.WriteLine("Ref,Qty,Name,Value,Value2,Note,Description,Datasheet,Manufacturer,ManuPartNum,Distributor,DistribPartNum,DistribPartLink");
 			foreach (Part part in parts) {
-				string st = String.Format("{0},\"{1}\",\"{2}\",\"{3}\",\"{4}\",\"{5}\",\"{6}\",\"{7}\",\"{8}\",\"{9}\",\"{10}\",\"{11}\",\"{12}\"",
-					part.GetRefListString(), part.Refs.Count, part.Name, part.Value, part.Value2, part.Note, part.Description, part.Datasheet, part.Manufacturer, part.ManufacturerPartNum, part.Distributor, part.DistributorPartNum, part.DistributorPartLink);
-				Output.WriteLine(st);
+				Output.WriteLine(part.InfoLine);
 			}
 		}
 

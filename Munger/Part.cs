@@ -81,29 +81,51 @@ namespace NetToBOM
 		public List<String> Refs { get { return refs; } }
 
 		/// <summary>
-		/// Add another part reference to this part.
+		/// Add another component reference to this part.
 		/// Keep the list of refdes's in sorted order.
 		/// </summary>
 		/// <param name="stRef">Part refdes to add</param>
 		public void AddRef(string stRef)
 		{
 			int i = refs.BinarySearch(stRef,new PartRefComparer());
-			if (i < 0) i = ~i;// -i - 1; - see documentation of BinarySearch
+			if (i < 0) i = ~i; // -i - 1; - see documentation of BinarySearch
 			refs.Insert(i, stRef);
 		}
 
 		//public int RefCount { get { return refs.Count; } }
 
-		public string GetRefListString()
+		/// <summary>
+		/// A string listing of all schematic components (refdes) that use this part
+		/// </summary>
+		/// <returns>String - list of component refdes</returns>
+		public string RefListString
 		{
-			string stList = null;
-			foreach (string st in refs) {
-				if (stList == null)
-					stList = st;
-				else
-					stList = stList + ' ' + st;
+			get
+			{
+				string stList = null;
+				foreach (string st in refs) {
+					if (stList == null)
+						stList = st;
+					else
+						stList = stList + ' ' + st;
+				}
+				return stList;
 			}
-			return stList;
+		}
+
+		/// <summary>
+		/// A string summarizing this part
+		/// </summary>
+		/// <returns>String - list of fields in CSV format</returns>
+		public string InfoLine
+		{
+			get
+			{
+				return String.Format("\"{0}\",\"{1}\",\"{2}\",\"{3}\",\"{4}\",\"{5}\",\"{6}\",\"{7}\",\"{8}\",\"{9}\",\"{10}\",\"{11}\",\"{12}\"",
+					RefListString, Refs.Count, Name, Value, Value2,
+					Note, Description, Datasheet, Manufacturer, ManufacturerPartNum,
+					Distributor, DistributorPartNum, DistributorPartLink);
+			}
 		}
 
 		SortedDictionary<String, String> fields = new SortedDictionary<String, String>();
@@ -118,9 +140,7 @@ namespace NetToBOM
 			} else if (!(obj is Part)) {
 				return false;
 			} else {
-				Part other = (Part)obj;
-				// Don't bother comparing Description because it's determined by Lib & Part
-				return Lib == other.Lib && Name == other.Name && Value == other.Value && Value2 == other.Value2 && Note == other.Note;
+				return EqualsPart((Part)obj);
 			}
 		}
 
@@ -131,22 +151,35 @@ namespace NetToBOM
 			} else if (Object.ReferenceEquals(this, other)) {
 				return true;
 			} else {
-				// Don't bother comparing Description because it's determined by Lib & Part
-				return Lib == other.Lib && Name == other.Name && Value == other.Value && Value2 == other.Value2 && Note == other.Note;
+				return EqualsPart(other);
+			}
+		}
+
+		private bool EqualsPart(Part other)
+		{
+			// Don't bother comparing Description because it's determined by Lib & Part
+			// Don't compare fields that don't change the component per se (Label, Distributor, etc.).
+			return Lib == other.Lib && Name == other.Name && Value == other.Value && Value2 == other.Value2 && Note == other.Note;
+		}
+
+		private string HashString
+		{
+			get
+			{
+				// Don't bother hashing Description because it's determined by Lib & Part.
+				// Don't hash fields that don't change the component per se (Label, Distributor, etc.).
+				return $"{Name} {Lib} {Value} {Value2} {Note}";
 			}
 		}
 
 		public override int GetHashCode()
 		{
-			string stHash = String.Format("{0} {1} {2} {3} {4}", Name, Lib, Value, Value2, Note);
-			// Don't bother hashing Description because it's determined by Lib & Part
-			return stHash.GetHashCode();
+			return HashString.GetHashCode();
 		}
 
 		public override string ToString()
 		{
-			string stObj = base.ToString();
-			return String.Format("{0} {1} {2} {3}", stObj, Name, Value, Lib);
+			return $"{base.ToString()} {HashString}";
 		}
 	}
 
@@ -201,13 +234,12 @@ namespace NetToBOM
 		public override int Compare(Part part1, Part part2)
 		{
 			int nCompare;
-			if (part1.Refs.Count == 0 && part2.Refs.Count == 0) {
+			if (part1.Refs.Count == 0) {
 				// just in case
-				nCompare = String.Compare(part1.Name, part2.Name);
-			} else if (part1.Refs.Count == 0) {
-				nCompare = (part2.Refs.Count == 0) ? 0 : -1;
-			} else if (part2.Refs.Count == 0) {
-				nCompare = (part1.Refs.Count == 0) ? 0 : -1;
+				if (part2.Refs.Count == 0)
+					nCompare = String.Compare(part1.Name, part2.Name);
+				else
+					nCompare = 1;
 			} else {
 				//nCompare = String.Compare(part1.Refs[0], part2.Refs[0]);
 				nCompare = refComparer.Compare(part1.Refs[0], part2.Refs[0]);
