@@ -14,6 +14,7 @@ namespace NetToBOM
 			Lib = nodeLib.Attributes.GetNamedItem("lib").Value;
 			Name = nodeLib.Attributes.GetNamedItem("part").Value;
 			Value = nodePart.SelectSingleNode("value").InnerText;
+			RealPart = true;
 			Description = nodeLib.Attributes.GetNamedItem("description").Value;
 			Datasheet = nodePart.SelectSingleNode("datasheet")?.InnerText;
 			if (Datasheet == "~")
@@ -29,7 +30,11 @@ namespace NetToBOM
 					string stValue = nodeField.InnerText;
 					// Commonly-used fields are called out as properties.
 					// Some parts have info downloaded from Mouser.
-					if (stName == "Note") {
+					if (stName == "NoPart") {
+						// Not a real part that belongs in the BOM,
+						// e.g. mounting holes, logos, etc.
+						RealPart = false;
+					} else if (stName == "Note") {
 						Note = stValue;
 					} else if (stName == "Value2") {
 						Value2 = stValue;
@@ -83,6 +88,8 @@ namespace NetToBOM
 		public string Name { get; private set; }
 
 		public string Value { get; private set; }
+
+		public bool RealPart { get; private set; }
 
 		public string Value2 { get; private set; }
 

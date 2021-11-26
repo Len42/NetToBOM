@@ -51,15 +51,18 @@ namespace NetToBOM
 				string stRef = GetPartRef(nodePart);
 				// Find this part in the list, or add it if it's not there.
 				Part part = new Part(nodePart);
-				int i = parts.IndexOf(part);
-				if (i < 0)
-					parts.Add(part);
-				else
-					part = parts[i];
-				// Add the current component's refdes to the list of refs for this part.
-				part.AddRef(stRef);
-				// Keep track of how many "Distributor" columns are needed.
-				numDistributors = Math.Max(numDistributors, part.Sources.Count);
+				// Do not add the part if it's not an actual part that belongs in the BOM.
+				if (part.RealPart) {
+					int i = parts.IndexOf(part);
+					if (i < 0)
+						parts.Add(part);
+					else
+						part = parts[i];
+					// Add the current component's refdes to the list of refs for this part.
+					part.AddRef(stRef);
+					// Keep track of how many "Distributor" columns are needed.
+					numDistributors = Math.Max(numDistributors, part.Sources.Count);
+				}
 			}
 
 			// Sort the BOM list
