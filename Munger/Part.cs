@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Xml;
-using NetToBOM.Properties;
 
 namespace NetToBOM
 {
@@ -42,15 +40,9 @@ namespace NetToBOM
 						Manufacturer = stValue;
 					} else if (stName == "ManufacturerPartNum" || stName == "Manufacturer_Part_Number") {
 						ManufacturerPartNum = stValue;
-					//} else if (stName == "Distributor") {
-					//	stDistributor = stValue;
-					//} else if (stName == "DistributorPartNum") {
-					//	stDistributorPartNum = stValue;
 					} else if (stName == "Mouser Part Number") {
 						stDistributor = "Mouser";
 						stDistributorPartNum = stValue;
-					//} else if (stName == "DistributorPartLink") {
-					//	stDistributorPartLink = stValue;
 					} else if (stName == "Mouser Price/Stock") {
 						stDistributor = "Mouser";
 						stDistributorPartLink = stValue;
@@ -61,26 +53,24 @@ namespace NetToBOM
 				// Add a PartSource if "Mouser Part Number" was found.
 				if (stDistributor != null)
 					sources.Add(new PartSource(stDistributor, stDistributorPartNum, stDistributorPartLink));
-				// Find any additional PartSources by looking for "Distributor" fields.
+				// Find PartSources by looking for "Distributor" fields.
 				// Doesn't matter if the first one is "Distributor" or "Distributor1".
-				// We'll never have more than 10 sources for a part, will we?
-				for (uint i = 0; i < 10; i++) {
+				// We'll never have more than 100 sources for a part, will we?
+				for (uint i = 0; i < 100; i++) {
 					string stFieldName = (i == 0) ? "Distributor" : $"Distributor{i}";
 					XmlNode nodeT = nodeFields.SelectSingleNode($"./field[@name='{stFieldName}']");
 					if (nodeT != null) {
 						stDistributor = nodeT.InnerText;
 						stFieldName = (i == 0) ? "DistributorPartNum" : $"DistributorPartNum{i}";
 						nodeT = nodeFields.SelectSingleNode($"./field[@name='{stFieldName}']");
-						stDistributorPartNum = (nodeT == null) ? null : nodeT.InnerText;
+						stDistributorPartNum = nodeT?.InnerText;
 						stFieldName = (i == 0) ? "DistributorPartLink" : $"DistributorPartLink{i}";
 						nodeT = nodeFields.SelectSingleNode($"./field[@name='{stFieldName}']");
-						stDistributorPartLink = (nodeT == null) ? null : nodeT.InnerText;
+						stDistributorPartLink = nodeT?.InnerText;
 						Sources.Add(new PartSource(stDistributor, stDistributorPartNum, stDistributorPartLink));
 					}
 				}
 			}
-			// TODO: Make a list!
-			//Source = new PartSource(stDistributor, stDistributorPartNum, stDistributorPartLink);
 		}
 
 		public string Lib { get; private set; }
@@ -103,31 +93,20 @@ namespace NetToBOM
 
 		public string ManufacturerPartNum { get; private set; }
 
-		// TODO: REMOVE
-		//public PartSource Source { get; private set; }
-
-		private List<PartSource> sources = new List<PartSource>();
+		private readonly List<PartSource> sources = new List<PartSource>();
 		public List<PartSource> Sources { get { return sources; } }
 
-		//		public string Distributor { get; private set; }
-
-		//		public string DistributorPartNum { get; private set; }
-
-		//		public string DistributorPartLink { get; private set; }
-
-		private List<String> refs = new List<String>();
-		public List<String> Refs { get { return refs; } }
+		private readonly SortedList<String, String> refs = new SortedList<String, String>(new PartRefComparer());
+		public IList<String> Refs { get { return refs.Values; } }
 
 		/// <summary>
 		/// Add another component reference to this part.
 		/// Keep the list of refdes's in sorted order.
 		/// </summary>
 		/// <param name="stRef">Part refdes to add</param>
-		public void AddRef(string stRef)
+		public void AddRefDes(string stRef)
 		{
-			int i = refs.BinarySearch(stRef,new PartRefComparer());
-			if (i < 0) i = ~i; // -i - 1; - see documentation of BinarySearch
-			refs.Insert(i, stRef);
+			refs.Add(stRef, stRef);
 		}
 
 		//public int RefCount { get { return refs.Count; } }
@@ -141,7 +120,7 @@ namespace NetToBOM
 			get
 			{
 				string stList = null;
-				foreach (string st in refs) {
+				foreach (string st in Refs) {
 					if (stList == null)
 						stList = st;
 					else
@@ -154,6 +133,8 @@ namespace NetToBOM
 		/// <summary>
 		/// A string summarizing this part
 		/// </summary>
+		/// <param name="numDistributors">Number of Distributor, DistributorPartNum, and
+		/// DistributorPartLink fields that are needed</param>
 		/// <returns>String - list of fields in CSV format</returns>
 		public string InfoLine(int numDistributors)
 		{
@@ -161,6 +142,8 @@ namespace NetToBOM
 				RefListString, Refs.Count, Name, Value, Value2,
 				Note, Description, Datasheet, Manufacturer, ManufacturerPartNum);
 			for (int i = 0; i < numDistributors; i++) {
+				// Make sure the desired number of Distributor fields are included,
+				// even if this Part doesn't have that many.
 				if (i < Sources.Count) {
 					PartSource source = Sources[i];
 					stInfo += $",\"{source.Distributor}\",\"{source.PartNum}\",\"{source.PartLink}\"";
@@ -168,13 +151,10 @@ namespace NetToBOM
 					stInfo += $",\"\",\"\",\"\"";
 				}
 			}
-			//foreach (PartSource source in Sources) {
-			//	stInfo += $",\"{source.Distributor}\",\"{source.PartNum}\",\"{source.PartLink}\"";
-			//}
 			return stInfo;
 		}
 
-		SortedDictionary<String, String> fields = new SortedDictionary<String, String>();
+		readonly SortedDictionary<String, String> fields = new SortedDictionary<String, String>();
 		public IDictionary<String, String> ExtraFields { get { return fields; } }
 
 		public override bool Equals(object obj)
@@ -183,10 +163,10 @@ namespace NetToBOM
 				return false;
 			} else if (Object.ReferenceEquals(this, obj)) {
 				return true;
-			} else if (!(obj is Part)) {
+			} else if (!(obj is Part part)) {
 				return false;
 			} else {
-				return EqualsPart((Part)obj);
+				return EqualsPart(part);
 			}
 		}
 
@@ -237,11 +217,9 @@ namespace NetToBOM
 	{
 		public override int Compare(string stRef1, string stRef2)
 		{
-			string stPrefix1, stPrefix2;
-			int n1, n2;
 			int nCompare;
-			DivideRef(stRef1, out stPrefix1, out n1);
-			DivideRef(stRef2, out stPrefix2, out n2);
+			DivideRef(stRef1, out string stPrefix1, out int n1);
+			DivideRef(stRef2, out string stPrefix2, out int n2);
 			nCompare = String.Compare(stPrefix1, stPrefix2);
 			if (nCompare == 0) {
 				if (n1 == n2)
@@ -252,8 +230,8 @@ namespace NetToBOM
 			return nCompare;
 		}
 
-		static private char[] digitList = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
-		static private void DivideRef(string stRef, out string stPrefix, out int n)
+		private static readonly char[] digitList = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
+		private static void DivideRef(string stRef, out string stPrefix, out int n)
 		{
 			int ich = stRef.IndexOfAny(digitList);
 			if (ich < 0) {
@@ -275,7 +253,7 @@ namespace NetToBOM
 	/// </remarks>
 	class PartComparer : Comparer<Part>
 	{
-		private PartRefComparer refComparer = new PartRefComparer();
+		private readonly PartRefComparer refComparer = new PartRefComparer();
 
 		public override int Compare(Part part1, Part part2)
 		{
@@ -287,7 +265,6 @@ namespace NetToBOM
 				else
 					nCompare = 1;
 			} else {
-				//nCompare = String.Compare(part1.Refs[0], part2.Refs[0]);
 				nCompare = refComparer.Compare(part1.Refs[0], part2.Refs[0]);
 			}
 			return nCompare;

@@ -1,13 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Text;
 using System.Xml;
 
 namespace NetToBOM
 {
 	public class Munger
 	{
+		public Munger(TextReader input, TextWriter output)
+		{
+			Input = input;
+			Output = output;
+		}
+
 		public TextReader Input { get; set; }
 
 		public TextWriter Output { get; set; }
@@ -59,7 +64,7 @@ namespace NetToBOM
 					else
 						part = parts[i];
 					// Add the current component's refdes to the list of refs for this part.
-					part.AddRef(stRef);
+					part.AddRefDes(stRef);
 					// Keep track of how many "Distributor" columns are needed.
 					numDistributors = Math.Max(numDistributors, part.Sources.Count);
 				}
@@ -79,7 +84,7 @@ namespace NetToBOM
 			}
 		}
 
-		private string GetPartRef(XmlNode nodePart)
+		private static string GetPartRef(XmlNode nodePart)
 		{
 			return nodePart.Attributes.GetNamedItem("ref").Value;
 		}

@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Text;
 
 namespace NetToBOM
 {
@@ -39,9 +37,7 @@ namespace NetToBOM
 			}
 
 			// Read and process the input file and write the output file.
-			Munger munger = new NetToBOM.Munger();
-			munger.Input = reader;
-			munger.Output = writer;
+			Munger munger = new NetToBOM.Munger(reader, writer);
 			munger.ProcessFile(fInfoHeader);
 
 			if (fOpenedWriter)
