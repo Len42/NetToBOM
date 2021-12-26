@@ -155,18 +155,23 @@ namespace NetToBOM
 		/// A string summarizing this part
 		/// </summary>
 		/// <returns>String - list of fields in CSV format</returns>
-		public string InfoLine
+		public string InfoLine(int numDistributors)
 		{
-			get
-			{
-				string stInfo = String.Format("\"{0}\",\"{1}\",\"{2}\",\"{3}\",\"{4}\",\"{5}\",\"{6}\",\"{7}\",\"{8}\",\"{9}\"",
-					RefListString, Refs.Count, Name, Value, Value2,
-					Note, Description, Datasheet, Manufacturer, ManufacturerPartNum);
-				foreach (PartSource source in Sources) {
+			string stInfo = String.Format("\"{0}\",\"{1}\",\"{2}\",\"{3}\",\"{4}\",\"{5}\",\"{6}\",\"{7}\",\"{8}\",\"{9}\"",
+				RefListString, Refs.Count, Name, Value, Value2,
+				Note, Description, Datasheet, Manufacturer, ManufacturerPartNum);
+			for (int i = 0; i < numDistributors; i++) {
+				if (i < Sources.Count) {
+					PartSource source = Sources[i];
 					stInfo += $",\"{source.Distributor}\",\"{source.PartNum}\",\"{source.PartLink}\"";
+				} else {
+					stInfo += $",\"\",\"\",\"\"";
 				}
-				return stInfo;
 			}
+			//foreach (PartSource source in Sources) {
+			//	stInfo += $",\"{source.Distributor}\",\"{source.PartNum}\",\"{source.PartLink}\"";
+			//}
+			return stInfo;
 		}
 
 		SortedDictionary<String, String> fields = new SortedDictionary<String, String>();

@@ -69,14 +69,13 @@ namespace NetToBOM
 			parts.Sort(new PartComparer());
 			
 			// Output the BOM list
-			// TODO: count number of distributors
 			Output.Write("Ref,Qty,Name,Value,Value2,Note,Description,Datasheet,Manufacturer,ManuPartNum");
 			for(int i = 1; i <= numDistributors; i++) {
 				Output.Write($",Distributor{i},DistributorPartNum{i},DistributorPartLink{i}");
 			}
 			Output.WriteLine();
 			foreach (Part part in parts) {
-				Output.WriteLine(part.InfoLine);
+				Output.WriteLine(part.InfoLine(numDistributors));
 			}
 		}
 
