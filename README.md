@@ -11,5 +11,7 @@ This is my KiCad BOM plug-in. There are many like it but this one is mine. It cr
 `-o outfile`  Write output to the given file; otherwise, write to the console.  
 `infile`      Read input from the given file; otherwise, read from standard input.  
 
-**Build Notes**  
-Requires the [MakeVersionInfo](../MakeVersionInfo) project to be located in an adjacent directory.
+**Notes**  
+This plug-in has been tested with KiCad 5.1.10.
+
+To build the plug-in, the [MakeVersionInfo](https://github.com/Len42/MakeVersionInfo) project must be located in an adjacent directory.
