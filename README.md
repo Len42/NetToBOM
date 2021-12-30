@@ -12,6 +12,6 @@ This is my KiCad BOM plug-in. There are many like it but this one is mine. It cr
 `infile`      Read input from the given file; otherwise, read from standard input.  
 
 **Notes**  
-This plug-in has been tested with KiCad 5.1.10.
+This plug-in has been tested with KiCad versions 5.1.10 and 6.0.0.
 
 To build the plug-in, the [MakeVersionInfo](https://github.com/Len42/MakeVersionInfo) project must be located in an adjacent directory.
