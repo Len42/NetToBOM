@@ -14,4 +14,4 @@ This is my KiCad BOM plug-in. There are many like it but this one is mine. It cr
 **Notes**  
 This plug-in has been tested with KiCad versions 5.1.10 and 6.0.0.
 
-To build the plug-in, the [MakeVersionInfo](https://github.com/Len42/MakeVersionInfo) project must be located in an adjacent directory.
+The code was compiled with Microsoft Visual Studio 2019. It requires the [MakeVersionInfo](https://github.com/Len42/MakeVersionInfo) project located in an adjacent directory.
