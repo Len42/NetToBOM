@@ -138,8 +138,8 @@ namespace NetToBOM
 		/// <returns>String - list of fields in CSV format</returns>
 		public string InfoLine(int numDistributors)
 		{
-			string stInfo = String.Format("\"{0}\",\"{1}\",\"{2}\",\"{3}\",\"{4}\",\"{5}\",\"{6}\",\"{7}\",\"{8}\",\"{9}\"",
-				RefListString, Refs.Count, Name, Value, Value2,
+			string stInfo = String.Format("\"{0}\",\"{1}\",\"{2}\",\"{3}\",\"{4}\",\"{5}\",\"{6}\",\"{7}\",\"{8}\"",
+				RefListString, Refs.Count, Value, Value2,
 				Note, Description, Datasheet, Manufacturer, ManufacturerPartNum);
 			for (int i = 0; i < numDistributors; i++) {
 				// Make sure the desired number of Distributor fields are included,

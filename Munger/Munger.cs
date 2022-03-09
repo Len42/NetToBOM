@@ -74,7 +74,7 @@ namespace NetToBOM
 			parts.Sort(new PartComparer());
 			
 			// Output the BOM list
-			Output.Write("Ref,Qty,Name,Value,Value2,Note,Description,Datasheet,Manufacturer,ManuPartNum");
+			Output.Write("Ref,Qty,Value,Value2,Note,Description,Datasheet,Manufacturer,ManuPartNum");
 			for(int i = 1; i <= numDistributors; i++) {
 				Output.Write($",Distributor{i},DistributorPartNum{i},DistributorPartLink{i}");
 			}
