@@ -12,6 +12,10 @@ This is my KiCad BOM plug-in. There are many like it but this one is mine. It cr
 `infile`      Read input from the given file; otherwise, read from standard input.  
 
 **Notes**  
-This plug-in has been tested with KiCad versions 5.1.10 and 6.0.0.
+This plug-in has been tested with KiCad versions 5.1 and 6.0.
 
-The code was compiled with Microsoft Visual Studio 2019. It requires the [MakeVersionInfo](https://github.com/Len42/MakeVersionInfo) project located in an adjacent directory.
+Releases up to version 1.2.5 use the "old" .NET Framework and were built with Microsoft Visual Studio 2019.
+
+Releases from version 1.3.0 use the "new" .NET Core and were built with Microsoft Visual Studio 2022.
+
+The Visual Studio solution requires the [MakeVersionInfo](https://github.com/Len42/MakeVersionInfo) project located in an adjacent directory.
