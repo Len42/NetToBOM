@@ -12,7 +12,7 @@ This is my [KiCad](https://www.kicad.org/) BOM plug-in. There are many like it b
 `infile`      Read input from the given file; otherwise, read from standard input.  
 
 **Notes**  
-This plug-in has been tested with KiCad versions 5.1 and 6.0.
+This plug-in has been tested with KiCad versions 5.1, 6.0, and 7.0.
 
 Releases up to version 1.2.5 use the "old" .NET Framework and were built with Microsoft Visual Studio 2019.
 
