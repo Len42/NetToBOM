@@ -1,6 +1,6 @@
 # NetToBOM
 
-This is my KiCad BOM plug-in. There are many like it but this one is mine. It creates a bill-of-materials file from a KiCad EDA schematic.
+This is my [KiCad](https://www.kicad.org/) BOM plug-in. There are many like it but this one is mine. It creates a bill-of-materials file from a KiCad EDA schematic.
 
 **Input:** Netlist file in XML format (produced by KiCad automatically by the "Generate Bill of Materials" command)
 
